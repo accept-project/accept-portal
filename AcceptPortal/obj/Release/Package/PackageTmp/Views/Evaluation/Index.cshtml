@@ -1,0 +1,82 @@
+﻿@model IEnumerable<AcceptPortal.Models.Evaluation.EvaluationProject>
+
+
+@{
+    ViewBag.Title = @AcceptPortal.Resources.Global.EvaluationIndexPageTitle;
+}
+
+<h2>@AcceptPortal.Resources.Global.EvaluationIndexPageTitle</h2> 
+
+<div id="headerApps">
+
+    @*<table border="0">
+    <tr>
+    <td><a href="@Url.Action("Index", "Evaluation")">@AcceptPortal.Resources.Global.EvaluationManagement</a></td>
+    <td><a href="@Url.Action("Demo", "Evaluation")">@AcceptPortal.Resources.Global.EvaluationDemo</a></td>
+    </tr>
+    </table>*@
+
+    <ul class="horizontal-slide">
+        <li><a class="underline-over" href="@Url.Action("Index", "Evaluation")">@AcceptPortal.Resources.Global.EvaluationManagement </a></li>
+        <li><a class="underline-over" href="@Url.Action("Demo", "Evaluation")">@AcceptPortal.Resources.Global.EvaluationDemo </a></li>   
+    </ul>
+
+@*<div>
+<div style="margin-top:15px;">
+<button class="button-link" style="height:30px;width:200px;" onclick="location.href='@Url.Action("Create", "Evaluation")'">@AcceptPortal.Resources.Global.EvaluationCreateNewProject</button>
+</div>
+</div>*@
+
+
+</div>
+@if (Model.Any())
+{
+    <div style="margin-top:15px;">
+    <table border="1" id="tableEvaluationProjTable">
+       <thead>
+        <tr>
+        <th><b>@AcceptPortal.Resources.Global.EvaluationProjectName</b></th>
+        <th><b>@AcceptPortal.Resources.Global.EvaluationOrganisation</b></th>
+        <th><b>@AcceptPortal.Resources.Global.EvaluationDescription</b></th>
+        <th><b>@AcceptPortal.Resources.Global.EvaluationActions</b></th>
+        </tr>
+           </thead>
+ <tbody>
+    @foreach (var proj in Model)
+    {
+        <tr>
+        <td>@proj.Name</td>
+        <td>@proj.Organization</td>
+        <td>@proj.Description</td>
+        <td>
+        <a href="@Url.Action("Project", "Evaluation", new { Id = @proj.ID })">@AcceptPortal.Resources.Global.EvaluationView</a>
+        </td>
+        </tr>
+    }
+     </tbody>
+    </table>  
+    
+    </div>
+    
+    
+    
+}
+else
+{ 
+    <h3>@AcceptPortal.Resources.Global.EvaluationNoProjectsTitle</h3>
+    <p>@AcceptPortal.Resources.Global.EvaluationNoProjectsDescription</p>
+}
+  
+
+
+@section scripts{    
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+               createDataTable("#tableEvaluationProjTable");
+  
+            });
+
+        </script>            
+    }        

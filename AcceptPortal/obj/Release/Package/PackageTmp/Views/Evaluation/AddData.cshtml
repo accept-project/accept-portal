@@ -1,0 +1,114 @@
+﻿@model AcceptPortal.Models.Evaluation.EvaluationProject
+
+@{
+    ViewBag.Title = "Add Data";
+}
+
+<h2>Add Project Data</h2>
+
+<table border="0">
+<tr>
+<td><a href="@Url.Action("Edit", "Evaluation", new { Id = @Model.ID })">@AcceptPortal.Resources.Global.EvaluationEdit</a></td>
+<td><a href="@Url.Action("Questions", "Evaluation", new { Id = @Model.ID })">@AcceptPortal.Resources.Global.EvaluationQuestions</a></td>
+<td><a href="@Url.Action("AddData", "Evaluation", new { Id = @Model.ID })">@AcceptPortal.Resources.Global.EvaluationAddData</a></td>
+<td><a href="@Url.Action("Metrics", "Evaluation", new { Id = @Model.ID })">@AcceptPortal.Resources.Global.EvaluationMetrics</a></td>
+@*<td><a href="@Url.Action("ViewEvaluationData", "Evaluation", new { Id = @Model.ID })">@AcceptPortal.Resources.Global.EvaluationViewData</a></td>*@
+<td><a href="@Url.Action("ViewEvaluationData", "Evaluation", new { Id = @Model.ID, @token = @Model.AdminToken })">@AcceptPortal.Resources.Global.EvaluationViewData</a></td>
+</tr>
+</table>
+<br />
+
+
+@if (Model.Providers.Any())
+{
+    <table border="1">
+
+    @foreach (var provider in Model.Providers)
+    {
+        <tr>
+        <td>
+        <h3>Provider: @provider.Name</h3>
+        @if (Model.Providers.Any() && Model.LanguagePairs.Any())
+        {
+            <table border="1">
+                @foreach (var langpair in Model.LanguagePairs)
+                {
+                    <tr>
+                    <td>@langpair.Name</td>
+                    <td>
+                    
+
+                    @if (ViewData["Documents"] != null)
+                    {
+                        foreach (var doc in (ViewData["Documents"] as List<AcceptPortal.Models.Evaluation.EvaluationDocument>).Where(p => p.Provider.ID == provider.ID && p.LanguagePair.ID == langpair.ID).ToList())
+                        {
+                            <span>doc.Name </span>
+                        }
+                    }
+                    else
+                    {
+                        <span>No Files</span>
+                    }
+
+                    </td>
+                    <td>
+                        <a href="@Url.Action("AddDataFile", "Evaluation", new { Id = @Model.ID, provider = @provider.ID, langpair = @langpair.ID })">Add</a> |
+                        <a href="#" runat="server" id="uxShowUploadDialog" onclick="return ShowUploadDialog(@provider.ID,@langpair.ID);">Add</a>
+                     </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <p>No data</p>
+        }
+        </td>
+        </tr>
+    }
+    </table>
+}
+else
+{ 
+    <h3>No Providers Available</h3>
+    <p>There are no providers added to this project.</p>
+}
+
+@using (Html.BeginForm("AddData", "Evaluation",
+                    FormMethod.Post, new { enctype = "multipart/form-data", id = "uploadForm", name = "uploadForm" }))
+{
+<div id="uxUploadDialogForm" title="Upload">
+ 
+    <p>Hello world</p>
+    
+    <input type="file" name="file" id="file" />
+
+    <input type="submit" name="uxUpload" value="Upload" />
+
+    <input type="hidden" name="dataParameters" id="orderNumber" value="0024" />
+    
+</div>
+}
+
+<script type="text/javascript">
+
+    $(function () {
+
+        dlg = $("#uxUploadDialogForm").dialog({
+            autoOpen: false,
+            modal: true
+        });
+    });
+
+    function showDialog() {
+        $("#example").dialog();
+        return false;
+    }
+    function ShowUploadDialog(providerID, langID) {
+        //$("#uxUploadDialogForm").val(providerID + "," + langID);
+        $("#uxUploadDialogForm").dialog("open");
+        return false;
+    }
+
+</script>
+

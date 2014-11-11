@@ -1,0 +1,621 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Accept Plug-in Documentation</title>
+  
+</head>
+<body style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size: 100%;">
+
+
+
+<div style="background: white;margin: 0 auto;width: 950px;position: relative;-webkit-border-radius: 5px;-moz-border-radius: 5px;-ms-border-radius: 5px;-o-border-radius: 5px;border-radius: 5px;">
+
+<h1>ACCEPT Plugin v1.0</h1>
+
+
+
+<h2>In this document</h2>
+<ul>
+<li><a href="#chapter1">What is the Accept plugin?</a></li>
+<li><a href="#chapter2">Dependencies</a></li>
+<li><a href="#chapter3">Downloading</a></li>
+<li><a href="#chapter4">Installation</a></li>
+<li><a href="#chapter5">Configuration Options</a></li>
+<li><a href="#chapter6">Plug-in Theme</a></li>
+<li><a href="#chapter7">Examples</a></li>
+
+</ul>
+
+<br />
+
+<h2><a name="chapter1">What is the Accept plugin?</a></h2>
+
+<p>The ACCEPT plugin can be used to improve the quality of text entered by your users. It provides several capabilities including spelling, grammar and style corrections. </p>
+<p>There are several reasons why this may be useful to you:</p>
+<ul>
+<li>Help your users improve the quality of their submissions – this can help them receive better responses from other users. This is especially useful if they are asking questions.</li>
+<li>Help non-native speakers submit quality English submissions</li>
+<li>If you wish to use machine translation to provide translations in other languages then improving the  quality of the text can lead to better machine translated content.</li>
+</ul>
+
+<p>
+The Accept plugin has been designed so that it can be integrated into any Web based application with a minimum of effort and the focus has been on providing a solution that can be used with ANY input area. 
+</p>
+
+
+
+<br />
+
+<br />
+<h2><a name="chapter2">Dependencies</a></h2>
+
+<p>The Accept plugin is written in JavaScript and uses the jQuery and jQuery UI libraries. These libraries need to be included on any page using the Accept plugin.</p>
+<p>The following versions of JQuery and jQueryUI have been tested.</p>
+
+<table border="1px">
+<tr>
+<td><b>jQuery</b></td><td>All versions above v1.3.2</td>
+</tr>
+<tr>
+<td><b>jQueryUI</b></td><td>All versions above v1.7.3</td>
+</tr>
+</table>
+
+<br />
+
+
+<p>
+Both are included as part of the download package, but you can always grab the latest version of jQuery core library <a href="http://jquery.com/">here</a>  and the last version of jQuery UI <a href="http://jqueryui.com/">here</a>. 
+We recommend jQuery v1.3 or above due to the significant speed increases in several areas. 
+</p>
+
+<p>The jQuery UI library used should match the version of jQuery selected.</p>
+
+<table border="1px">
+<tr>
+<td><b>jQuery v1.3.2 or above</b></td><td>jQuery UI version 1.8.21 (Stable Version)</td>
+</tr>
+<tr>
+<td><b>jQuery 1.3.2</b></td><td>jQuery UI for jQuery 1.3.2 (Stable Version)</td>
+</tr>
+</table>
+
+
+<p>The Accept Plugin also uses the Accept API to perform the actual checks. See the Accept API documentation for more information.</p>
+
+
+<br />
+<br /><br />
+<h2> <a name="chapter3">Downloading </a></h2>
+
+<p>The Accept plugin  can be downloaded from <a href="http://www.accept-portal.eu/AcceptPortal/Download">here</a> .</p>
+
+<p>In the download package file you will find:</p>
+
+
+<table border="1px">
+<tr>
+<td><b>/</b></td><td>index.html (this document)</td>
+</tr>
+
+<tr>
+<td><b>/js</b></td><td><p>jquery-1.5.1.min.js (jQuery core library.)</p>
+<p>jquery-ui-1.8.17.custom.min.js (jQuery UI library.)</p>
+<p>accept-jquery-plugin-1.0.js (Accept plugin core file.)</p>
+</td>
+</tr>
+
+
+<tr>
+<td><b>/css</b></td><td><p>jquery-ui-1.8.17.custom.css (jQuery UI CSS.)
+
+</p><p>accept.css (Accept plugin CSS.)</p></td>
+</tr>
+
+<tr>
+<td><b>/examples</b></td><td><p>Example1.htm (Use case code example.)
+</p><p>Example2.htm (Use case code example.)</p></td>
+</tr>
+
+<tr>
+<td><b>/extra/tinyMce</b></td><td><p>tiny_mce.js (tiny MCE plugin core file.)</p><p>jquery.tinymce.js (tiny MCE jQuery integrator file.)</p></td>
+</tr>
+
+</table>
+<br /><br />
+<h2> <a name="chapter4"> Installation </a></h2>
+
+<p>Installing the plugin is relatively straightforward, you just need to include the Accept plugin CSS and JS files in your Web application.</p>
+<p>There are several ways to use the plugin and depending on the approach you take you may need to include a few more files and make some configuration changes.</p>
+
+<p>This version of the plugin can be used in the following ways:</p>
+
+<table border="1px">
+<tr>
+<td><b>Context Menu</b></td><td>Adding right click support to a text area to bring up the Accept menu (Grammar, Spelling, Style).</td>
+</tr>
+<tr>
+<td><b>TinyMCE Integration</b></td><td>Embedding the check option into the Tiny MCE text editor</td>
+</tr>
+</table>
+<br />
+<h3>Context Menu</h3>
+
+<p>
+With this approach you will need to pass a DOM element selector (element ID or element CSS class) as a parameter so that a mouse (right) click event can be injected which will triggers a context menu. 
+</p>
+
+<p>
+This context menu has four options available:
+</p>
+
+<ul>
+<li>Accept – gets the text from an input area element and performs a style, grammar and spelling checking on it. The results are displayed in a dialog box.</li>
+<li>Grammar – gets the text from  an input area checks the text grammar. The results are displayed in a dialog box.</li>
+<li>Spelling - gets the text from an input area and search for spelling errors in the text. The results are displayed in a dialog box.</li>
+<li>Style - gets the text from an input area and evaluates the style of the text. The results are displayed in a dialog box.</li>
+<li>Close – close the context menu.</li>
+</ul>
+
+<p>If you intend to use the plugin in a simple input area triggered  by the mouse right click you need to include  the files in your web page:</p>
+
+<ul>
+<li>jquery-1.5.1.min.js</li>
+<li>jquery-ui-1.8.17.custom.min.js</li>
+<li>Accept.css</li>
+<li>jquery-ui-1.8.17.custom.css</li>
+<li>accept-jquery-plugin-1.0.js</li>
+</ul>
+
+<h3>TinyMCE Integration</h3>
+
+<p>With this approach we can embed a right click context menu into the Tiny MCE editor, therefore the Tiny MCE files also need to be included:</p>
+
+<ul>
+<li>jquery.tinymce.js</li>
+<li>tiny_mce.js</li>
+</ul>
+
+<p>In this case the same options explained above are available and there is an additional button called “Accept” on the TinyMCE toolbar that can be used the same way as the “Accept” option within the context menu.  </p>
+
+<p>The following is an example of the code needed.</p>
+
+<pre>
+
+        $(document).ready(function () {
+            $("#myTextArea").Accept({
+            configurationType: 'contextMenu',
+            AcceptServerPath: "http://www.accept-portal.eu/AcceptApi/Api/v1",
+            ApiKey: "ENTER_KEY_HERE",          
+            Lang: "en",
+            imagesPath: "images"
+            });
+        });
+
+
+</pre>
+
+
+
+
+
+<br /><br />
+
+<h2>API Key</h2>
+
+<p>In order to use the Accept plugin you will need an API Key.</p>
+<p>To get an API key, log into the Accept Portal:</p>
+	<a href="http://www.accept-portal.eu/"></a>
+<p>When logged  in click on your login name to access to your profile details. There you can see listed your current list of applications. To generate an API key click in “Create Application” and fulfil the form. </p>
+
+<p>Then if everything went well your new application is listed in your profile details. To get the API key just click in the application name to the API details being displayed along with your API Key. </p>
+<p>Keep in mind that your API key will be associated with your IP address.</p>
+
+
+<br /><br />
+
+
+
+
+<h2> <a name="chapter5">Configuration Options</a></h2>
+
+<p>The ACCEPT Plug-in can be configured to work in many different ways. </p>
+
+<p>The supported configuration options are:</p>
+<br />
+
+<table border="1px"><tr><td><b>configurationType</b></td><td><b>String</b></td><td><b>Default: “contextMenu”</b></td></tr></table>
+
+<p>Describes how the plug-in should behave. This parameter can only receive two values, “contextMenu” or “tinyMCEEmbedded”.</p>
+
+<br /><br />
+
+<table border="1px"><tr><td><b>AcceptServerPath</b></td><td><b>String</b></td><td><b>Default:“”</b></td></tr></table>
+
+<p>The URL for the ACCEPT API.</p>
+
+
+<br /><br />
+
+<table border="1px"><tr><td><b>ApiKey</b></td><td><b>String</b></td><td><b>Default:“”</b></td></tr></table>
+
+<p>The client API key for authentication. See API key section for more details.</p>
+
+<br /><br />
+
+<table border="1px"><tr><td><b>Lang</b></td><td><b>String</b></td><td><b>Default: “en”</b></td></tr></table>
+
+<p>Language  that will be used for the input text. Can be ‘fr’ for French, ‘en’ for English or ‘ge’ for German.</p>
+
+<br /><br />
+
+<table border="1px"><tr><td><b>imagesPath</b></td><td><b>String</b></td><td><b>Default: “css/images”</b></td></tr></table>
+
+<p>The URL for the folder that contains all the images used by the plug-in.</p>
+
+<br /><br />
+
+<table border="1px"><tr><td><b>tinyMceUrl</b></td><td><b>String</b></td><td><b>Default: “extra/tiny_mce/tiny_mce.js”</b></td></tr></table>
+
+<p>The URL for the tiny MCE JavaScript file. This option is only used when the ConfigurationType is set to “tinyMCEEmbedded”.</p>
+
+<br /><br />
+
+<table border="1px"><tr><td><b>LoadInputText</b></td><td><b>JavaScript Function</b></td><td><b>Default: “var inputText;  if (settings.requestFormat == 'TEXT')  inputText = $("#" + acceptObjectId).val(); else inputText = $("#" + acceptObjectId).html();  return inputText;”</b></td></tr></table>
+   
+<p>Customize the way to load the input text. This parameter is consumed as a function, this means is expected that a function be passed, this function should return the text to check. </p>
+
+<p><b>Example:</b></p>
+
+<table  border="1px">
+<tr>
+<td>function () {    
+var inputText =  /* INPUT TEXT or HTML */
+return inputText; }</td>
+</tr>
+</table>
+
+<br />
+<br /><br />
+
+<table border="1px"><tr><td><b>SubmitInputText</b></td><td><b>JavaScript Function</b></td><td><b>Default: “if (settings.requestFormat == 'TEXT') $('#' + acceptObjectId).html(text);  else $('#' + acceptObjectId).val(text);”</b></td></tr></table>
+
+<p>Customize the way the input text is submitted from the dialog box back into the text editor. This parameter is also consumed as a function, in this case the plug-in expects to pass the text as an input parameter;</p>
+<p><b>Example:</b></p>
+
+<table  border="1px">
+<tr>
+<td>function (textParameter) {    
+/* SEND THE TEXT OR HTML BACK TO THE TEXT INPUT AREA */
+}
+</td>
+</tr>
+</table>
+
+<br /><br /><br />
+<table border="1px"><tr><td><b>languageUi</b></td><td><b>String</b></td><td><b>Default: “en”</b></td></tr></table>
+<p>Language to use for the UI labels.</p>
+<p>Currently the following languages are supported:</p>
+
+<ul>
+<li>en = English</li>
+<li>fr = French</li>
+</ul>
+
+<br /><br />
+
+<table border="1px"><tr><td><b>requestFormat</b></td><td><b>String</b></td><td><b>Default: “TEXT”</b></td></tr></table>
+
+<p>Format of the text input, it can be ‘TEXT’ for text content or ‘HTML’ for text containing markup language.</p>
+
+
+<br /><br />
+
+<table border="1px"><tr><td><b>Rule</b></td><td><b>String</b></td><td><b>Default: The language-specific rule set.</b></td></tr></table>
+
+<p>Optional rule set that should be used by the Acrolinx server to check the content. By default, a language-specific rule set will be used.</p>
+
+
+
+<br /><br />
+<table border="1px"><tr><td><b>dialogHeight</b></td><td><b>Number</b></td><td><b>Default: “320”</b></td></tr></table>
+
+<p>Height (in pixels) of the dialog box that shows the results.</p>
+
+<br /><br />
+<table border="1px"><tr><td><b>dialogWidth</b></td><td><b>Number</b></td><td><b>Default: “480”</b></td></tr></table>
+<p>Width (in pixels) of the dialog box that shows the results.</p>
+
+<br /><br />
+<h2> <a name="chapter6">Plugin Theme </a></h2>
+
+<p>By default the Accept plugin has the basic JQueryUI UI, however it will inherit and JQueryUI styling you are already using on your site, or you can skin it in the normal manner – you can use the  jQuery UI theme rollover available <a href="http://jqueryui.com/themeroller/">here</a> to do this.    </p>
+
+
+
+<br /><br />
+
+
+<h2> <a name="chapter7">Examples </a></h2>
+
+<p>For a better understanding on how the plugin code can be added to your web application we are going to walk through three examples. </p>
+
+<p>NOTE: You can find the full code for these examples within the download package in  the examples folder. </p>
+
+<br />
+
+<h3><b>Example 1 (Right Click Context Menu)</b></h3>
+<p>You own Web site that has a forum where users can drop questions and you want improve the text quality of your users input. For this case you decide that you don’t want to compromise your current site UI with fancy text editors and you decide to use the Accept plugin by attaching it to the very basic text area you already have in place. </p>
+
+
+<p>This way when a user right clicks over your text area it will trigger the options available for checking the text just like is showed in Installation section.</p>
+
+<p> Below is the full explanation for the code you can find within the examples folder:</p>
+
+<p><b><em>JavaScript Code:</em></b></p>
+
+<p>-Before injecting jQuery or JavaScript actions over your DOM, you should wait for the DOM to be completely loaded. Using jQuery this can be achieved using the following syntax:</p>
+
+<pre>
+    $(document).ready(function () 
+    {  
+
+        //Your code here  
+
+    });
+</pre>
+
+<p>-Now add the accept plugin code:</p>
+
+<pre>
+    
+    $(document).ready(function () {
+    $("#myTextArea").Accept({
+            configurationType: 'contextMenu',
+            AcceptServerPath: "http://www.accept-portal.eu/AcceptApi/Api/v1",
+            ApiKey: "1281dv8ydfg8dc2v3yvy8uev",            
+            Lang: "en",
+            imagesPath: "images"
+    });
+        });
+
+</pre>
+
+
+<p><b><em>HTML Code:</em></b></p>
+
+<p>-The HTML code for this example is really simple, all you need is to have an identified text area so that all the plugin logic be integrated.</p>
+
+<pre>
+        &lt;textarea id="myTextArea" rows="10" cols="40" >
+        this is an test
+        &lt;textarea>
+</pre>
+
+<p>That’s it. You now have the Accept Plugin working on your site.</p>
+
+
+<br /><br />
+
+
+
+<h3><b>Example 2 (TinyMCE Embedded)</b></h3>
+<p>Let’s take the same situation as Example 1 but this time you are using the Tiny MCE embedded editor.</p>
+
+<p><b><em>JavaScript Code:</em></b></p>
+
+<p>-The JavaScript code is very similar to the one in Example 1, the only value that changes is the value for the  parameter “configurationType” - from “contextMenu” to “tinyMceEmbedded” and the addition of a extra parameter containing the location of your Tiny MCE .JS file. Here’s the code:  </p>
+
+<pre>
+    $(document).ready(function () {
+        $("#myTextArea").Accept({
+            configurationType: 'tinyMceEmbedded',
+            AcceptServerPath: "http://www.accept-portal.eu/AcceptApi/Api/v1",
+            ApiKey: "1281dv8ydfg8dc2v3yvy8uev ",
+            Lang: "en",
+            imagesPath: "images",
+            tinyMceUrl: "tiny_mce/tiny_mce.js"
+        });
+    });
+
+</pre>
+
+
+<p><b><em>HTML Code:</em></b></p>
+
+<p>-The HTML code is exactly the same as Example 1, once again just an identified text area is needed:</p>
+
+<pre>
+            &lt;textarea id="myTextArea" rows="10" cols="40" >
+            this is an test
+            &lt;textarea>
+</pre>
+
+
+
+<h3><b>Example 3 (A more difficult integration)</b></h3>
+<p>Sometimes it can be a bit more difficult to integrate the plugin with an existing embedded text editor. The best approach is to integrate the Accept plugin by injecting a right click event over the existing text editor. 
+To do this a bit more work its needed. 
+Notice that in both Example 1 and 2 we used a simple text area element as a place holder for our plugin, but in this case there is a text editor already embedded within the text area. 
+</p>
+
+<p>What do we do? Well no big deal, lets follow a few steps.</p>
+
+<p><b>STEP 1</b></p>
+<pre>
+    
+        &lt;textarea class="lia-form-tiny-mce-editor-input" id="tinyMceEditor" name="tinyMceEditor">&lt;/textarea>
+        &lt;iframe id="tinyMceEditor_ifr" src='javascript:""' frameborder="0" title="Rich Text Area. Press ALT F10 for toolbar. 
+        Press ALT 0 for help." style="width: 100%; height: 206px; ">
+        &lt;html><head xmlns="http://www.w3.org/1999/xhtml">&lt;meta http-equiv="X-UA-Compatible" content="IE=7">&lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8">&lt;link type="text/css" rel="stylesheet" href="http://website1/html/js/lib/tinymce/3.4.1/themes/advanced/skins/default/content.css">
+        &lt;link type="text/css" rel="stylesheet" href="http:// website1/skins/358241/5F4439F43AFCD2AFDF49DA5622800B40/example734965398.css">&lt;/head>
+        &lt;body id="tinymce" class="mceContentBody lia-message-editor" spellcheck="false" dir="ltr">&lt;p>eewrwerwer&lt;/p>&lt;/body>&lt;/html>
+        &lt;/iframe>
+
+</pre>
+
+<p>Looking at the code we can see by the name and identifier of the text area that the editor plugin used is Tiny MCE (to be honest this doesn’t matter, it could just as easily be any other editor and the procedure would be the same), what really matters is for us to understand how we can integrate our Accept plugin into the existing code. </p>
+
+<p>Looking carefully at the previous code snippet we can see that there is an IFRAME being used.</p>
+
+<p><b>Note:</b> Using a Web debug tool we can better understand where the text is being displayed.</p>
+
+<p>Generally, all the rich web text editors behave the same way, they inject an IFRAME over the text source (in this case the text area identified in red as “tinyMceEditor”). 
+</p>
+<p>As the IFRAME is where a user will write, we need to inject our plugin behaviour into the  IFRAME instead of the text area as we did before. </p>
+
+<p><b>STEP 2</b></p>
+
+<p>Now we need to include the Accept plugin files in the page header:</p>
+<pre>
+&lt;script src="http://www.accept-portal.eu/Plugin/jquery-ui-1.8.17.custom.min.js">&lt;/script>
+&lt;link href="http://www.accept-portal.eu/Plugin/css/Accept.css" rel="stylesheet" type="text/css" />
+&lt;script src="http://www.accept-portal.eu/Plugin/accept-jquery-plugin-1.0.js">&lt;/script>   
+</pre>
+
+<p><b>STEP 3</b></p>
+
+<p>Next the plugin configuration with a few tweaks: </p>
+
+<pre>
+    &lt;script type="text/javascript">
+        $(document).ready(function () {
+            ("#tinyMceEditor").Accept({
+            configurationType: 'contextMenu',
+            AcceptServerPath: " http://www.accept-portal.eu/AcceptApi/Api/v1",
+            ApiKey: "asdb1723iqudh91y29121929",          
+            Lang: "en",
+            textEditorPlaceHolderId: "tinyMceEditor_ifr",
+            imagesPath: "http://www.accept-portal.eu /Plugin/css/images"
+        });
+    });
+&lt;/script>
+</pre>
+
+<p>Notice that in the last snippet we are still passing the text area ID as a DOM element for the plug-in:</p>
+
+<pre>$("#tinyMceEditor").Accept({ … })</pre>
+
+<p>but as the IFRAME is where the user text is kept and our plugin doesn’t have a way to magically find it,  we need to pass the information about the area where our context menu should be displayed, and we did that when we added the IFRAME ID as an extra parameter:</p>
+
+<pre>textEditorPlaceHolderId: "tinyMceEditor_ifr"</pre>
+
+<p>Now when refreshing our page we can see our right-click functionality being displayed.</p>
+
+<p>
+Now everything should be working fine, but when clicking any of the checking  options we get an “enter some text” message - this means that no text was passed to our plug-in. 
+</p>
+
+<p>
+<em>Why is this happening? </em>
+</p>
+
+<p>The reason is related to the version and pre-configuration of the Tiny MCE plug-in. </p>
+<p>For some reason the input text is not updating the text area element! Remember that we passed the text area ID to the Accept plugin expecting to get the text from it:</p>
+<pre>
+
+    &lt;textarea class="lia-form-tiny-mce-editor-input" id="tinyMceEditor" name="tinyMceEditor">NO TEXT HERE! :( &lt;/textarea>
+
+</pre>
+
+<p><em><b>So do we need to update the plugin code according the text editor configuration? </b></em></p>
+
+<p>Fortunately no, the Accept plug-in allows you to pass two extra parameters where you can write your own code to get and set the text content.
+We now need to add a custom text loader and text submitter.
+</p>
+
+<p><b>STEP 4</b></p>
+
+<p>In order to customize the way your text is loaded and submitted back we need to pass two extra parameters (these are actually interpreted as functions):</p>
+
+<pre>
+                LoadInputText: function () 
+                {
+                    try 
+                    {
+                        var inputText = tinymce.get('tinyMceEditor').getContent();
+                        return inputText;
+                    }
+                    catch (error) {
+                        return "";
+                    }
+                }
+
+</pre>
+
+<p>The parameter “LoadInputText” will pass the input text to be checked and in the case of the Tiny MCE text editor there is a built in method to get the text from the editor, so we can use that one:</p>
+
+<pre>var inputText = tinymce.get('tinyMceEditor').getContent();</pre>
+
+<p>Note that a try/catch block is needed because during the page load our plugin will immediately run the “LoadInputText” method and we have no guarantees that “tinymce.get” method is already loaded.  </p>
+
+
+<p>Now we need a similar approach to send the text from our Accept dialog back the editor:</p>
+
+<pre>
+
+                SubmitInputText: function (text) 
+                {
+                    try 
+                    {
+                       tinymce.get('tinyMceEditor').setContent(text);
+                    }    
+                    catch (error) {    }   
+                
+                }
+
+</pre>
+
+<h4>The Accept plugin should now be working!!!</h4>
+
+<p><b><em>Here is the full code snippet:</em></b></p>
+
+<pre>
+
+    &lt;script src="http://www.accept-portal.eu/Plugin/jquery-ui-1.8.17.custom.min.js">&lt;/script>
+    &lt;link href="http://www.accept-portal.eu/Plugin/css/Accept.css" rel="stylesheet" type="text/css" />
+    &lt;script src="http://www.accept-portal.eu/Plugin/accept-jquery-plugin-1.0.js">&lt;/script>   
+    &lt;script type="text/javascript">
+    
+    $(document).ready(function () {
+    
+    $("#tinyMceEditor").Accept({
+                    configurationType: 'contextMenu',
+                    AcceptServerPath: " http://www.accept-portal.eu/AcceptApi/Api/v1",
+                    ApiKey: "asdb1723iqudh91y29121929",                                      
+                    Lang: "en",
+                    textEditorPlaceHolderId: "tinyMceEditor_ifr" ,
+                    imagesPath: http://www.accept-portal.eu /Plugin/css/images,
+    LoadInputText: function () {
+    try {
+            var inputText = tinymce.get('tinyMceEditor').getContent();
+            return inputText;
+        }
+        catch (error) 
+        {
+            return ""; 
+        }
+    }, 
+    SubmitInputText: function (text) 
+    {
+       try {  
+                tinymce.get('tinyMceEditor').setContent(text);
+           }catch (error){   }   }
+    });
+});
+
+&lt;/script>
+
+</pre>
+
+
+</div>
+
+</body>
+
+   
+
+</html>
+
+
+

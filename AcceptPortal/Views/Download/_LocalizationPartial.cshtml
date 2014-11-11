@@ -1,0 +1,7 @@
+﻿<p>
+        @Html.Raw(string.Format(@AcceptPortal.Resources.Global.DownloadMainMessage, "href=\""+ @Url.Action("Index", "Documentation", new { @section = "pre" })+"\"",
+        "href=\"http://jquery.com/\"",
+        "href=\"http://jqueryui.com/\"",
+        "href=\"" + @Url.Action("UserProfile", "PreEdit") + "\""));
+</p>
+

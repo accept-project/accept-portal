@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = AcceptPortal.Resources.Global.MainMenuPreEditLabel;
+}
+
+<h1>@AcceptPortal.Resources.Global.MainMenuPreEditLabel</h1>
+  <ul>
+     <li id="active"><h2>@Html.ActionLink(@AcceptPortal.Resources.Global.DemoLabel, "All", "Demo")</h2></li>	
+  @*   <li><h2>@Html.ActionLink(@AcceptPortal.Resources.Global.MainMenuLearnLabel, "Learn", "Documentation")</h2></li>  *@
+     <li><h2><a target="_blank" href="http://www.accept-portal.eu/Learn/pre-edit/index.html">@AcceptPortal.Resources.Global.MainMenuLearnLabel</a></h2></li>
+      
+     <li><h2>@Html.ActionLink(@AcceptPortal.Resources.Global.DownloadLabel, "Index", "Download")</h2></li>	
+ 
+
+   @* @if(User.IsInRole("ProjPartner") || User.IsInRole("Admin")){//@if(User.IsInRole("Admin,ProjPartner")){*@
+         
+        <li><h2>@Html.ActionLink(@AcceptPortal.Resources.Global.MainMenuAPIKeysLabel, "UserProfile", "PreEdit")</h2></li>
+
+  @*   }*@
+
+  </ul>

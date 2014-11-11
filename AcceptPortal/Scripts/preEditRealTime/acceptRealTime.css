@@ -1,0 +1,288 @@
+﻿span.paraphrasing-highlight
+{
+ background-color: Yellow;
+
+}
+
+
+/*plugin*/
+body ul.acm-default, body ul.acm-default ul {
+position: fixed;
+z-index: 999999;
+border-width: 0;
+float: none;
+height: auto;
+margin: 0;
+padding: 0;
+width: auto;
+border-top: solid 1px #acacac;
+border-bottom: solid 1px #acacac;
+display:none;
+}
+body ul.acm-default li:hover {
+/*background-image: url(images/hover.gif);*/
+background-color:		#CFECDB;
+}
+body ul.acm-default li {
+/*width: 162px;*/
+width:auto;
+list-style: none none outside;
+float: none;
+height: auto;
+letter-spacing: normal;
+margin: 0;
+border-width: 0;
+line-height: normal;
+margin: 0;
+text-align: left;
+text-decoration: none;
+text-indent: 0;
+text-transform: none;
+vertical-align: top;
+word-spacing: normal;
+font-family: Arial, Sans-Serif;
+font-size: 13px;
+font-style: normal;
+font-variant: normal;
+font-weight: normal;
+overflow: hidden;
+cursor: default;
+padding: 5px 5px 5px 31px;
+border-left: solid 1px #acacac;
+border-right: solid 1px #acacac;
+/*background: #e6e6e6 url(images/background.gif) repeat-y 0 0;*/
+background-color:#e6e6e6;
+}
+body ul.acm-default span.icon.hover {
+/* background-position: 0 -16px; */
+}
+body ul.acm-default span.learn {
+background-image: url(images/learn.png);
+}
+body ul.acm-default span.icon {
+display: block;
+float: left;
+width: 26px;
+height: 16px;
+background-repeat: no-repeat;
+}
+body ul.acm-default li.separator{width:198px; height:12px; background:#e6e6e6 url(images/separator.gif) no-repeat; padding:0}
+/* IE 6/7 hack */
+body ul.acm-default li.separator{*margin:-1px 0 -5px 0}
+body ul.acm-default li.disabled{color:#999}
+body ul.acm-default li span.submenu{display:block; width:4px; height:11px; float:right; background:url(images/submenu.gif) no-repeat 0 4px}
+body ul.acm-default li.disabled span.submenu{background-image:url(images/submenu_dis.gif)}
+body ul.acm-default li.hover{background-color:#d4dde6; background-image:url(images/hover.gif)}
+/*no hover effects on separators*/
+body ul.acm-default li.hover.separator{background-color:#e6e6e6; background-image:url(images/separator.gif)}
+/*icons*/
+body ul.acm-default li.icon{width:auto; padding:5px}
+body ul.acm-default span.icon{display:block; float:left; width:26px; height:16px; background-repeat:no-repeat}
+body ul.acm-default span.grammar{background-image:url(images/pen.png)}
+body ul.acm-default span.spelling{background-image:url(images/pencil.png)}
+body ul.acm-default span.style{background-image:url(images/drawings.png)}
+body ul.acm-default span.replaceall{background-image:url(images/refresh.png)}
+body ul.acm-default span.replace{background-image:url(images/sign-in.png)}
+body ul.acm-default span.ignore{background-image:url(images/busy.png)}
+body ul.acm-default span.learn{background-image:url(images/learn.png)}
+body ul.acm-default span.erase{background-image:url(images/erase.png)}
+/*custom styles*/
+span.accept-highlight
+{    
+   cursor: pointer; 
+   background: url(images/underline.gif) bottom repeat-x;
+}
+
+span.accept-highlight-tooltip
+{       
+    background: url(images/underline_.gif) bottom repeat-x;    
+    cursor: pointer;    
+}
+
+.buttonFocus
+{
+    font-weight: bold;
+    color: #C77405;
+}
+
+.accepttooltip 
+{
+	display:none;
+	position:absolute;
+	border:2px solid #0e9e4c;	
+	background-color:#FFFFFF;
+	border-radius:12px;
+	padding:5px;
+	color:#000000;
+	font-size:10px;
+	z-index:9999999999;
+}
+
+.container
+{
+   display: table;  
+}
+.row  
+{
+   display: table-row;
+}
+.left, .right, .middle 
+{
+    display: table-cell;
+    padding:2px;
+    padding-top:0px;
+    margin:0px;    
+}
+
+
+/*user settings table*/
+
+table.acceptSettingsTable
+{
+  border: 1px solid black;
+  border-spacing: 0px;
+  padding: 1px;
+  
+}
+
+table.acceptSettingsTable thead tr
+{
+  font-family: Arial, monospace;
+  font-size: 14px;
+}
+
+table.acceptSettingsTable thead tr th
+{
+  border-bottom: 2px solid black;
+  border: 1px solid black;
+  margin: 0px;
+  padding: 2px;
+  background-color: #cccccc;
+  color: Black;
+}
+
+table.acceptSettingsTable tr 
+{
+  font-family: arial, monospace;
+  color: black;
+  font-size:10px;
+  background-color: white;
+}
+
+table.acceptSettingsTable tr.odd 
+{
+  background-color: #AAAAAA;
+}
+
+table.acceptSettingsTable tr td, th
+{
+  border: 1px solid black;
+  padding: 2px;
+}
+
+table.acceptSettings a:link
+{
+  font-family:arial, monospace;
+  text-decoration: none;
+  color: teal;
+}
+
+table.acceptSettings a:hover
+{
+  text-decoration: underline;
+}
+
+table.acceptSettings a:visited
+{
+  color:black;
+  text-decoration: none;
+}
+
+table.acceptSettings th
+{
+    font-weight: bold;
+    font-size:11px;
+    color:#000000;
+    border: solid 1px #000000;
+}
+
+.check-unlearn-rule
+{
+    cursor:pointer;
+    color:Red;        
+}
+
+.check-unlearn-word
+{
+    cursor:pointer;
+    color:Red;            
+}
+/*right click context menu*/
+.contextMenu {
+	position:absolute;
+	width: 120px;
+	z-index: 99999;
+	border: solid 1px #CCC;
+	background: #EEE;
+	padding: 0px;
+	margin: 0px;
+	display: none;
+}
+.contextsubMenu {
+	position:relative;
+	width: 120px;
+	z-index: 99999;
+	border: solid 1px #CCC;
+	background: #EEE;
+	padding: 0px;
+	margin: 0px;
+	display: none;
+}
+
+.contextMenu LI {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+.contextMenu A {
+	color: #333;
+	text-decoration: none;
+	display: block;
+	line-height: 20px;
+	height: 20px;
+	background-position: 6px center;
+	background-repeat: no-repeat;
+	outline: none;
+	padding: 1px 5px;
+	padding-left: 28px;
+}
+
+.contextMenu LI.hover A {
+	color: #FFF;
+	background-color: #3399FF;
+}
+
+.contextMenu LI.disabled A {
+	color: #AAA;
+	cursor: default;
+}
+
+.contextMenu LI.hover.disabled A {
+	background-color: transparent;
+}
+
+.contextMenu LI.separator {
+	border-top: solid 1px #CCC;
+}
+
+
+.contextMenu LI.accept A { background-image: url(images/check.png); }
+.contextMenu LI.grammar A { background-image: url(images/pen.png); }
+.contextMenu LI.spell A { background-image: url(images/pencil.png); }
+.contextMenu LI.style A { background-image: url(images/drawings.png);  }
+.contextMenu LI.grammarresponse A  { background-image: url(images/pen.png); }
+.contextMenu LI.spellresponse A  { background-image: url(images/pencil.png); }
+.contextMenu LI.styleresponse A { background-image: url(images/edit.png);  }
+.contextMenu LI.nosuggestion A  { background-image: url(images/busy.png); }
+.contextMenu LI.accept_close A  { background-image: url(images/busy.png); }

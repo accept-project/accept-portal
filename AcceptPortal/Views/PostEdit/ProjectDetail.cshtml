@@ -1,0 +1,303 @@
+﻿@model AcceptPortal.Models.Admin.Project
+@using AcceptPortal.Utils;
+
+@{
+    ViewBag.Title = AcceptPortal.Resources.Global.PostEditProjectDetail;
+}
+@Styles.Render("~/Content/post-edit-client")
+
+<!--main menu section-->
+@if (Model.Status != -1)
+{ 
+    <h2>@AcceptPortal.Resources.Global.PostEditProjectNameLabel @Model.ProjectName</h2>
+    <h4>@AcceptPortal.Resources.Global.PostEditProjectCreatedByLabel @Model.ProjectOwner</h4>
+        
+    if (Model.ProjectOwner.CompareTo(User.Identity.Name) == 0 || Model.UserRoleInProject.CompareTo("PostEditProjMaintainer") == 0)
+    {
+        if (Model.ProjectSurvey.Length > 0)
+        {
+            string url = Model.ProjectSurvey.Trim();
+            if (!url.StartsWith("http"))
+            {
+                url = "http://" + url;
+            }                            
+    <h4>@AcceptPortal.Resources.Global.PostEditProjectSurveyLink : <a style="padding:5px;color:#faa732;" href="@url" target="_blank">@Model.ProjectSurvey</a></h4>                                   
+        }
+    }
+}
+<div>
+
+    <ul class="horizontal-slide">
+        @if (Model.ProjectOwner.CompareTo(User.Identity.Name) == 0 || Model.UserRoleInProject.CompareTo("PostEditProjMaintainer") == 0)
+        {
+            string projectReportUrl = CoreUtils.AcceptPortalApiPath + "/PostEdit/ProjectXliff?token=" + Model.AdminToken;  
+       
+            <li><a class="underline-over" href="@projectReportUrl">@AcceptPortal.Resources.Global.PostEditAllProjectRevisionsLabel </a></li>
+            if (!Model.External)
+            {          
+            <li><a class="underline-over" href="#" id="inviteUsersAnchor">@AcceptPortal.Resources.Global.PostEditInviteUseresLabel </a></li>
+            }
+            else
+            {
+            <li><a class="underline-over" href="#" id="btnDialogManageProject">@AcceptPortal.Resources.Global.PosEditProjectDetail_LabelManageProject</a></li>                     
+            
+            }
+            <li><a class="underline-over" href="#" id="checkTaskStatus">@AcceptPortal.Resources.Global.CheckProjectTasksStatusLabel </a></li>
+            <li><a class="underline-over" href="#" id="myProjectDetails">@AcceptPortal.Resources.Global.MyProjectDetailsLabel </a></li>
+            <li><a class="underline-over" href="#" id="btnOpenUploadDialog">@AcceptPortal.Resources.Global.PostEditUploadProjectTask </a></li>                    
+            
+            <li><a class="underline-over" href="@Url.Action("Index", "PostEdit")">@AcceptPortal.Resources.Global.PosEditBackToProjectList </a></li>        
+        }
+        else
+        {
+            <li><a class="underline-over" href="@Url.Action("Index", "PostEdit")">@AcceptPortal.Resources.Global.PosEditBackToProjectList </a></li>
+        }
+    </ul>
+</div>
+<!--main menu section-->
+
+<!--upload file section-->
+
+@if (Model.ProjectOwner.CompareTo(User.Identity.Name) == 0 || Model.UserRoleInProject.CompareTo("PostEditProjMaintainer") == 0)
+{   
+    <div id="divUploadFileDialog" style="display: none;">
+
+        <div id="uploadFile" style="display: block;">
+
+            @using (Html.BeginForm("UploadFile", "PostEdit", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {    
+                <label for="file">@AcceptPortal.Resources.Global.PostEditFileNameLabel</label>
+                <input type="file" name="file" id="file" />
+                <input class="button-link" style="height:25px;width:100px;" type="submit" value="@AcceptPortal.Resources.Global.PostEditUploadTaskLabel" />    
+                <input type="hidden" name="projectId" id="projectId" value="@Model.ID" />
+            }
+        </div>
+    </div>
+}
+
+<!--upload file section-->
+
+@{      
+    var count = 0;          
+}
+
+@if (Model.Documents.Any())
+{
+    <!--tasks section-->
+    <div style="margin-top: 20px;">
+        <table border="1" id="tblPostEditTasks">
+            <thead>
+                <tr>
+                    <th><b>@AcceptPortal.Resources.Global.PostEditTaskLabel</b></th>
+                    <th><b>@AcceptPortal.Resources.Global.EvaluationActions</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var doc in Model.Documents)
+                {
+                    string userName = Model.SingleRevision ? Model.ProjectOwner.ToString() : User.Identity.Name.ToString();
+                    string documentReportUrl = CoreUtils.AcceptPortalApiPath + "/PostEdit/DocumentXliff?userId=" + userName + "&textId=" + doc.TextId;
+                    string allTasksReportUrl = CoreUtils.AcceptPortalApiPath + "/PostEdit/TaskXliff?token=" + Model.AdminToken.ToString() + "&textId=" + doc.TextId;                       
+        
+                    <tr>
+                        <td class="leftT" title="@doc.TextId">
+                            <span>@AcceptPortal.Resources.Global.PostEditTaskLabel @{ count++; }@count </span>
+                        </td>
+
+                        @if (Model.ProjectOwner.CompareTo(User.Identity.Name) == 0)
+                        {
+                            <td>
+                                <a  title="@doc.TextId"  class="EditTask" href="#">@AcceptPortal.Resources.Global.PostEditTaskEditLabel
+                                    <div class="userContainer" style="display:none" title="@User.Identity.Name.ToString()"></div>
+                                </a>
+                                |
+                <a  href="@documentReportUrl" target="_blank">@AcceptPortal.Resources.Global.PostEditCheckRevisionLabel</a>
+                                |
+                <a  href="@allTasksReportUrl" target="_blank">@AcceptPortal.Resources.Global.AllTaskRevisionsLabel</a>
+
+                                <a name="deleteTaskAnchor_&@doc.ID" href="@Url.Action("DeleteDocument", "PostEdit", new { @textId = doc.TextId, @projectOwner = User.Identity.Name, @projectId = doc.ProjectId })" target="_blank"></a>
+                                |
+                <b style="cursor:pointer;" id="deleteTask_&@doc.ID" style="color:#0E9E4C;cursor:pointer">@AcceptPortal.Resources.Global.PostEditDeleteTaskLabel</b>
+                            </td>
+                        }
+                        else
+                            if (Model.UserRoleInProject.CompareTo("PostEditProjMaintainer") == 0)
+                            {        
+                            <td>
+                                <a title="@doc.TextId"  class="EditTask" href="#">@AcceptPortal.Resources.Global.PostEditTaskEditLabel
+                                    <div class="userContainer" style="display:none" title="@User.Identity.Name.ToString()"></div>
+                                </a>
+                                |
+                <a href="@documentReportUrl" target="_blank">@AcceptPortal.Resources.Global.PostEditCheckRevisionLabel</a>
+                                |
+                <a href="@allTasksReportUrl" target="_blank">@AcceptPortal.Resources.Global.AllTaskRevisionsLabel</a>
+                                |
+                    <a name="deleteTaskAnchor_&@doc.ID" href="@Url.Action("DeleteDocument", "PostEdit", new { @textId = doc.TextId, @projectOwner = Model.ProjectOwner, @projectId = doc.ProjectId })" target="_blank"></a>
+
+                                <b style="cursor:pointer;" id="deleteTask_&@doc.ID" style="color:#0E9E4C;cursor:pointer">@AcceptPortal.Resources.Global.PostEditDeleteTaskLabel</b>
+                            </td>
+                
+                            }
+                            else
+                            { 
+                            <td>
+                                <a title="@doc.TextId"  class="EditTask" href="#">@AcceptPortal.Resources.Global.PostEditTaskEditLabel
+                                    <div class="userContainer" style="display:none" title="@User.Identity.Name.ToString()"></div>
+                                </a>
+                            </td>                
+                            }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!--tasks section-->
+    
+}
+else
+{
+    if (Model.Status == -1)
+    {                 
+    <h2>@AcceptPortal.Resources.Global.ProjectNotFoundMessage</h2>
+    }
+    else
+        if ((Model.ProjectOwner.CompareTo(User.Identity.Name) != 0 && Model.UserRoleInProject.CompareTo("PostEditProjMaintainer") != 0) && Model.Completed == 1)
+        {                             
+    <h2>@AcceptPortal.Resources.Global.PostEditAllProjectsCompletedText</h2>        
+            if (Model.ProjectSurvey.Length > 0)
+            {
+                string url = Model.ProjectSurvey.Trim();
+                if (!url.StartsWith("http"))
+                {
+                    url = "http://" + url;
+                }            
+                
+    <h4>
+        <p>@AcceptPortal.Resources.Global.PostEditGoFillSurveyText<a style="padding:5px;" href="@url" target="_blank">@Model.ProjectSurvey</a>  </p>
+    </h4>                                   
+            }
+        }
+        else
+        {
+    <h3>@AcceptPortal.Resources.Global.PosEditNoTasksCreatedLabel</h3>
+            if (Model.ProjectOwner.CompareTo(User.Identity.Name) == 0 || Model.UserRoleInProject.CompareTo("PostEditProjMaintainer") == 0)
+            {
+    <p>@AcceptPortal.Resources.Global.PosEditClickToCreateTaskText</p>       
+            }
+        }
+}
+
+
+<div id="divDialogManageProject" style="display:none" title="@Model.ProjectName">
+
+    <div style="display: block; margin-top: 15px;">
+        @{Html.RenderAction("AllUsers", "Admin", new RouteValueDictionary { });}
+    </div>
+
+    <div id="divManageProjectLoader" style="display: none; height: 100%; width: 100%; text-align: center; margin-top: 25px; vertical-align: middle;">
+        <img src="@Url.Content("~/Content/images/ajax-loader.gif")" />
+    </div>
+
+    <div id="divUsersInProjectPlaceholder" style="display: block; margin-top: 25px;"></div>
+
+</div>
+
+
+<div id="inviteUsersDialog" style="display:none" title="@AcceptPortal.Resources.Global.PostEditInviteUsersDialogTitle  @Model.ProjectName">
+
+    <p>@AcceptPortal.Resources.Global.PostEditInsertEmailText</p>
+
+
+    @using (Ajax.BeginForm("InviteUsers", "PostEdit", new AjaxOptions { OnSuccess = "success", HttpMethod = "Post" }, new { id = "InviteForm" }))
+    {
+        <input id="usersList" name="usersList" style="width: 300px; height: 25px" />
+    
+        if (Model.UserRoleInProject.CompareTo("PostEditProjMaintainer") == 0)
+        {
+        <input id="projectOwner" value="@User.Identity.Name" name="projectOwner" style="display:none;" /> 
+        }
+        else
+        { 
+        <input id="projectOwner" value="@Model.ProjectOwner" name="projectOwner" style="display:none;" /> 
+        }
+    
+        <input id="projectInvitatedId" value="@Model.ID" name="projectInvitatedId" style="display:none;" />     
+        <input type="submit" value="Log On" style="display: none;" />          
+    }
+
+    <p style="font-size: small; color: Red">@AcceptPortal.Resources.Global.PostEditInsertEmailsNoteText</p>
+
+</div>
+
+
+<div id="modalInviteConfirmation" title="@AcceptPortal.Resources.Global.PostEditInviteSentDialogTitle" style="display:none">
+    <p>@AcceptPortal.Resources.Global.PostEditInviteSentParagraphOne @Model.ProjectName. </p>
+    <p>@AcceptPortal.Resources.Global.PostEditEmailAccountText</p>
+    <p>@AcceptPortal.Resources.Global.PostEditEmailAccountThankYouLabel</p>
+    <p>@AcceptPortal.Resources.Global.PostEditAcceptPortalTeamLabel</p>
+
+</div>
+<div id="modalInviteConfirmationNotSent" title="@AcceptPortal.Resources.Global.PostEditInviteNotSentDialogTitle" style="display:none">
+    <p>@AcceptPortal.Resources.Global.PostEditInvitationsFailedToSend</p>
+    <p>@AcceptPortal.Resources.Global.PostEditEmailAccountThankYouLabel</p>
+    <p>@AcceptPortal.Resources.Global.PostEditAcceptPortalTeamLabel</p>
+
+</div>
+
+
+
+<div id="modalDeleteTask" title="@AcceptPortal.Resources.Global.PostEditDeleteTaskDialogTitle" style="display:none;">
+    <p>@AcceptPortal.Resources.Global.PostEditDeleteTaskDialogText</p>
+</div>
+<div id="dialogTaskStatus" title="@AcceptPortal.Resources.Global.ProjectTaskStatusDialogTitle" style="display:none;"></div>
+<div title="@AcceptPortal.Resources.Global.MyProjectDetailsLabel" id="dialogMyProject" style="display:none;">
+    <div style="padding: 5px; margin: 5px;">
+
+        <p>
+            @AcceptPortal.Resources.Global.ProjectAdminTokenMessage
+        </p>
+
+        <span>@AcceptPortal.Resources.Global.ProjectAdminToken</span>
+        <h3>@Model.AdminToken</h3>
+    </div>
+
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        var apiUrl = @Html.Raw(Json.Encode(ViewBag.AcceptApiUrl)); 
+        var portalUrl = @Html.Raw(Json.Encode(CoreUtils.AcceptPortalApiPath));
+        var token = @Html.Raw(Json.Encode(Model.AdminToken));
+        var allUsersInProjectUrlPath = '@Url.Action("AllProjectUsers", "PostEdit", new { token = Model.AdminToken })';
+        var imagesPath = '@Url.Content("~/Content/PostEdit/v2.0/images")'; 
+        var cssPath = '@Url.Content("~/Scripts/preEditRealTime")';  
+        var configFiles = '@Url.Content("~/Scripts/preEdit/v3.0/lang")'; 
+        var acceptSignalRHubUrlPath = @Html.Raw(Json.Encode(CoreUtils.RealTimeSignalRConventionUrl));
+        var uploadDialogTitle = @Html.Raw(Json.Encode(@AcceptPortal.Resources.Global.PostEditUploadProjectTask));
+        var manageProjectDialogTitle = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.PosEditProjectDetail_LabelManageProject));
+        var labelClose = @Html.Raw(Json.Encode(@AcceptPortal.Resources.Global.PosEditProjectDetail_LabelClose));
+        var labelRemoveSelected =  @Html.Raw(Json.Encode(@AcceptPortal.Resources.Global.PosEditProjectDetail_LabelRemoveSelected));
+        var inviteButtonText = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.PostEditInviteButtonsDialogButton));
+        var uploadFailedMessageDetail = @Html.Raw(Json.Encode(ViewBag.MessageTaskUploadFail));     
+        var yesLabel = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.LabelYes));
+        var noLabel = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.LabelNo));
+        var messageInvalidEmail = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.InvalidEmailAddressMessage));
+        var messageInternalProjectUserAdded =  @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.MessageInternalProjectUserAdded));
+        var messageInternalProjectUserNotAdded = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.MessageInternalProjectUserNotAdded));
+        var getTaskStatusPartialUrl = '@Url.Action("GetTaskStatus", new { @token = Model.AdminToken })';      
+    </script>
+    @Scripts.Render(CoreUtils.RealTimeSignalRScriptFileUrl);
+ @Scripts.Render(CoreUtils.RealTimeHubsConventionUrl);
+ @Scripts.Render("~/Scripts/tiny_mce_4.0.26/jquery.tinymce.min.js")
+    @Scripts.Render("~/Scripts/postEdit/v2.0/accept-postedit-jquery-plugin-2.0.js")
+    @Scripts.Render("~/Scripts/Underscore/underscore-min.js")
+    @Scripts.Render("~/Scripts/preEditRealTime/accept-realtime-jquery-plugin-1.0.js")
+    @Scripts.Render("~/Scripts/global/post-edit/project-detail.js")
+}
+
+
+
+
+
+
+

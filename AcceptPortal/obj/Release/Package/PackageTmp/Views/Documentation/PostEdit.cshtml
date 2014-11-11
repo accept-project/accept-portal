@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "PostEdit";
+}
+
+<h2>PostEdit</h2>
+
+
+<script type="syntaxhighlighter" class="brush: js"><![CDATA[
+      
+         $('#app-list').contents().find(".left").AcceptPostEdit({
+             textIdContainer: 'title',
+             dialogHeight: 600,
+             dialogWidth: 800,
+             acceptServerPath: 'http://www.accept-portal.eu/AcceptApi/Api/v1',             
+             userIdSelector: 'div.userContainer',
+             userIdContainer: 'title',
+             imagesPath: '../../../Content/PostEdit/v1.0/images'
+         });
+
+]]></script>
+
+
+
+<script type="syntaxhighlighter" class="brush: js"><![CDATA[
+      
+       
+            &lt;ul id="app-list">
+            &lt;li>
+                &lt;div id="tasksContainer_1" class="container">            
+                    &lt;div class="left" title="yudfgmqvqddqsncqlefoqifhqpef"></div>
+                    <div class="userContainer" style="display:none" title="david_silva@symantec.com"></div></div>
+                    &lt;div class="middle"></div>
+                    &lt;div class="right"></div>        
+                &lt;/div>        
+            &lt;/li>
+             &lt;li>
+                &lt;div id="tasksContainer_2" class="container">            
+                    &lt;div class="left" title="ba719f190e2ff95e6964a639d3b06c"></div>
+                    <div class="userContainer" style="display:none" title="david_silva@symantec.com"></div></div>
+                    &lt;div class="middle"></div>
+                    &lt;div class="right"></div>        
+                &lt;/div>        
+            &lt;/li>
+            &lt;/ul>     
+
+
+]]></script>
+
+
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>

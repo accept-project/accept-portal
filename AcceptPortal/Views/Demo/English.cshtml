@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = ViewBag.Title = AcceptPortal.Resources.Global.Demo_Index_EnglishDemoLabel;
+}
+
+@Styles.Render("~/Content/pre-edit-client")
+
+<h2>@AcceptPortal.Resources.Global.Demo_Index_EnglishDemoLabel</h2>
+
+
+<p style="text-align: justify;">
+    @AcceptPortal.Resources.Global.Demo_ExplanationText_Par1
+</p>
+
+<p style="text-align: justify;">
+    @AcceptPortal.Resources.Global.Demo_ExplanationText_Par2
+</p>
+
+<p>
+    @AcceptPortal.Resources.Global.Demo_ExplanationText_Par3
+</p>
+
+<div style="display: block; text-align: center;">
+    <textarea id="txtAreaEnglishDemo" cols="20" rows="10"></textarea>
+</div>
+
+<div style="display: none;" id="userPlaceHolder">@User.Identity.Name</div>
+
+@section scripts{
+    <script type="text/javascript">
+
+        var apiUrl = @Html.Raw(Json.Encode(ViewBag.AcceptApiUrl));
+        var replaceAllLabel = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.DemoPage_ReplaceAllCheckBoxLabel)); 
+        var ruleSetlLabel = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.DemoPage_RuleSetDDLabel));     
+        var imgsPath = '@Url.Content("~/Content/PreEdit/v3.0/images")';
+        var cssPath = '@Url.Content("~/Content/PreEdit/v3.0")';
+        var configFilesPath = '@Url.Content("~/Scripts/preEdit/v3.0/lang")';
+        var apiKey = @Html.Raw(Json.Encode(ViewBag.PreEditApiKey));
+        var currentRuleSetName = @Html.Raw(Json.Encode(ViewBag.PreEditEnglishDemoDefaultRuleSet));
+
+    </script>
+    @*<!--this bundle can replace all scripts .render below-->*@
+    @*@Scripts.Render("~/bundles/pre-edit-client")*@
+    @Scripts.Render("~/Scripts/flip/jquery.flip.min.js")
+    @Scripts.Render("~/Scripts/underscore/underscore-min.js")
+    @Scripts.Render("~/Scripts/tiny_mce_4.0.26/jquery.tinymce.min.js")
+    @Scripts.Render("~/Scripts/preEdit/v3.0/accept-jquery-plugin-3.0.js")
+    @Scripts.Render("~/Scripts/global/pre-edit/demo-page-en.js")
+}

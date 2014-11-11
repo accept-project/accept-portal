@@ -1,0 +1,39 @@
+﻿
+
+
+ @if(AcceptPortal.Resources.Global.Download_ParagraphTwo.StartsWith("Read") || AcceptPortal.Resources.Global.Download_ParagraphTwo.StartsWith("Lesen"))
+ {
+
+ <p>
+Read <a target="_blank" href="http://www.accept-portal.eu/Learn/pre-edit/index.html">this</a> documentation to start.
+
+The ACCEPT plugin is written in JavaScript and uses the jQuery and jQuery UI libraries.
+
+Both are included as part of the download package, but you can always grab the latest version of jQuery core library <a target="_blank" href="http://jquery.com/">here</a> and the last version of jQuery UI <a target="_blank" href="http://jqueryui.com/"> here</a>. 
+
+The download package contains all the information  needed for the plug-in installation and some additional working examples.
+
+Keep in mind that in order to use the ACCEPT plug-in an API key is needed, you can generate one <a href="@Url.Action("UserProfile", "PreEdit")"> here</a>.
+</p>
+            
+ }
+ else 
+ {     
+          
+     
+     
+    string[] splitted = @AcceptPortal.Resources.Global.Download_ParagraphTwo.Split('$');
+          
+      <p>
+@splitted[0]<a target="_blank" href="http://www.accept-portal.eu/Learn/pre-edit/index.html"> @splitted[1] </a> @splitted[2] 
+
+ <a target="_blank" href="http://jquery.com/">@splitted[3]</a> @splitted[4] <a target="_blank" href="http://jqueryui.com/">@splitted[5]</a>. 
+
+@splitted[6]  <a href="@Url.Action("UserProfile", "PreEdit")"> @splitted[7] </a> @splitted[8] 
+</p>
+
+ }
+
+
+
+

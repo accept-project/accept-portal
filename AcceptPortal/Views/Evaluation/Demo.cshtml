@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = @AcceptPortal.Resources.Global.EvaluationDemo;
+}
+
+<h2>@AcceptPortal.Resources.Global.EvaluationDemo</h2>
+
+<div class="headerApps">    
+    <ul class="horizontal-slide">
+        <li><a class="underline-over" href="@Url.Action("Index", "Evaluation")">@AcceptPortal.Resources.Global.EvaluationManagement</a></li>
+        <li><a class="underline-over" href="@Url.Action("Demo", "Evaluation")">@AcceptPortal.Resources.Global.EvaluationDemo</a></li>   
+        <li><a class="underline-over" href="@Url.Action("DemoMetrics", "Evaluation")">@AcceptPortal.Resources.Global.EvaluationViewDemoMetrics</a></li>   
+   </ul>
+    </div>
+
+<p>@AcceptPortal.Resources.Global.EvaluationDemoOverview</p>
+
+<table border="0">
+	<tr>
+	<td>
+	<div class="lia-message-view message-uid-147" id="messageview">
+		<table border=1>
+		<tr>
+		<td width="200">
+			<div name="voting" />
+		</td>
+		<td>
+			<div class="content-source">
+			This is a test sentence!
+			</div>
+		</td>
+		<td>
+			<div class="content-mt">
+			    C'est une test phrase!
+			</div>
+		</td>
+		</tr>
+		</table>
+	</div>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<div class="lia-message-view message-uid-148" id="messageview">
+		<table border=1>
+		<tr>
+		<td width="200">
+			<div name="voting" />
+		</td>
+		<td>
+			<a shape="rect" name="U148"> </a>
+			<div class="content-source">
+			This is another test sentence!
+			</div>
+		</td>
+		<td>
+			<div class="content-mt">
+			C'est une autre test phrase!
+			</div>
+		</td>
+		</tr>
+		</table>
+	</div>
+	</td>
+	</tr>
+</table>
+
+@section scripts{
+<script type="text/javascript">
+    var evaluationQuestionUrl = @Html.Raw(Json.Encode(ViewBag.EvaluationDemoQuestionUrl));
+    var evaluationScoreUrl = @Html.Raw(Json.Encode(ViewBag.EvaluationDemoScoresUrl));
+    var evaluationApiKey = @Html.Raw(Json.Encode(ViewBag.EvaluationDemoApiKey));
+</script>
+<script src="@Url.Content("~/Scripts/global/evaluation/demo-page.js")"></script>
+}
+

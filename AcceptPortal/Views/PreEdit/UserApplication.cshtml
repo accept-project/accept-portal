@@ -1,0 +1,45 @@
+﻿@model AcceptPortal.Models.User.UserApplication
+
+@{
+    ViewBag.Title = @AcceptPortal.Resources.Global.Account_UserProfile_ViewBagTitle;
+}
+
+<h2>UserApplication</h2>
+
+<fieldset>
+    <legend>UserApplication</legend>
+
+    <div class="display-label">OrganizationName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrganizationName)
+    </div>
+
+    <div class="display-label">ApplicationName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplicationName)
+    </div>
+
+    <div class="display-label">AplicationDns</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplicationDns)
+    </div>
+
+    <div class="display-label">ApplicationIp</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ApplicationIp)
+    </div>
+
+    <div class="display-label">Active</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+
+    <div class="display-label">AccessToken</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AccessToken)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

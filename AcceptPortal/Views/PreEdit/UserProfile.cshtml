@@ -1,0 +1,33 @@
+﻿@model AcceptPortal.Models.User.UserAccountProfile
+
+@{
+    ViewBag.Title = @AcceptPortal.Resources.Global.Account_UserProfile_ViewBagTitle;
+}
+
+<h2>@AcceptPortal.Resources.Global.Account_UserProfile_MyAppsLabel</h2> 
+
+@if (Model.UserApplications.Count > 0)
+    {
+        <div style="margin:15px;">
+            <ul id="app-list">
+            @foreach (var app in Model.UserApplications)
+            {
+                <li><a href="@Url.Action("ApplicationDetail", "PreEdit", new { apiKey = @app.AccessToken })"> <img  width="32" height="32" alt="Application" style="float:left;" src="@Url.Content("~/Content/images/accept-app-icon.png")" /><h2>@app.ApplicationName</h2></a></li>
+            }
+            </ul>
+
+            <div>
+                <p>
+                    @AcceptPortal.Resources.Global.UserPrivateKeyBrief
+                </p>
+                <span> @AcceptPortal.Resources.Global.UserPrivateKeyLabel</span>  <h3>@Model.UserSecretKey</h3> 
+            </div>
+        </div> 
+         }
+        else
+        { 
+            <h2>@AcceptPortal.Resources.Global.Account_UserProfile_NoAppsHeader</h2>
+            <p>
+            @AcceptPortal.Resources.Global.Account_UserProfile_NoAppsPar1
+            </p>
+        }

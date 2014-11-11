@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+@{
+    Layout = null;
+}
+
+@using AcceptPortal.Helpers;
+@using AcceptPortal.Resources;
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/bundles/bootstrap-2.3.2/css")
+    @Styles.Render("~/Content/miscellaneous")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container" id="mainHeaderContainer" style="width: 1240px;">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+
+                <a class="brand" href="@Url.Action("About", "Home")">
+                    <img id="topLogo" alt="" src="@Url.Content("~/Content/images/accept_globe_transparent_top.png")" /></a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+
+                        @if (AcceptPortal.Utils.CoreUtils.DisplayPreEdit)
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@AcceptPortal.Resources.Global.MainMenuPreEditLabel<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    @if (AcceptPortal.Utils.CoreUtils.DisplayPreEditDemo)
+                                    {
+                                        <li class="dropdown-submenu"><a href="@Url.Action("All", "Demo")">@AcceptPortal.Resources.Global.DemoLabel </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="@Url.Action("English", "Demo")">@AcceptPortal.Resources.Global.Demo_Index_EnglishDemoLabel</a></li>
+                                                <li><a href="@Url.Action("French", "Demo")">@AcceptPortal.Resources.Global.Demo_Index_FrenchDemoLabel</a></li>
+                                                <li><a href="@Url.Action("German", "Demo")">@AcceptPortal.Resources.Global.Demo_Index_GermanDemoLabel</a></li>
+                                            </ul>
+                                        </li>
+                                    }
+                                    @if (AcceptPortal.Utils.CoreUtils.DisplayLearn)
+                                    {
+                                        <li><a href="@Url.Action("Index", "Documentation", new { @section = "pre" })">@AcceptPortal.Resources.Global.MainMenuLearnLabel</a></li>
+                                    }
+                                    @if (AcceptPortal.Utils.CoreUtils.DisplayPreEditDownload)
+                                    {
+                                        <li><a href="@Url.Action("Index", "Download")">@AcceptPortal.Resources.Global.DownloadLabel</a></li>
+                                    }
+                                    @if (AcceptPortal.Utils.CoreUtils.DisplayPreEditAppCreation)
+                                    {
+                                        <li><a href="@Url.Action("UserProfile", "PreEdit")">@AcceptPortal.Resources.Global.MainMenuAPIKeysLabel</a></li>
+                                        <li><a href="@Url.Action("CreateApplication", "PreEdit")">@AcceptPortal.Resources.Global.Account_UserProfile_CreateNewLabel</a></li> 
+                                    }
+                                </ul>
+                            </li>
+                        }
+                        @if (AcceptPortal.Utils.CoreUtils.DisplayPostEdit)
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@AcceptPortal.Resources.Global.MainMenuPostEditLabel<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index", "PostEdit")">@AcceptPortal.Resources.Global.PostEditMyProjectsLabel</a></li>
+                                    @if (AcceptPortal.Utils.CoreUtils.DisplayPostEditDemo)
+                                    {
+                                        <li><a href="@Url.Action("DemoProjects", "PostEdit")">@AcceptPortal.Resources.Global.DemoProjectsLabel</a></li> 
+                                    }
+                                    <li><a href="@Url.Action("CreateProject", "PostEdit")">@AcceptPortal.Resources.Global.PostEditCreateNewProjectLabel</a></li>
+                                    @if (AcceptPortal.Utils.CoreUtils.DisplayLearn)
+                                    {
+                                        <li><a href="@Url.Action("Index", "Documentation", new { @section = "post" })">@AcceptPortal.Resources.Global.MainMenuLearnLabel</a></li>               
+                                    }
+                                </ul>
+                            </li>
+                        }
+
+                        @if (AcceptPortal.Utils.CoreUtils.DisplayEvaluation)
+                        {
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">@AcceptPortal.Resources.Global.MainMenuEvaluateLabel<b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index", "Evaluation")">@AcceptPortal.Resources.Global.PostEditMyProjectsLabel</a></li>
+                                    <li><a href="@Url.Action("Demo", "Evaluation")">@AcceptPortal.Resources.Global.EvaluationDemo </a></li>
+                                    <li><a href="@Url.Action("Create", "Evaluation")">@AcceptPortal.Resources.Global.PostEditCreateNewProjectLabel</a></li>
+                                    @if (AcceptPortal.Utils.CoreUtils.DisplayAppraise)
+                                    {
+                                        <li><a href="@Url.Action("Index", "Appraise")">@AcceptPortal.Resources.Global.AppraiseLabel</a></li>
+                                    }
+                                    @if (AcceptPortal.Utils.CoreUtils.DisplayLearn)
+                                    {
+                                        <li><a href="@Url.Action("Index", "Documentation", new { @section = "eval" })">@AcceptPortal.Resources.Global.MainMenuLearnLabel</a></li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+
+                        @if (AcceptPortal.Utils.CoreUtils.DisplayLearn)
+                        {             
+                            <li><a href="@Url.Action("Index", "Documentation", new { @section = "all" })">@AcceptPortal.Resources.Global.MainMenuLearnLabel</a></li>   
+                        }
+                    </ul>
+
+
+                    <form class="navbar-form pull-right" style="float:right;" method="post" action="@Url.Action("LogOff", "Account")">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-danger">@AcceptPortal.Resources.Global.MainMenuLogoutLabel</button>
+                    </form>
+                    @if (AcceptPortal.Utils.CoreUtils.DisplayLearn)
+                    {          
+                        <ul id="ddlHeaderFeedback" class="nav" style="float: right;">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span style="color: white;">Feedback</span></a>
+                            </li>
+                        </ul>     
+                    }
+                    <ul class="nav" style="float: right;">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe icon-white"></i>&nbsp;@AcceptPortal.Resources.Global.EvaluationLanguage<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.LanguageSelectorLink("en", "[English]", "English", new Dictionary<string, object> { { "id", "link_English" } })</li>
+                                <li>@Html.LanguageSelectorLink("fr", "[Français]", "Français", new Dictionary<string, object> { { "id", "link_Francais" } })</li>
+                                <li>@Html.LanguageSelectorLink("de", "[Deutsch]", "German", new Dictionary<string, object> { { "id", "link_German" } })</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="divMainContainerPortal"  style="background-image:url('@Url.Content("~/Content/images/world_map_black43.png")');background-repeat:no-repeat;background-position:50% 30%;min-height:800px;width:940px;">
+        <div id="divGlobalHeaderMargin" style="margin-top: 100px;">
+            @RenderSection("featured", required: false)
+            @RenderBody()
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <div class="muted credit" style="text-align: center;">
+                <div class="tablesim" style="width: 100%; margin: 0px; margin-top: 0px;">
+                    <div class="rowsim">
+                        <div class="colsim">
+                            <a href="@AcceptPortal.Utils.CoreUtils.AcceptProjectHomeUrl" target="_blank" style="text-decoration:none;">
+                                <img src="@Url.Content("~/Content/images/accept_globe_transparent_grey_151X70.png")" style="opacity:0.2;" />
+                                <img alt="" src="@Url.Content("~/Content/images/seven.png")" style="height:40px;width:60px;" />
+                                <img alt="" src="@Url.Content("~/Content/images/EU.jpg")" style="height:40px;width:60px;" />
+                            </a>
+                        </div>
+                        <div class="colsim"></div>
+                        <div class="colsim"></div>
+                    </div>
+                    <div class="rowsim">
+                        <div class="colsim">
+                            <span>@@@DateTime.UtcNow.Year</span>&nbsp;<span><a href="@Url.Action("Terms", "Documentation")" target="_blank">@AcceptPortal.Resources.Global.TermsLabel</a></span>&nbsp;&&nbsp;<span><a href="@Url.Action("Privacy", "Documentation")" target="_blank">@AcceptPortal.Resources.Global.PrivacyLabel</a>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (Request.IsAuthenticated)
+    {
+        <div id="contactable"></div>
+    }
+
+@*<!--this bundle can replace all scripts .render below-->*@
+@*@Scripts.Render("~/bundles/miscellaneous")*@
+
+    <!--jquery-->
+    @Scripts.Render("~/bundles/jquery")
+
+    <!--bootstrap-->
+    @Scripts.Render("~/bundles/bootstrap-2.3.2")
+
+    <!--global custom script-->
+    @Scripts.Render("~/bundles/global")
+
+    <!--jQuery ui-->
+    @Scripts.Render("~/Scripts/jquery-ui-1.8.24.custom.min.js")
+
+    <!-- tiny mce text editor -->
+    @Scripts.Render("~/Scripts/tiny_mce_4.0.26/tinymce.min.js")
+
+    <!-- feedback dialog -->
+    @Scripts.Render("~/Scripts/feedback/jquery.contactable.js")
+
+    <!--datatables .net-->
+    @Scripts.Render("~/Scripts/datatables/jquery.dataTables.min.js")
+    @Scripts.Render("~/Scripts/datatables/jquery.dataTablesPaging.js")
+    @Scripts.Render("~/Scripts/datatables/jquery.dataTablesFilteringDelay.js")
+
+    <!--jQuery dialog extend-->
+    @Scripts.Render("~/Scripts/jqdialogextend/jquery.dialogextend.1_0_1.js")
+
+    <!--placeholder for scripts living within views-->
+    @RenderSection("scripts", required: false)
+
+    <script type='text/javascript'>
+        var feedbackSubjectLabel = @Html.Raw(Json.Encode(@AcceptPortal.Resources.Global.FeedbackSubjectLabel));
+        var emailLabel = @Html.Raw(Json.Encode(User.Identity.Name));
+        var disclaimerLabel = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.FeedbackText));
+        var nameLabel = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.FeedbackNameLabel));
+        var submitLabel = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.FeedbackSubmitButtonMessage));
+        var messageLabel = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.FeedbackMessageLabel));
+        var mandatoryFieldMessage = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.FeedbackMandatoryFieldsMessage));
+        var messageFeedbackFailed = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.FeedbackMessageNotSent));
+        var messageFeedbackSent = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.FeedbackMessageSent));
+        var feedbackEndpointUrl = '@Url.Content("~/en-Us/Admin/UserFeedback/")';         
+    </script>
+</body>
+</html>

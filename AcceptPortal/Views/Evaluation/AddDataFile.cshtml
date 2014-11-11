@@ -1,0 +1,35 @@
+﻿@model AcceptPortal.Models.Evaluation.EvaluationProject
+
+@{
+    ViewBag.Title = "Add Data";
+}
+
+<h2>Add File</h2>
+
+@using (Html.BeginForm("AddDataFile", "Evaluation", FormMethod.Post, new { enctype = "multipart/form-data", id = 1, provider = 1, langpair =  1}))
+{
+
+    <table border="1">
+        <tr>
+            <td><b>Provider:</b></td>
+            <td>@ViewData["provider"]</td>
+        </tr>
+        <tr>
+            <td><b>Language Pair:</b></td>
+            <td>@ViewData["langpair"]</td>
+        </tr>
+        <tr>
+            <td><b>File:</b></td>
+            <td><input type="file" name="file" id="file" /></td>
+        </tr>
+        <tr>
+        <td colspan="2">
+            <input type="submit" name="uxUpload" value="Upload" /> | 
+            @Html.ActionLink("Cancel", "AddData", new { id = Model.ID })
+        </td>
+        </tr>
+    </table>
+    <input type="hidden" value="@ViewData["providerid"]" id="providerid" name="providerid" />
+    <input type="hidden" value="@ViewData["langpairid"]" id="langpairid" name="langpairid" />
+    <p>@ViewData["error"]</p>
+}

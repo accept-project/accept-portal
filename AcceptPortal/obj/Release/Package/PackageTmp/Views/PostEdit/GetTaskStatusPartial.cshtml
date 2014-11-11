@@ -1,0 +1,78 @@
+﻿@model  AcceptPortal.Models.PosEdit.TaskStatusVM
+
+@*<script type="text/javascript">
+
+    $(document).ready(function () { 
+    
+    
+    
+    
+    });
+
+</script>        *@   
+
+@if (Model.UserTaskStatus.Any())
+{
+   
+    
+     
+     var count = 0;
+        
+    
+   
+    <table border="1">
+        <tr>
+        <td width="200"><b>@AcceptPortal.Resources.Global.TaskUserTableLabel</b></td>  
+         @foreach (var task in Model.Tasks)
+         {
+         <td width="100"  title="@task">@AcceptPortal.Resources.Global.PostEditTaskLabel @{ count++; } @count</td>
+         }                         
+        </tr>
+
+  
+
+
+    @foreach (var user in Model.Users)
+    {      
+                                                              
+       <tr>
+       <td width="200">@user</td>                       
+       
+       @foreach (var task in Model.Tasks)
+       {
+
+           int currentStatus = (from w in Model.UserTaskStatus
+                                  where w.UserId == user && w.TextId == task
+                                  select w.Status).First();
+
+
+           string imgName = string.Empty;
+           string statusLabelTitle = string.Empty;
+           
+           
+           switch (currentStatus)
+           {
+               case 0: { imgName = "TaskNotStarted.png"; statusLabelTitle = @AcceptPortal.Resources.Global.TaskNotStartedLabel; } break;
+               case 1: { imgName = "taskStarted.png"; statusLabelTitle = @AcceptPortal.Resources.Global.TaskStarted; } break;
+               case 2: { imgName = "taskCompleted.png"; statusLabelTitle = @AcceptPortal.Resources.Global.TaskCompleted; } break;
+               default: { imgName = string.Empty; } break;
+           }
+           
+                                     
+         <td width="200" title="@statusLabelTitle" style="text-align:center"> <img style="padding:2px;" alt="@statusLabelTitle" height="25" width="25" src="@Url.Content("~/Content/images/"+@imgName +"")" />   </td>     
+       
+       }
+
+       
+       </tr>
+    }
+
+    </table>  
+
+    
+}
+else
+{ 
+    <h2>@AcceptPortal.Resources.Global.ProjectRevisionsNotFoundLabel</h2>
+
+}

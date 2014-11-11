@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = @AcceptPortal.Resources.Global.HomePageTitle;
+}
+
+<h2>@AcceptPortal.Resources.Global.Demo_Index_PlugInDemonstrations_Title</h2>
+
+<p style="text-align: justify;">@AcceptPortal.Resources.Global.Demo_Index_PlugInDemonstrations_ParOne</p>
+<p style="text-align: justify;">@AcceptPortal.Resources.Global.Demo_Index_PlugInDemonstrations_ParTwo<a target="_blank" href="http://www.tinymce.com/"> Tiny MCE </a>@AcceptPortal.Resources.Global.Demo_Index_PlugInDemonstrations_ParTwo_2</p>
+
+<div id="divDemosList">
+    <div id="tiles-wrapper">
+        <div class="tile">
+            <a href="@Url.Action("English", "Demo")">
+                <img  width="52" height="52" alt="Application" style="width:102px;height:102px;" src="@Url.Content("~/Content/images/demo.png")" />
+                <h3 style="margin-left: 0px;">@AcceptPortal.Resources.Global.Demo_Index_EnglishDemoLabel </h3>
+            </a>
+        </div>
+        <div class="tile">
+            <a href="@Url.Action("French", "Demo")">
+                <img  width="32" height="32" alt="Application" style="width:102px;height:102px;" src="@Url.Content("~/Content/images/demo.png")" />
+                <h3 style="margin-left: 0px;">@AcceptPortal.Resources.Global.Demo_Index_FrenchDemoLabel </h3>
+            </a>
+        </div>
+        <div class="tile">
+            <a href="@Url.Action("German", "Demo")">
+                <img  width="32" height="32" alt="Application" style="width:102px;height:102px;" src="@Url.Content("~/Content/images/demo.png")" />
+                <h3 style="margin-left: 0px;">@AcceptPortal.Resources.Global.Demo_Index_GermanDemoLabel</h3>
+            </a>
+        </div>
+    </div>
+</div>
+

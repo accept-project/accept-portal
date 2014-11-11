@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About_Index_Par1" xml:space="preserve">
+    <value>ACCEPT est un  projet collaboratif STREP, qui a pour but de développer de nouvelles méthodes et techniques visant à améliorer la traduction automatique (TA) dans le cadre des communautés Internet partageant des informations spécialisées.</value>
+  </data>
+  <data name="About_Index_Par2" xml:space="preserve">
+    <value>De nos jours, n'importe qui peut, en théorie, créer et partager des informations avec le reste du monde grâce à Internet. Et pourtant la barrière linguistique est toujours là: même si l'information est disponible, elle n'est disponible que pour ceux qui parlent la langue dans laquelle elle a été écrite. La mission d'ACCEPT est d'aider les communautés à partager leurs informations de manière plus efficace malgré la barrière linguistique, en améliorant la qualité du contenu communautaire traduit par un outil automatique.</value>
+  </data>
+  <data name="About_Index_Par3" xml:space="preserve">
+    <value>Vous voulez en savoir plus?</value>
+  </data>
+  <data name="About_Index_Par4" xml:space="preserve">
+    <value>Cliquez ici.</value>
+  </data>
+  <data name="AccountInformation" xml:space="preserve">
+    <value>Informations sur le compte</value>
+  </data>
+  <data name="Account_ApplicationDetail_Title" xml:space="preserve">
+    <value>Détails de l'application</value>
+  </data>
+  <data name="Account_ChangePassword" xml:space="preserve">
+    <value>Changer de mot de passe</value>
+  </data>
+  <data name="Account_CharactersLength" xml:space="preserve">
+    <value>caractères de long.</value>
+  </data>
+  <data name="Account_CreateApp_NewAppCreateLabel" xml:space="preserve">
+    <value>Créer</value>
+  </data>
+  <data name="Account_CreateApp_NewAppLabel" xml:space="preserve">
+    <value>Nouvelle Application</value>
+  </data>
+  <data name="Account_CreateApp_Par1" xml:space="preserve">
+    <value>Pour créer une nouvelle application, remplissez le formulaire.⏎
+Votre nouvelle application sera listée dans les détails de votre profile.⏎
+La clé API est affichée avec les détails de votre application.</value>
+  </data>
+  <data name="Account_CreateApp_Par2" xml:space="preserve">
+    <value>Souvenez-vous que votre clé API sera attachée à votre adresse IP.</value>
+  </data>
+  <data name="Account_CreateApp_Title" xml:space="preserve">
+    <value>Créer une nouvelle application</value>
+  </data>
+  <data name="Account_InformationLabel" xml:space="preserve">
+    <value>Informations sur le compte</value>
+  </data>
+  <data name="Account_Logon" xml:space="preserve">
+    <value>Connection</value>
+  </data>
+  <data name="Account_MinChars" xml:space="preserve">
+    <value>Un nouveau mot de passe doit faire au moins</value>
+  </data>
+  <data name="Account_PasswordRecoveryFailedMaessage" xml:space="preserve">
+    <value>Le changement de mot de passe a échoué. Veuillez corriger les erreurs et essayez à nouveau.</value>
+  </data>
+  <data name="Account_PasswordRecovery_Par1" xml:space="preserve">
+    <value>Saisissez votre email dans le formulaire suivant pour récupérer votre mot de passe.</value>
+  </data>
+  <data name="Account_PasswordRecovery_RecoverButton" xml:space="preserve">
+    <value>Récupérer </value>
+  </data>
+  <data name="Account_PasswordRecovery_Title" xml:space="preserve">
+    <value>Récupération du mot de passe</value>
+  </data>
+  <data name="Account_PasswordRecovery_ValidationSummary" xml:space="preserve">
+    <value>La récupération du mot de passe a échoué. Veuillez corriger les erreurs et réessayer.</value>
+  </data>
+  <data name="Account_ProviderError" xml:space="preserve">
+    <value>Le fournisseur d'authentification a renvoyé une erreur. Veuillez vérifier votre saisie et réessayer. Si le problème persiste, contactez votre administrateur système.</value>
+  </data>
+  <data name="Account_Register_CreateNewAccountLabel" xml:space="preserve">
+    <value>Créer un nouveau compte.</value>
+  </data>
+  <data name="Account_Register_Par1" xml:space="preserve">
+    <value>Utiliser le formulaire suivant pour créer un nouveau compte.</value>
+  </data>
+  <data name="Account_Register_Par2" xml:space="preserve">
+    <value>Les mots de passe doivent faire au moins {0} caractères.</value>
+  </data>
+  <data name="Account_Register_RegisterButton" xml:space="preserve">
+    <value>S'inscrire</value>
+  </data>
+  <data name="Account_Register_ValidationSummary" xml:space="preserve">
+    <value>La création du compte a échoué. Veuillez corriger les erreurs et réessayer.</value>
+  </data>
+  <data name="Account_RegistrationDialogTitle" xml:space="preserve">
+    <value>Inscription Utilisateur</value>
+  </data>
+  <data name="Account_UseFormBelow" xml:space="preserve">
+    <value>Utilisez le formulaire ci-dessous pour modifier votre mot de passe.</value>
+  </data>
+  <data name="Account_UserProfile_CreateNewLabel" xml:space="preserve">
+    <value>Créer une nouvelle application</value>
+  </data>
+  <data name="Account_UserProfile_DeleteLink" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Account_UserProfile_MyAppsLabel" xml:space="preserve">
+    <value>Mes clés d'application</value>
+  </data>
+  <data name="Account_UserProfile_NoAppsHeader" xml:space="preserve">
+    <value>Vous n'avez pas encore d'applications.</value>
+  </data>
+  <data name="Account_UserProfile_NoAppsPar1" xml:space="preserve">
+    <value>Afin d'utiliser le plug-in ACCEPT, vous aurez besoin d'une clé API. Pour obtenir une clé API, cliquez sur le bouton "Créer une nouvelle application"</value>
+  </data>
+  <data name="Account_UserProfile_ViewBagTitle" xml:space="preserve">
+    <value>Profil utilisateur</value>
+  </data>
+  <data name="AllTaskRevisionsLabel" xml:space="preserve">
+    <value>Toutes les révisions de la tâche</value>
+  </data>
+  <data name="BackToApplicationListLabel" xml:space="preserve">
+    <value>Retour </value>
+  </data>
+  <data name="BackToListLabel" xml:space="preserve">
+    <value>Retour à la liste</value>
+  </data>
+  <data name="BackToLoginPage" xml:space="preserve">
+    <value>Retour à la page de connexion</value>
+  </data>
+  <data name="BiLingualLabel" xml:space="preserve">
+    <value>Bilingue</value>
+  </data>
+  <data name="BrowserCompMessage" xml:space="preserve">
+    <value>Notre système a été testé sur les navigateurs pris en charge suivants : Microsoft Internet Explorer 8.0 +, Mozilla Firefox 11.0 +, Google Chrome 21.0 + et Safari 5.1 +.</value>
+  </data>
+  <data name="CheckProjectTasksStatusLabel" xml:space="preserve">
+    <value>Vérifier le statut des tâches du projet</value>
+  </data>
+  <data name="ConfirmNewPassword" xml:space="preserve">
+    <value>Confirmer le nouveau mot de passe</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirmer le mot de passe</value>
+  </data>
+  <data name="CurrentPassword" xml:space="preserve">
+    <value>Mot de passe actuel</value>
+  </data>
+  <data name="DemoLabel" xml:space="preserve">
+    <value>Démo</value>
+  </data>
+  <data name="Demo_ExplanationText_Par1" xml:space="preserve">
+    <value>Cette démo présente l'intégration de notre application de vérification de texte ACCEPT avec un éditeur basé sur Web (TinyMCE).
+Cet éditeur possède de nombreuses fonctionnalités mais la plupart d'entre elles ne sont pas nécessaires dans le cadre de cette démonstration.
+Vous devriez prendre connaissance du bouton vert ACCEPT, qui déclenche une vérification orthographique, grammaticale et stylistique sur le texte que vous avez saisi ou collé dans la zone de texte.</value>
+  </data>
+  <data name="Demo_ExplanationText_Par2" xml:space="preserve">
+    <value>Une fois votre texte vérifié, les résultats s'afficheront dans une fenêtre pop-up où de potentiels problèmes orthographiques, grammaticaux ou stylistiques seront soulignés. Pour les cas simples, vous pourrez afficher des suggestions en passant avec la souris sur le mot souligné, suggestions que vous pouvez utiliser afin d'améliorer votre texte. Pour les cas plus complexes, il n'y aura pas de suggestions mais vous aurez la possibilité de lire les conseils (dans les bulles) afin de décider si vous souhaitez faire des modifications dans la zone de texte même. A tout moment vous pouvez remplacer votre texte de départ avec le texte du pop-up en cliquant "Appliquer". Bonnes vérifications!</value>
+  </data>
+  <data name="Demo_Index_EnglishDemoLabel" xml:space="preserve">
+    <value>Démonstration pour l'Anglais</value>
+  </data>
+  <data name="Demo_Index_FrenchDemoLabel" xml:space="preserve">
+    <value>Démonstration pour le Français</value>
+  </data>
+  <data name="Demo_Index_GermanDemoLabel" xml:space="preserve">
+    <value>Démonstration pour l'Allemand</value>
+  </data>
+  <data name="Demo_Index_PlugInDemonstrations_ParOne" xml:space="preserve">
+    <value>Le plug-in ACCEPT peut être utilisé afin d'améliorer la qualité des textes saisis par vos utilisateurs. Ses fonctionnalités comprennent des corrections orthographiques, grammaticales et stylistiques. 
+Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément avec toute application Web. Le but est de fournir une solution qui peut être utilisée avec toute zone de texte.</value>
+  </data>
+  <data name="Demo_Index_PlugInDemonstrations_ParTwo" xml:space="preserve">
+    <value>Les démonstrations suivantes présentent l'intégration du plug-in ACCEPT avec un éditeur de texte</value>
+  </data>
+  <data name="Demo_Index_PlugInDemonstrations_ParTwo_2" xml:space="preserve">
+    <value>avec une configuration en trois langues:</value>
+  </data>
+  <data name="Demo_Index_PlugInDemonstrations_Title" xml:space="preserve">
+    <value>Démonstrations du plug-in:</value>
+  </data>
+  <data name="DoNotDisplayTranslationOptions" xml:space="preserve">
+    <value>Désactivé</value>
+  </data>
+  <data name="DownloadLabel" xml:space="preserve">
+    <value>Télécharger</value>
+  </data>
+  <data name="Download_GettingStarted" xml:space="preserve">
+    <value>Premiers pas...</value>
+  </data>
+  <data name="Download_ParagraphOne" xml:space="preserve">
+    <value>Voulez-vous intégrer votre solution avec le plug-in ACCEPT?</value>
+  </data>
+  <data name="Download_ParagraphTwo" xml:space="preserve">
+    <value>Familiarisez-vous avec $ces informations$ pour débuter.  Le plug-in ACCEPT est écrit en JavaScript et utilise les bibliothèques jQuery et jQuery UI, qui sont toutes deux inclues dans le paquet à télécharger. Vous pouvez cependant récupérer les toutes dernières versions  de  jQuery $ici$ et jQuery UI $là$. Le paquet à télécharger contient toutes les informations requises pour installer le plug-in avec plusieurs exemples. Souvenez-vous qu'afin de pouvoir utiliser le plug-in ACCEPT vous devez utiliser une clé d'API que vous pouvez télécharger $ici$.</value>
+  </data>
+  <data name="Download_Title" xml:space="preserve">
+    <value>Télécharger le plug-in ACCEPT</value>
+  </data>
+  <data name="EditPostEditProjectLabel" xml:space="preserve">
+    <value>Modifier le projet</value>
+  </data>
+  <data name="EditProjectRestrictionsLabel" xml:space="preserve">
+    <value>Les champs marqués avec * peuvent être modifiés jusqu'à l'invitation d'un utilisateur au projet. Les champs marqués avec ** ne peuvent pas être modifiés. Les champs sans * peuvent être modifiés à tout moment.</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Adresse email</value>
+  </data>
+  <data name="EmailIsRequired" xml:space="preserve">
+    <value>Le champ Email est obligatoire</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>Anglais</value>
+  </data>
+  <data name="EnterPassword" xml:space="preserve">
+    <value>Veuillez saisir nom d'utilisateur et mot de passe.</value>
+  </data>
+  <data name="EnterPassword_2" xml:space="preserve">
+    <value>si vous n'avez pas de compte.</value>
+  </data>
+  <data name="EvaluationAction" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="EvaluationActions" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="EvaluationAdd" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="EvaluationAddData" xml:space="preserve">
+    <value>Ajouter des données</value>
+  </data>
+  <data name="EvaluationAnswer" xml:space="preserve">
+    <value>Réponse</value>
+  </data>
+  <data name="EvaluationAnswers" xml:space="preserve">
+    <value>Réponses</value>
+  </data>
+  <data name="EvaluationAnswerValue" xml:space="preserve">
+    <value>Valeur</value>
+  </data>
+  <data name="EvaluationAPIKey" xml:space="preserve">
+    <value>Clé d'API</value>
+  </data>
+  <data name="EvaluationAPIKeyDomain" xml:space="preserve">
+    <value>Domaine de la clé d'API</value>
+  </data>
+  <data name="EvaluationCancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="EvaluationCategoryName" xml:space="preserve">
+    <value>Nom de la catégorie</value>
+  </data>
+  <data name="EvaluationConfirm" xml:space="preserve">
+    <value>Confirmer</value>
+  </data>
+  <data name="EvaluationConfirmation" xml:space="preserve">
+    <value>Confirmation de l'action</value>
+  </data>
+  <data name="EvaluationCreate" xml:space="preserve">
+    <value>Créer</value>
+  </data>
+  <data name="EvaluationCreateNewProject" xml:space="preserve">
+    <value>Créer nouveau projet</value>
+  </data>
+  <data name="EvaluationCreatePageTitle" xml:space="preserve">
+    <value>Créer un projet d'évaluation</value>
+  </data>
+  <data name="EvaluationDelete" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="EvaluationDeleteMessage" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer cette entrée? Les scores associés à cette entrée ne seront pas supprimés.</value>
+  </data>
+  <data name="EvaluationDeleteMessageAll" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer cet entrée? Toutes les sous-entrées seront également supprimées. Les scores associés à cette entrée ne seront pas supprimés.</value>
+  </data>
+  <data name="EvaluationDeleteProject" xml:space="preserve">
+    <value>Supprimer le projet</value>
+  </data>
+  <data name="EvaluationDeleteQuestion" xml:space="preserve">
+    <value>Supprimer la question</value>
+  </data>
+  <data name="EvaluationDeleteQuestionAnswer" xml:space="preserve">
+    <value>Supprimer la réponse à la question</value>
+  </data>
+  <data name="EvaluationDeleteQuestionCategory" xml:space="preserve">
+    <value>Supprimer la catégorie de question</value>
+  </data>
+  <data name="EvaluationDemo" xml:space="preserve">
+    <value>Démonstration de l'évaluation</value>
+  </data>
+  <data name="EvaluationDemoMetrics" xml:space="preserve">
+    <value>Statistiques de la démo</value>
+  </data>
+  <data name="EvaluationDemoOverview" xml:space="preserve">
+    <value>Cette page de démo montre comment l'API d'évaluation ACCEPT peut servir à recueillir des commentaires. Veuillez noter que dans le cadre de cette démonstration nous allons également enregistrer le type et la langue de votre navigateur lorsque vous soumettez de nouveaux commentaires. Pour afficher les statistiques de la démo, cliquez sur le lien Voir les statistiques de la démo ci-dessus.</value>
+  </data>
+  <data name="EvaluationDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="EvaluationEdit" xml:space="preserve">
+    <value>Editer</value>
+  </data>
+  <data name="EvaluationEditProject" xml:space="preserve">
+    <value>Modifier le projet d'évaluation</value>
+  </data>
+  <data name="EvaluationID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="EvaluationIndexPageTitle" xml:space="preserve">
+    <value>Projets d'évaluation</value>
+  </data>
+  <data name="EvaluationLanguage" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="EvaluationLanguages" xml:space="preserve">
+    <value>Langues</value>
+  </data>
+  <data name="EvaluationManagement" xml:space="preserve">
+    <value>Gestion de l'évaluation</value>
+  </data>
+  <data name="EvaluationMaximumLength100" xml:space="preserve">
+    <value>La longueur maximale est de 100 caractères.</value>
+  </data>
+  <data name="EvaluationMaximumLength200" xml:space="preserve">
+    <value>La longueur maximale est de 200 caractères.</value>
+  </data>
+  <data name="EvaluationMaximumLength25" xml:space="preserve">
+    <value>La longueur maximale est de 25 caractères.</value>
+  </data>
+  <data name="EvaluationMaximumLength50" xml:space="preserve">
+    <value>La longueur maximale est de 50 caractères.</value>
+  </data>
+  <data name="EvaluationMetrics" xml:space="preserve">
+    <value>Statistiques</value>
+  </data>
+  <data name="EvaluationName" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="EvaluationNoProjectsDescription" xml:space="preserve">
+    <value>Il n'y a actuellement aucun projet d'évaluation en cours</value>
+  </data>
+  <data name="EvaluationNoProjectsTitle" xml:space="preserve">
+    <value>Aucun projet d'évaluation disponible</value>
+  </data>
+  <data name="EvaluationNoQuestionsDescription" xml:space="preserve">
+    <value>Il n'y a actuellement aucune question d'évaluation ajoutée au projet.</value>
+  </data>
+  <data name="EvaluationNoQuestionsTitle" xml:space="preserve">
+    <value>Aucune question d'évaluation disponible</value>
+  </data>
+  <data name="EvaluationOrganisation" xml:space="preserve">
+    <value>Organisation</value>
+  </data>
+  <data name="EvaluationProject" xml:space="preserve">
+    <value>Projet</value>
+  </data>
+  <data name="EvaluationProjectData" xml:space="preserve">
+    <value>Données du projet d'évaluation </value>
+  </data>
+  <data name="EvaluationProjectDetails" xml:space="preserve">
+    <value>Détails du projet</value>
+  </data>
+  <data name="EvaluationProjectID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="EvaluationProjectMetrics" xml:space="preserve">
+    <value>Statistiques du projet d'évaluation</value>
+  </data>
+  <data name="EvaluationProjectName" xml:space="preserve">
+    <value>Nom du projet</value>
+  </data>
+  <data name="EvaluationProviders" xml:space="preserve">
+    <value>Fournisseurs</value>
+  </data>
+  <data name="EvaluationPublicPrivate" xml:space="preserve">
+    <value>Visibilité</value>
+  </data>
+  <data name="EvaluationQuestion" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="EvaluationQuestionCategory" xml:space="preserve">
+    <value>Nom de la catégorie</value>
+  </data>
+  <data name="EvaluationQuestionName" xml:space="preserve">
+    <value>Nom de la question</value>
+  </data>
+  <data name="EvaluationQuestions" xml:space="preserve">
+    <value>Questions</value>
+  </data>
+  <data name="EvaluationQuestionsPageTitle" xml:space="preserve">
+    <value>Questions du projet d'évaluation</value>
+  </data>
+  <data name="EvaluationRequiredField" xml:space="preserve">
+    <value>Champ obligatoire</value>
+  </data>
+  <data name="EvaluationReturnToDemoPage" xml:space="preserve">
+    <value>Retour à la page de démo</value>
+  </data>
+  <data name="EvaluationTasks" xml:space="preserve">
+    <value>Tâches</value>
+  </data>
+  <data name="EvaluationType" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="EvaluationTypeLong" xml:space="preserve">
+    <value>Type d'évaluation</value>
+  </data>
+  <data name="EvaluationUpdate" xml:space="preserve">
+    <value>Mettre à jour</value>
+  </data>
+  <data name="EvaluationView" xml:space="preserve">
+    <value>Voir</value>
+  </data>
+  <data name="EvaluationViewData" xml:space="preserve">
+    <value>Voir les données </value>
+  </data>
+  <data name="EvaluationViewDemoMetrics" xml:space="preserve">
+    <value>Voir les statistiques de la démo</value>
+  </data>
+  <data name="ForgottenPasswordLabel" xml:space="preserve">
+    <value>Mot de passe oublié ?</value>
+  </data>
+  <data name="French" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="German" xml:space="preserve">
+    <value>Allemand</value>
+  </data>
+  <data name="HomePageTitle" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="InvalidEmailAddressMessage" xml:space="preserve">
+    <value>Adresses email non-valides détectées!</value>
+  </data>
+  <data name="LabelDisplayTranslationOptions" xml:space="preserve">
+    <value>Activé</value>
+  </data>
+  <data name="LabelNo" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="LabelYes" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="LoginShortNotSucessMessage" xml:space="preserve">
+    <value>Un problème est survenu lors du changement de votre mot de passe.</value>
+  </data>
+  <data name="LoginShortSucessMessage" xml:space="preserve">
+    <value>Votre mot de passe a été changé avec succès.</value>
+  </data>
+  <data name="LoginSuccessMessage" xml:space="preserve">
+    <value>Pour finaliser votre inscription, veuillez utiliser le lien que nous vous avons adressé par email.</value>
+  </data>
+  <data name="LoginWasUnsuccessful" xml:space="preserve">
+    <value>La connexion a échoué. Veuillez corriger les erreurs et réessayer.</value>
+  </data>
+  <data name="MainMenuAboutLabel" xml:space="preserve">
+    <value>À propos</value>
+  </data>
+  <data name="MainMenuAPIKeysLabel" xml:space="preserve">
+    <value>Clés API</value>
+  </data>
+  <data name="MainMenuDownloadLabel" xml:space="preserve">
+    <value>Télécharger</value>
+  </data>
+  <data name="MainMenuEvaluateLabel" xml:space="preserve">
+    <value>Évaluer</value>
+  </data>
+  <data name="MainMenuLearnLabel" xml:space="preserve">
+    <value>Savoir +</value>
+  </data>
+  <data name="MainMenuLogoutLabel" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="MainMenuPostEditLabel" xml:space="preserve">
+    <value>Post-éditer</value>
+  </data>
+  <data name="MainMenuPreEditLabel" xml:space="preserve">
+    <value>Pré-éditer</value>
+  </data>
+  <data name="MinimumLenghtMessage" xml:space="preserve">
+    <value>Le {0} doit faire au moins {2} charactères.</value>
+  </data>
+  <data name="Model_Account_ConfirmPassword" xml:space="preserve">
+    <value>Confirmer le mot de passe</value>
+  </data>
+  <data name="Model_Account_ConfirmPasswordMustMatch" xml:space="preserve">
+    <value>Le mot de passe et sa confirmation ne sont pas identiques.</value>
+  </data>
+  <data name="Model_UserApplication_AppKey" xml:space="preserve">
+    <value>Clé d'application</value>
+  </data>
+  <data name="Model_UserApplication_AppName" xml:space="preserve">
+    <value>Nom de l'application</value>
+  </data>
+  <data name="Model_UserApplication_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Model_UserApplication_IPAddress" xml:space="preserve">
+    <value>Adresse IP </value>
+  </data>
+  <data name="Model_UserApplication_OrgName" xml:space="preserve">
+    <value>Nom de l'organisation</value>
+  </data>
+  <data name="MonoLingualLabel" xml:space="preserve">
+    <value>Monolingue</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nouveau mot de passe</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="PasswordRecoveredEnterCredsMessage" xml:space="preserve">
+    <value>Votre code d'inscription a été confirmé, veuillez maintenant saisir vos identifiants.</value>
+  </data>
+  <data name="PasswordRecoveredFailedMessage" xml:space="preserve">
+    <value>La confirmation de votre code d'inscription a échoué.</value>
+  </data>
+  <data name="PasswordRecoveredMessage" xml:space="preserve">
+    <value>Votre mot de passe a été récupéré. Veuillez vérifier votre messagerie électronique afin de trouver le lien de confirmation.</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Le champ Mot de passe est obligatoire</value>
+  </data>
+  <data name="PasswordsDontMatch" xml:space="preserve">
+    <value>Le nouveau mot de passe et sa confirmation ne sont pas identiques.</value>
+  </data>
+  <data name="PosEditBackToProjectList" xml:space="preserve">
+    <value>Retour aux projets</value>
+  </data>
+  <data name="PosEditClickToCreateTaskText" xml:space="preserve">
+    <value>Cliquez ci-dessus pour créer une nouvelle tâche.</value>
+  </data>
+  <data name="PosEditNoTasksCreatedLabel" xml:space="preserve">
+    <value>Aucune tâche créée</value>
+  </data>
+  <data name="PostEditAcceptPortalTeamLabel" xml:space="preserve">
+    <value>L'équipe du portail ACCEPT.</value>
+  </data>
+  <data name="PostEditAllProjectRevisionsLabel" xml:space="preserve">
+    <value>Toutes les révisions du projet</value>
+  </data>
+  <data name="PostEditAllProjectsCompletedText" xml:space="preserve">
+    <value>Toutes les tâches du projet sont terminées!</value>
+  </data>
+  <data name="PostEditBackToListLabel" xml:space="preserve">
+    <value>Retour à la liste</value>
+  </data>
+  <data name="PostEditCheckRevisionLabel" xml:space="preserve">
+    <value>Vérifier la révision</value>
+  </data>
+  <data name="PostEditClickAbove" xml:space="preserve">
+    <value>Cliquez ci-dessus pour créer un nouveau projet.</value>
+  </data>
+  <data name="PostEditCreateNewProjectLabel" xml:space="preserve">
+    <value>Créer un nouveau projet</value>
+  </data>
+  <data name="PostEditCreateProjectLabel" xml:space="preserve">
+    <value>Créer un projet</value>
+  </data>
+  <data name="PostEditCreateProjectTitle" xml:space="preserve">
+    <value>Créer un projet</value>
+  </data>
+  <data name="PostEditDeleteProjectDialogBody" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer ce projet?</value>
+  </data>
+  <data name="PostEditDeleteProjectDialogTitle" xml:space="preserve">
+    <value>Supprimer le projet?</value>
+  </data>
+  <data name="PostEditDeleteTaskDialogText" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer cette tâche?</value>
+  </data>
+  <data name="PostEditDeleteTaskDialogTitle" xml:space="preserve">
+    <value>Supprimer la tâche?</value>
+  </data>
+  <data name="PostEditDeleteTaskLabel" xml:space="preserve">
+    <value>Supprimer la tâche</value>
+  </data>
+  <data name="PostEditDetails" xml:space="preserve">
+    <value>Détails</value>
+  </data>
+  <data name="PostEditDisplayTranslationOptions" xml:space="preserve">
+    <value>Activer les options de traduction</value>
+  </data>
+  <data name="PostEditEmailAccountText" xml:space="preserve">
+    <value>L'adresse email associée au projet recevra un rapport contenant des informations supplémentaires concernant votre invitation.</value>
+  </data>
+  <data name="PostEditEmailAccountThankYouLabel" xml:space="preserve">
+    <value>Merci,</value>
+  </data>
+  <data name="PostEditFileNameLabel" xml:space="preserve">
+    <value>Nom de fichier:</value>
+  </data>
+  <data name="PostEditGoFillSurveyText" xml:space="preserve">
+    <value>Veuillez remplir ce questionnaire:</value>
+  </data>
+  <data name="PostEditInsertEmailsNoteText" xml:space="preserve">
+    <value>Remarque: plusieurs adresses email doivent être séparées par un point-virgule ";".</value>
+  </data>
+  <data name="PostEditInsertEmailText" xml:space="preserve">
+    <value>Veuillez insérer une ou plusieurs adresses email:</value>
+  </data>
+  <data name="PostEditInvitationsEmailBodyText" xml:space="preserve">
+    <value>Texte pour le corps de l'email d'invitation</value>
+  </data>
+  <data name="PostEditInvitationsFailedToSend" xml:space="preserve">
+    <value>Les invitations pour le projet n'ont pas été envoyées, contactez l'équipe de soutien.</value>
+  </data>
+  <data name="PostEditInviteButtonsDialogButton" xml:space="preserve">
+    <value>Inviter des utilisateurs</value>
+  </data>
+  <data name="PostEditInviteNotSentDialogTitle" xml:space="preserve">
+    <value>Invitation non envoyée</value>
+  </data>
+  <data name="PostEditInviteSentDialogTitle" xml:space="preserve">
+    <value>Invitation envoyée</value>
+  </data>
+  <data name="PostEditInviteSentParagraphOne" xml:space="preserve">
+    <value>La liste des destinataires a été informée de votre invitation pour participer à ce projet</value>
+  </data>
+  <data name="PostEditInviteUseresLabel" xml:space="preserve">
+    <value>Inviter des utilisateurs</value>
+  </data>
+  <data name="PostEditInviteUsersDialogTitle" xml:space="preserve">
+    <value>Inviter un ou plusieurs utilisateurs à ce projet:</value>
+  </data>
+  <data name="PostEditMyProjectsLabel" xml:space="preserve">
+    <value>Mes projets</value>
+  </data>
+  <data name="PostEditNoProjectsCreated" xml:space="preserve">
+    <value>Aucun projet créé</value>
+  </data>
+  <data name="PostEditOrganization" xml:space="preserve">
+    <value>Organisation</value>
+  </data>
+  <data name="PostEditProjectAdministrator" xml:space="preserve">
+    <value>Responsable du projet</value>
+  </data>
+  <data name="PostEditProjectCreatedByLabel" xml:space="preserve">
+    <value>Créé par -</value>
+  </data>
+  <data name="PostEditProjectDetail" xml:space="preserve">
+    <value>Détails du projet</value>
+  </data>
+  <data name="PostEditProjectName" xml:space="preserve">
+    <value>Nom du projet</value>
+  </data>
+  <data name="PostEditProjectNameLabel" xml:space="preserve">
+    <value>Projet -</value>
+  </data>
+  <data name="PostEditProjectNameRequired" xml:space="preserve">
+    <value>Le champ Nom du projet est obligatoire </value>
+  </data>
+  <data name="PostEditProjectOptions" xml:space="preserve">
+    <value>Options du projet</value>
+  </data>
+  <data name="PostEditProjectOwnerLabel" xml:space="preserve">
+    <value>Créateur du projet</value>
+  </data>
+  <data name="PostEditProjectQuestion" xml:space="preserve">
+    <value>Question pour le projet</value>
+  </data>
+  <data name="PostEditProjectQuestions" xml:space="preserve">
+    <value>Questions pour le projet</value>
+  </data>
+  <data name="PostEditProjectSourceLanguage" xml:space="preserve">
+    <value>Langue source du projet</value>
+  </data>
+  <data name="PostEditProjectSurveyLink" xml:space="preserve">
+    <value>Lien du questionnaire du projet</value>
+  </data>
+  <data name="PostEditProjectTargetLanguage" xml:space="preserve">
+    <value>Langue cible du projet</value>
+  </data>
+  <data name="PostEditProjectTypeLabel" xml:space="preserve">
+    <value>Type de projet</value>
+  </data>
+  <data name="PostEditSourceAndTargetLanguagesMustBeTheSame" xml:space="preserve">
+    <value>Les langues source et cible doivent être différentes!</value>
+  </data>
+  <data name="PostEditTaskEditLabel" xml:space="preserve">
+    <value>Editer</value>
+  </data>
+  <data name="PostEditTaskLabel" xml:space="preserve">
+    <value>Tâche</value>
+  </data>
+  <data name="PostEditUIConfiguration" xml:space="preserve">
+    <value>Configuration de l'interface utilisateur</value>
+  </data>
+  <data name="PostEditUploadProjectTask" xml:space="preserve">
+    <value>Transférez une tâche pour le projet</value>
+  </data>
+  <data name="PostEditUploadTaskLabel" xml:space="preserve">
+    <value>Transférez</value>
+  </data>
+  <data name="ProjectNotFoundMessage" xml:space="preserve">
+    <value>Projet introuvable, veuillez contacter son administrateur.</value>
+  </data>
+  <data name="ProjectRevisionsNotFoundLabel" xml:space="preserve">
+    <value>Les révisions du projet sont introuvables</value>
+  </data>
+  <data name="ProjectTaskStatusDialogTitle" xml:space="preserve">
+    <value>Statut des tâches du projet</value>
+  </data>
+  <data name="ProjectUpdated" xml:space="preserve">
+    <value>Projet mis à jour avec succès</value>
+  </data>
+  <data name="ProjectUpdateLabel" xml:space="preserve">
+    <value>Mise à jour du projet</value>
+  </data>
+  <data name="RecaptchaFailedMessage" xml:space="preserve">
+    <value>Vous n'avez pas saisi le bon mot de </value>
+  </data>
+  <data name="RegisterLabel" xml:space="preserve">
+    <value>Inscrivez-vous</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Se souvenir de moi?</value>
+  </data>
+  <data name="SpamFilterNote" xml:space="preserve">
+    <value>Si vous ne trouvez pas cet email dans votre boîte de réception, veuillez regarder dans votre dossier "Courrier indésirable" ou de spam.</value>
+  </data>
+  <data name="SurveyLabel" xml:space="preserve">
+    <value>Questionnaire</value>
+  </data>
+  <data name="TaskCompleted" xml:space="preserve">
+    <value>Tâche achevée</value>
+  </data>
+  <data name="TaskNotStartedLabel" xml:space="preserve">
+    <value>Tâche non commencée</value>
+  </data>
+  <data name="TaskStarted" xml:space="preserve">
+    <value>Tâche commencée</value>
+  </data>
+  <data name="TaskUploadFailedLabel" xml:space="preserve">
+    <value>Échec du transfert de la tâche!</value>
+  </data>
+  <data name="TaskUserTableLabel" xml:space="preserve">
+    <value>Tâche \ Utilisateur</value>
+  </data>
+  <data name="UpdatePostEditProjectLabel" xml:space="preserve">
+    <value>Mettre à jour le projet</value>
+  </data>
+  <data name="UploadTask_DifferentNumberOfItemsMessage" xml:space="preserve">
+    <value>Le nombre d'éléments dans les tableaux src_sentences et tgt_sentences de votre document ne sont pas identiques.</value>
+  </data>
+  <data name="UploadTask_DuplicatedTextIdMessage" xml:space="preserve">
+    <value>L'ID du texte de votre document est déjà utilisé dans ce projet. Un projet ne peut pas avoir deux documents avec la même ID.</value>
+  </data>
+  <data name="UploadTask_InvalidJsonMessage" xml:space="preserve">
+    <value>Format JSON non valide</value>
+  </data>
+  <data name="UserOrPasswordProvidedIncorrect" xml:space="preserve">
+    <value>Le nom d'utilisateur ou le mot de passe fourni est incorrect.</value>
+  </data>
+  <data name="AllowCustomUIValue" xml:space="preserve">
+    <value>L'utilisateur peut choisir de cacher/d'afficher la source</value>
+  </data>
+  <data name="AppraiseLabel" xml:space="preserve">
+    <value>Appraise</value>
+  </data>
+  <data name="CustomInterfaceConfiguration" xml:space="preserve">
+    <value>Permettre à l'utilisateur d'afficher la source</value>
+  </data>
+  <data name="DemoPage_ReplaceAllCheckBoxLabel" xml:space="preserve">
+    <value>Afficher le bouton "Remplacer Tous":</value>
+  </data>
+  <data name="DemoPage_RuleSetDDLabel" xml:space="preserve">
+    <value>Jeu de règles:</value>
+  </data>
+  <data name="Demo_ExplanationText_Par3" xml:space="preserve">
+    <value>Dans cette démo, vous avez la possibilité de changer les règles utilisées pour vérifier votre texte en choisissant l'une des options de la liste "Jeu de règles". Si vous avez un doute sur les noms des jeux de règles, utilisez la sélection par défaut. Vous avez aussi la possibilité d'afficher un bouton "Remplacer tous", qui vous permettra d'appliquer toutes les suggestions du vérificateur de manière automatique. Veuillez noter que ce bouton ne sera affiché que lorsque des suggestions seront fournies par le vérificateur. Selon la langue de votre texte, vous aurez éventuellement la possibilité d'utiliser des jeux de règles pré-définis en série.</value>
+  </data>
+  <data name="EvaluationProjectDetailLabelAddContent" xml:space="preserve">
+    <value>Ajouter du contenu</value>
+  </data>
+  <data name="EvaluationProjectDetailLabelUploadFile" xml:space="preserve">
+    <value>Transférer un fichier</value>
+  </data>
+  <data name="ExternalProjectLabel" xml:space="preserve">
+    <value>Projet externe ?</value>
+  </data>
+  <data name="FeedbackMandatoryFieldsMessage" xml:space="preserve">
+    <value>Veuillez remplir tous les champs obligatoires.</value>
+  </data>
+  <data name="FeedbackMessageLabel" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="FeedbackMessageNotSent" xml:space="preserve">
+    <value>Un problème est survenu lors de l'envoi de votre message, veuillez contacter l'administrateur du système.</value>
+  </data>
+  <data name="FeedbackMessageSent" xml:space="preserve">
+    <value>Votre message a été envoyé avec succès, merci!</value>
+  </data>
+  <data name="FeedbackNameLabel" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="FeedbackSubjectLabel" xml:space="preserve">
+    <value>Sujet</value>
+  </data>
+  <data name="FeedbackSubmitButtonMessage" xml:space="preserve">
+    <value>Envoyer</value>
+  </data>
+  <data name="FeedbackText" xml:space="preserve">
+    <value>Nous apprécions vos commentaires et nous allons vous répondre dans un délai raisonnable.</value>
+  </data>
+  <data name="MaxThresholdLabel" xml:space="preserve">
+    <value>Période de blocage maximum</value>
+  </data>
+  <data name="MyProjectDetailsLabel" xml:space="preserve">
+    <value>Mon jeton de projet</value>
+  </data>
+  <data name="NotAllowCustomUIValue" xml:space="preserve">
+    <value>L'utilisateur ne peut pas choisir de cacher/d'afficher la source</value>
+  </data>
+  <data name="ProjectAdminToken" xml:space="preserve">
+    <value>Mon jeton administrateur de projet :</value>
+  </data>
+  <data name="ProjectAdminTokenMessage" xml:space="preserve">
+    <value>Pour gérer votre projet à l'aide de l'API ACCEPT, le jeton de projet suivant doit être fourni. Ce jeton de projet est privé et vous ne devriez pas le partager.</value>
+  </data>
+  <data name="SingleRevision" xml:space="preserve">
+    <value>Projet collaboratif</value>
+  </data>
+  <data name="UserPrivateKeyBrief" xml:space="preserve">
+    <value>Afin de récupérer vos données d'utilisation de pré-édition, la clé ci-dessous doit être fournie. N'oubliez pas que cette clé utilisateur est privée et que vous ne devez pas la partager avec qui que ce soit.⏎
+Le partage de cette clé utilisateur privée avec d'autres entités pourrait compromettre des données sensibles.</value>
+  </data>
+  <data name="UserPrivateKeyLabel" xml:space="preserve">
+    <value>Clé privée</value>
+  </data>
+  <data name="OtherLanguage" xml:space="preserve">
+    <value>Autre</value>
+  </data>
+  <data name="AccountSignIn" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="LabelSave" xml:space="preserve">
+    <value>Enregistrer les modifications</value>
+  </data>
+  <data name="PosEditProjectDetail_LabelClose" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="PosEditProjectDetail_LabelManageProject" xml:space="preserve">
+    <value>Gestion de projet</value>
+  </data>
+  <data name="PosEditProjectDetail_LabelRemoveSelected" xml:space="preserve">
+    <value>Supprimer la sélection</value>
+  </data>
+  <data name="PostEditProjects_LabelDisplaySource" xml:space="preserve">
+    <value>Afficher la source</value>
+  </data>
+  <data name="PostEditProjects_LabelExternal" xml:space="preserve">
+    <value>Externe</value>
+  </data>
+  <data name="PostEditProjects_LabelSingleRevision" xml:space="preserve">
+    <value>Collaboratif</value>
+  </data>
+  <data name="UserApplication_WebSiteLabel" xml:space="preserve">
+    <value>Site Web</value>
+  </data>
+  <data name="PrivacyLabel" xml:space="preserve">
+    <value>Politique de confidentialité</value>
+  </data>
+  <data name="TermsAndConditionsLabel" xml:space="preserve">
+    <value>Conditions et données personnelles</value>
+  </data>
+  <data name="TermsAndConditionsMessage" xml:space="preserve">
+    <value>En cliquant sur le bouton « Inscrivez-vous » et en utilisant le portail ACCEPT, vous entrez dans un accord juridique et vous acceptez toutes ces &lt;a {0} target="_blank"&gt; conditions&lt;/a&gt;. Vous vous engagez également à acceptez notre &lt;a {1} target="_blank"&gt; Politique de confidentialité&lt;/a&gt;, qui détaille la manière dont les données dont collectées, utilisées et stockées.</value>
+  </data>
+  <data name="TermsLabel" xml:space="preserve">
+    <value>Conditions</value>
+  </data>
+  <data name="InteractiveCheckDisabledLabel" xml:space="preserve">
+    <value>Désactivé</value>
+  </data>
+  <data name="InteractiveCheckEnabledLabel" xml:space="preserve">
+    <value>Activé</value>
+  </data>
+  <data name="InteractiveCheckingLabel" xml:space="preserve">
+    <value>Activer la vérification interactive</value>
+  </data>
+  <data name="InteractiveCheckingMetadataLabel" xml:space="preserve">
+    <value>Jeu de règles par défaut</value>
+  </data>
+  <data name="ParaphrasingDisabledLabel" xml:space="preserve">
+    <value>Désactivé</value>
+  </data>
+  <data name="ParaphrasingEnabledLabel" xml:space="preserve">
+    <value>Activé</value>
+  </data>
+  <data name="ParaphrasingMetadataLabel" xml:space="preserve">
+    <value>ID du système de paraphrase</value>
+  </data>
+  <data name="ParaphrasingModeLabel" xml:space="preserve">
+    <value>Activer les paraphrases</value>
+  </data>
+  <data name="DemoProjectsLabel" xml:space="preserve">
+    <value>Projets de démonstration</value>
+  </data>
+  <data name="ErrorPageLabel" xml:space="preserve">
+    <value>Erreur.</value>
+  </data>
+  <data name="ErrorPageMessage" xml:space="preserve">
+    <value>Une erreur s'est produite lors du traitement de votre demande.</value>
+  </data>
+  <data name="HelpMessagePostEditDisplayTranslationOptions" xml:space="preserve">
+    <value>Indiquez si vos utilisateurs peuvent afficher d'éventuelles alternatives de traduction que vous avez inclues dans les tâches de votre projet.</value>
+  </data>
+  <data name="HelpMessagePostEditExternalProject" xml:space="preserve">
+    <value>Indiquez si vos tâches de post-édition peuvent être consultées à l'extérieur du Portail.</value>
+  </data>
+  <data name="HelpMessagePostEditInteractiveCheck" xml:space="preserve">
+    <value>Indiquez si vos utilisateurs peuvent vérifier l'orthographe et la grammaire du texte cible.</value>
+  </data>
+  <data name="HelpMessagePostEditInteractiveCheckMetadata" xml:space="preserve">
+    <value>Le cas échéant, indiquez le nom du jeu de règles à utiliser pour la vérification interactive du texte cible.</value>
+  </data>
+  <data name="HelpMessagePostEditInvitationBodyText" xml:space="preserve">
+    <value>Indiquez un éventuel texte personnalisé à utiliser pour inviter des utilisateurs à votre projet.</value>
+  </data>
+  <data name="HelpMessagePostEditMonoOrBilingual" xml:space="preserve">
+    <value>Indiquez la configuration de tâche par défaut (monolingue = aucun accès au texte source, bilingue = accès au texte source).</value>
+  </data>
+  <data name="HelpMessagePostEditOrganization" xml:space="preserve">
+    <value>Indiquez le nom de votre organisation.</value>
+  </data>
+  <data name="HelpMessagePostEditParaphrasingMetadata" xml:space="preserve">
+    <value>Le cas échéant, indiquez l'ID du système de paraphrases à utiliser.</value>
+  </data>
+  <data name="HelpMessagePostEditParaphrasingMode" xml:space="preserve">
+    <value>Indiquez si les utilisateurs peuvent déclencher des alternatives de traduction fournies par un service de paraphrases.</value>
+  </data>
+  <data name="HelpMessagePostEditProjectCommentsDDLOptionsList" xml:space="preserve">
+    <value>Indiquez si une liste déroulante de commentaires doit être associée à chaque segment. Dans l'affirmative, ajoutez le nombre d'options que vous voulez, la première option étant généralement une question qui est présentée à l'utilisateur par défaut.</value>
+  </data>
+  <data name="HelpMessagePostEditProjectDomain" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="HelpMessagePostEditProjectFinalQuestion" xml:space="preserve">
+    <value>Si nécessaire, indiquez une question à poser éventuellement à l'utilisateur une fois chaque tâche  terminée.</value>
+  </data>
+  <data name="HelpMessagePostEditProjectName" xml:space="preserve">
+    <value>Indiquez un nom de projet.</value>
+  </data>
+  <data name="HelpMessagePostEditProjectSurveyLink" xml:space="preserve">
+    <value>Si vous souhaitez que les utilisateurs remplissent un questionnaire après le projet, indiquez une URL valable.</value>
+  </data>
+  <data name="HelpMessagePostEditSingleRevisionMaxLockingPeriod" xml:space="preserve">
+    <value>Si votre projet est collaboratif,  indiquez combien de temps un utilisateur peut travailler sur une tâche jusqu'à ce qu'un autre utilisateur puisse récupérer cette tâche. Le format est HH:MM:SS, donc 00:02:00 correspond à 2 minutes.</value>
+  </data>
+  <data name="HelpMessagePostEditSingleRevisionProject" xml:space="preserve">
+    <value>Si vous souhaitez que les utilisateurs travaillent de manière collaborative sur les tâches, activez « Projet collaboratif ». Par défaut, les utilisateurs travaillent sur les tâches de manière indépendante.</value>
+  </data>
+  <data name="HelpMessagePostEditSourceLangId" xml:space="preserve">
+    <value>Indiquez la langue du texte source.</value>
+  </data>
+  <data name="HelpMessagePostEditTargetLangId" xml:space="preserve">
+    <value>Indiquez la langue du texte cible.</value>
+  </data>
+  <data name="HelpMessagePostEditUserCanCannotDisplaySource" xml:space="preserve">
+    <value>Indiquez si l'utilisateur peut afficher ou cacher le texte source (c'est-à-dire remplacer le paramètre monolingue/bilingue).</value>
+  </data>
+  <data name="LabelSequentialCheckFrenchDemo" xml:space="preserve">
+    <value>Jeux de règles en série</value>
+  </data>
+  <data name="DownloadMainMessage" xml:space="preserve">
+    <value>Familiarisez-vous avec &lt;a {0}&gt;ces informations&lt;/a&gt;  pour débuter. Le plug-in ACCEPT est écrit en JavaScript et utilise les bibliothèques jQuery et jQuery UI, qui sont toutes deux inclues dans le paquet à télécharger. Vous pouvez cependant récupérer les toutes dernières versions de jQuery  
+&lt;a target="_blank" {1}&gt;ici&lt;/a&gt; et jQuery UI &lt;a target="_blank" {2}&gt;là&lt;/a&gt;. Le paquet à télécharger contient toutes les informations requises pour installer le plug-in avec plusieurs exemples. Souvenez-vous qu'afin de pouvoir utiliser le plug-in ACCEPT vous devez utiliser une clé d'API que vous pouvez télécharger&lt;a {3}&gt; ici &lt;/a&gt;.</value>
+  </data>
+</root>

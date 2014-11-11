@@ -1,0 +1,75 @@
+﻿@model AcceptPortal.Models.User.UserApplication
+
+@{
+    ViewBag.Title = @AcceptPortal.Resources.Global.Account_ApplicationDetail_Title;
+}
+
+<h2>@AcceptPortal.Resources.Global.Account_ApplicationDetail_Title</h2>
+
+@section scripts{ 
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+}
+
+@using (Html.BeginForm("UpdateApplicationDetail", "PreEdit", Model, FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>      
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OrganizationName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OrganizationName)
+            @Html.ValidationMessageFor(model => model.OrganizationName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ApplicationName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApplicationName)
+            @Html.ValidationMessageFor(model => model.ApplicationName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ApplicationDns)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApplicationDns)
+            @Html.ValidationMessageFor(model => model.ApplicationDns)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ApplicationIp)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ApplicationIp)
+            @Html.ValidationMessageFor(model => model.ApplicationIp)
+        </div>     
+        <br />
+        <div class="editor-label">
+            @Html.LabelFor(model => model.AccessToken, new { @style="margin-bottom:0px;cursor:default;padding:0px;" })
+        </div>
+       
+        <div class="editor-field">
+       <b>    @Html.DisplayFor(model => model.AccessToken)</b>
+        
+        </div>
+          <br />
+        <p>
+            <input class="btn btn-primary" type="submit"  value="@AcceptPortal.Resources.Global.LabelSave" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink(@AcceptPortal.Resources.Global.BackToApplicationListLabel, "UserProfile")  <div><a style="color:Red;" href="@Url.Action("DeleteApplication", "PreEdit", new { apiKey = @Model.AccessToken })"> @AcceptPortal.Resources.Global.Account_UserProfile_DeleteLink</a></div>
+</div>

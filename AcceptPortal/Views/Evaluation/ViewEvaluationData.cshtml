@@ -1,0 +1,72 @@
+﻿
+@model IEnumerable<AcceptPortal.Models.Evaluation.EvaluationSimpleScore>           
+
+@{
+    ViewBag.Title = @AcceptPortal.Resources.Global.EvaluationProjectData;
+}
+
+<h2>@AcceptPortal.Resources.Global.EvaluationProjectData</h2>
+
+@section scripts{
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">$(document).ready(function (){createDataTable("#tblViewEvaluationData");});</script>
+}
+
+<div class="headerApps">   
+    <ul class="horizontal-slide">
+        <li><a class="underline-over" href="@Url.Action("Project", "Evaluation", new { Id =  ViewData["ProjectID"] })">@AcceptPortal.Resources.Global.EvaluationProject</a></li>
+        <li><a class="underline-over" href="@Url.Action("Questions", "Evaluation", new { Id = ViewData["ProjectID"] })">@AcceptPortal.Resources.Global.EvaluationQuestions</a></li>   
+        <li><a class="underline-over" href="@Url.Action("Metrics", "Evaluation", new { Id = ViewData["ProjectID"] })">@AcceptPortal.Resources.Global.EvaluationMetrics </a></li>          
+    </ul>
+</div>
+
+@if (Model != null && Model.Any())
+{
+    <table id="tblViewEvaluationData" border="1">
+        <thead>
+    <tr>
+    <th><b>ID</b></th>
+    <th><b>Language</b></th>
+    <th><b>Question</b></th>
+    <th><b>Answer</b></th>
+    <th><b>TimeStamp</b></th>
+    <th><b>Domain</b></th>
+    <th><b>Var1</b></th>
+    <th><b>Var2</b></th>
+    <th><b>Var3</b></th>
+    <th><b>Var4</b></th>
+    <th><b>Var5</b></th>
+    <th><b>Var6</b></th>
+    <th><b>Var7</b></th>
+    <th><b>Var8</b></th>
+    <th><b>Var9</b></th>
+    <th><b>Var10</b></th>
+    </tr>
+            </thead>
+        <tbody>
+    @foreach (var question in Model)
+    { 
+        <tr>
+        <td>@question.ID</td>
+        <td>@question.Language</td>
+        <td>@question.Question</td>
+        <td>@question.Answer</td>
+        <td>@question.TimeStamp</td>
+        <td>@question.Domain</td>
+        <td>@question.Var1</td>
+        <td>@question.Var2</td>
+        <td>@question.Var3</td>
+        <td>@question.Var4</td>
+        <td>@question.Var5</td>
+        <td>@question.Var6</td>
+        <td>@question.Var7</td>
+        <td>@question.Var8</td>
+        <td>@question.Var9</td>
+        <td>@question.Var10</td>
+        </tr>
+        
+    }
+            </tbody>
+    </table>
+}

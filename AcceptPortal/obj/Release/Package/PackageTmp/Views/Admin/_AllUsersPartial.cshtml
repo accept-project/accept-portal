@@ -1,0 +1,50 @@
+﻿@model SelectList
+
+
+@*@Html.DropDownList("All Users", Model)*@
+
+<div>
+<div class="ui-widget" style="float:left;">
+   <input id="txtAddUserToProject" style="width:500px;">
+</div>
+    <div><input  type="button" class="btn" style="height:25px;font-size:13px;" id="btnAddUserToProject" value="[+]" /></div>
+ </div>
+
+<style>
+
+  .ui-autocomplete
+  {
+    max-height: 100px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+    width:300px;
+    font-size:10px;
+  }
+  
+  /* IE 6 doesn't support max-height
+  * we use height instead, but this forces the menu to always be this tall
+  */
+  * html .ui-autocomplete {
+    height: 100px;
+  }
+  </style>
+
+
+<script type="text/javascript">
+    
+    /*var allUsers =
+    
+  //@@ Html.Raw(Json.Encode(ViewBag.AllUsers));
+    
+    */
+   
+    //$("#txtAddUserToProject").autocomplete({
+    //    source: allUsers
+    //});
+     
+ 
+
+  </script>
+    
+

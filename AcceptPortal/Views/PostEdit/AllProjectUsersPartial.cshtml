@@ -1,0 +1,22 @@
+﻿@model SelectList
+
+<table id="tblUsersInProject" border="1">
+    <thead>
+    <tr>       
+        <th>User Name</th>
+        <th>Remove from Project ?</th>
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (SelectListItem item in Model)
+        { 
+            
+        <tr>          
+            <td>@item.Text</td>
+            <td><input type="checkbox" class="check-project-users" value="@Html.AttributeEncode(item.Text)" /></td>
+        </tr>
+            
+        }
+
+    </tbody>
+</table>

@@ -1,0 +1,82 @@
+﻿@model AcceptPortal.Models.Evaluation.EvaluationQuestionItem
+
+@{
+    ViewBag.Title = "Evaluation Demo Metrics";
+}
+     
+
+<h1>@AcceptPortal.Resources.Global.EvaluationDemoMetrics</h1>
+
+<div class="headerApps">
+   
+    <ul class="horizontal-slide">
+        <li> <a class="underline-over" href="@Url.Action("Demo", "Evaluation")">@AcceptPortal.Resources.Global.EvaluationReturnToDemoPage</a></li>       
+   </ul>
+</div>
+
+@*<a href="@Url.Action("Demo", "Evaluation")">@AcceptPortal.Resources.Global.EvaluationReturnToDemoPage</a>
+<br />&nbsp;<br />*@
+
+@if (Model != null)
+{
+    
+        <table id="demometrics" style="width:100%">
+	        <caption>@Model.Question (@Model.Language.Name)</caption>
+	        <thead>
+		        <tr>
+			        <td></td>
+			        <th scope="col">Total</th>
+		        </tr>
+	        </thead>
+    
+	<tbody>
+    
+        @foreach (var answer in Model.Answers)
+        {
+ 		        <tr>
+			        <th scope="row">@answer.Name</th>
+			        <td>@answer.Count</td>
+		        </tr>
+        }
+                
+	</tbody>
+</table>	
+
+}
+
+@section scripts{
+
+<link href="@Url.Content("~/Scripts/Visualize/css/visualize.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Scripts/Visualize/css/visualize-light.css")" rel="stylesheet" type="text/css" />
+<script  src="@Url.Content("~/Scripts/Visualize/js/visualize.jQuery.js")" type="text/javascript"></script>	
+
+<style type="text/css">
+    
+    #demometrics table { height: 200px; margin-left: 30px;width: 500px; }
+    
+    #demometrics table {width: 500px; height: 200px; margin-left: 30px; }
+    #demometrics demometrics table.accessHide { position: absolute; left: -999999px; }
+    #demometrics td, th {  font-size: 1.2em; padding: 2px; width: 13%; }
+    #demometrics th { color: black; background-color:#f4f4f4; } 
+    #demometrics caption { font-size: 1.5em;  }
+    
+</style>
+
+<script type="text/javascript" language="javascript">
+
+    $(function () {
+        debugger;
+        $('#demometrics').visualize({ type: 'pie', height: '300px', width: '600px' });
+        $('#demometrics').visualize({ type: 'bar', width: '600px' });
+        //$('table').visualize({type: 'area', width: '420px'});
+        //$('table').visualize({type: 'line', width: '420px'});
+    });
+
+    $(document).ready(function () {
+
+        $("span.label").css("background-color", "transparent");
+        // createDataTable2("#demometrics");
+    });
+
+</script>
+}

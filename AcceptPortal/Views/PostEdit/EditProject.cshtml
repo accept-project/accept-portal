@@ -1,0 +1,383 @@
+﻿@model AcceptPortal.ViewModels.ProjectVM
+
+
+@{
+    ViewBag.Title = AcceptPortal.Resources.Global.EditPostEditProjectLabel;
+}
+
+<h2>@AcceptPortal.Resources.Global.EditPostEditProjectLabel</h2>
+
+<p style="font-size:10px;color:black;">@AcceptPortal.Resources.Global.EditProjectRestrictionsLabel</p>
+
+<div id="projectCreationPlaceholder"> 
+@using (Html.BeginForm("EditProject", "PostEdit", FormMethod.Post, new RouteValueDictionary(new { @id = "editProjectForm" })))
+{
+    @Html.ValidationSummary(true)
+    
+    <table border=0>
+    <tr>
+        <td width="200"><b>@Html.LabelFor(model => model.Project.ProjectName):</b></td>
+        <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditProjectName" class="help-tooltip" /></td>
+        <td width="200">
+          @Html.EditorFor(model => model.Project.ProjectName)
+            @Html.ValidationMessageFor(model => model.Project.ProjectName)
+        </td>
+    </tr>
+    <tr>
+    <td><b>@Html.LabelFor(model => model.Project.Organization):</b></td>
+    <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditOrganization" class="help-tooltip" /></td>
+        <td>
+             @Html.EditorFor(model => model.Project.Organization)
+            @Html.ValidationMessageFor(model => model.Project.Organization)
+   </td>
+    </tr>    
+    <tr>
+    <td><b>@Html.LabelFor(model => model.Project.ProjectDomain): **</b></td>
+    <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditProjectDomain"  class="help-tooltip" /></td>
+        <td>
+               @Html.DropDownListFor(model => model.Project.ProjectDomain, new SelectList(Model.DomainsList, "ID", "DomainName", Model.Project.ProjectDomain), new { @style = "height:35px;" })        
+
+   </td>
+    </tr>    
+    <tr>
+        <td><b>@Html.LabelFor(model => model.Project.SourceLangId): **</b></td>
+        <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditSourceLangId"  class="help-tooltip" /></td>
+       <td>
+               @Html.DropDownListFor(model => model.Project.SourceLangId, new SelectList(Model.SourceLanguageList, "ID", "Name", Model.Project.SourceLangId), new { @Id = "srcLang", @style = "height:35px;" })
+       </td>
+    </tr>
+
+     <tr>
+        <td><b>@Html.LabelFor(model => model.Project.TargetLangId): **</b></td>
+        <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditTargetLangId"  class="help-tooltip" /></td>
+         <td>
+          @Html.DropDownListFor(model => model.Project.TargetLangId, new SelectList(Model.TargetLanguageList, "ID", "Name", Model.Project.TargetLangId), new { @Id = "tgtLang", @style = "height:35px;" })             
+       </td>
+    </tr>
+
+    @if (!Model.IsProjectStarted)
+    {    
+                    
+    <tr>
+        <td><b>@Html.LabelFor(model => model.Project.InterfaceConfigurationId): *</b></td>
+       <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditMonoOrBilingual"  class="help-tooltip" /></td>
+        <td>
+          @Html.DropDownListFor(model => model.Project.InterfaceConfigurationId, new SelectList(Model.ConfigurationList, "ID", "Name", Model.Project.InterfaceConfigurationId), new { @style = "height:35px;" })      
+       </td>
+    </tr>
+         <!--Paraphrasing Service-->
+            <tr>
+            <td><b>@Html.LabelFor(model => model.Project.ParaphrasingMode):</b></td>
+            <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditParaphrasingMode"  class="help-tooltip" /></td>
+                <td>
+            @Html.DropDownListFor(model => model.Project.ParaphrasingMode, new SelectList(Model.ParaphrasingModeOptions, "ID", "Label", Model.Project.ParaphrasingMode), new { @style = "height:35px;", @id = "ddlParaphrasing" })      
+            </td>
+            </tr>
+            <tr>
+            <td><b>@Html.LabelFor(model => model.Project.ParaphrasingMetadata):</b></td>
+            <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditParaphrasingMetadata"  class="help-tooltip" /></td>
+            <td>
+            @Html.EditorFor(model => model.Project.ParaphrasingMetadata)
+            @Html.ValidationMessageFor(model => model.Project.ParaphrasingMetadata)
+            </td></tr>
+        <!--Paraphrasing Service-->
+        <!--Interactive Check-->
+          <tr>
+            <td><b>@Html.LabelFor(model => model.Project.InteractiveCheck):</b></td>
+            <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditInteractiveCheck"  class="help-tooltip" /></td>
+              <td>
+            @Html.DropDownListFor(model => model.Project.InteractiveCheck, new SelectList(Model.InteractiveCheckOptions, "ID", "Label", Model.Project.InteractiveCheck), new { @style = "height:35px;", @id = "ddlInteractiveCheck" })      
+            </td>
+            </tr>
+            <tr>
+            <td><b>@Html.LabelFor(model => model.Project.InteractiveCheckMetadata):</b></td>
+            <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditInteractiveCheckMetadata"   class="help-tooltip" /></td>
+            <td>
+            @Html.EditorFor(model => model.Project.InteractiveCheckMetadata)
+            @Html.ValidationMessageFor(model => model.Project.InteractiveCheckMetadata)
+            </td>
+            </tr>
+        <!--Interactive Check-->
+        
+            <!--Display Translation Options.-->                                        
+    <tr>
+        <td><b>@Html.LabelFor(model => model.Project.DisplayTranslationOptions): *</b></td>
+        <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditDisplayTranslationOptions"  class="help-tooltip" /></td>
+       <td>
+           @Html.DropDownListFor(model => model.Project.DisplayTranslationOptions, new SelectList(Model.UseTranslationOptions, "ID", "Label", Model.Project.DisplayTranslationOptions), new { @style = "height:35px;", @id = "ddlShowTranslationOptions" })
+       </td>
+    </tr>
+ <!--Display Translation Options.-->
+         <tr>
+        <td><b>@Html.LabelFor(model => model.Project.CustomInterfaceConfiguration):</b></td>
+       <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditUserCanCannotDisplaySource" class="help-tooltip" /></td>
+        <td>
+          @Html.DropDownListFor(model => model.Project.CustomInterfaceConfiguration, new SelectList(Model.CustomInterfaceConfigurationOptions, "ID", "Label", Model.Project.CustomInterfaceConfiguration), new { @style = "height:35px;" })      
+       </td>
+    </tr>
+        
+        <tr>
+     <td><b>@Html.LabelFor(model => model.Project.External):</b></td>
+       <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")"  data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditExternalProject" class="help-tooltip" /></td>
+        <td>
+        @if (Model.Project.External)
+        {
+             @Html.HiddenFor(x => x.Project.External)
+          @Html.CheckBoxFor(model => model.Project.External, new { @style = "height:35px;min-width:300px;width:100%;", @checked = "checked", @disabled = "disabled" })      
+        }
+        else
+        { 
+             @Html.HiddenFor(x => x.Project.External)
+            @Html.CheckBoxFor(model => model.Project.External, new { @style = "height:35px;min-width:300px;width:100%;", @checked = "", @disabled = "disabled" })      
+        }
+                   </td>
+    </tr>
+        
+                              
+    <tr>
+    <td><b>@Html.LabelFor(model => model.Project.SingleRevision):</b></td>
+    <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditSingleRevisionProject"  class="help-tooltip" /></td>
+        <td>
+     @if (Model.Project.SingleRevision)
+     {
+         @Html.HiddenFor(x => x.Project.SingleRevision)
+        @Html.CheckBoxFor(model => model.Project.SingleRevision, new { @style = "height:35px;min-width:300px;width:100%;", @checked = "checked", @id = "chkSingleRevision" })                                              
+     }
+     else
+     { 
+         @Html.HiddenFor(x => x.Project.SingleRevision)
+      @Html.CheckBoxFor(model => model.Project.SingleRevision, new { @style = "height:35px;min-width:300px;width:100%;", @checked = "", @id = "chkSingleRevision" })                                              
+     }
+    </td>     
+    </tr>
+
+    <tr>
+    <td><b>@Html.LabelFor(model => model.Project.MaxThreshold):</b></td>
+    <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditSingleRevisionMaxLockingPeriod"  class="help-tooltip" /></td>
+    <td>
+     @if (Model.Project.SingleRevision)
+     {
+        @Html.TextBox("Project.MaxThreshold", Model.Project.MaxThreshold, new { @style = "height:35px;", @id = "inputMaxThreshold" })             
+     }
+     else
+     { 
+        @Html.TextBox("Project.MaxThreshold", Model.Project.MaxThreshold, new { @style = "height:35px;", @id = "inputMaxThreshold" })             
+     }
+    </td>
+    </tr>
+ 
+     <tr>
+        <td><b>@Html.LabelFor(model => model.Project.ProjectOptions): *</b></td>
+         <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")"  data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditProjectCommentsDDLOptionsList" class="help-tooltip" /></td>
+       <td>                
+        <div class="space">
+            @Html.TextBox("txtOptions") <label id="addOptionLabel" class="space" style="cursor:pointer;">[+]</label> <label id="removeOptionLabel" class="space" style="cursor:pointer;">[-]</label>
+        </div>
+
+        <div class="space">            
+            <select multiple="multiple" id="optionsList" style="height:100px;"></select>        
+        </div>
+          @Html.HiddenFor(model => model.AllOptions, new { @id = "hddListOptions" })
+       </td>
+    </tr>
+
+     <tr>
+        <td><b>@Html.LabelFor(model => model.Project.ProjQuestion): *</b></td>
+         <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditProjectFinalQuestion"  class="help-tooltip" /></td>
+       <td>
+        @Html.EditorFor(model => model.Project.ProjQuestion)
+        @Html.ValidationMessageFor(model => model.Project.ProjQuestion)      
+       </td>
+    </tr>
+        
+    }
+    else
+    { 
+        <tr>
+        <td><b>@Html.LabelFor(model => model.Project.InterfaceConfigurationId): *</b></td>
+            <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditMonoOrBilingual"  class="help-tooltip" /></td>
+       <td>
+               @Html.DropDownListFor(model => model.Project.InterfaceConfigurationId, new SelectList(Model.ConfigurationList, "ID", "Name", Model.Project.InterfaceConfigurationId), new { @style = "height:35px;" })      
+       </td>
+        </tr>
+         <!--Paraphrasing Service-->
+            <tr>
+            <td><b>@Html.LabelFor(model => model.Project.ParaphrasingMode):</b></td>
+            <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditParaphrasingMode"  class="help-tooltip" /></td>
+                <td>
+            @Html.DropDownListFor(model => model.Project.ParaphrasingMode, new SelectList(Model.ParaphrasingModeOptions, "ID", "Label", Model.Project.ParaphrasingMode), new { @style = "height:35px;", @id = "ddlParaphrasing" })      
+            </td>
+            </tr>
+            <tr>
+            <td><b>@Html.LabelFor(model => model.Project.ParaphrasingMetadata):</b></td>
+                <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditParaphrasingMetadata"  class="help-tooltip" /></td>
+            <td>
+            @Html.EditorFor(model => model.Project.ParaphrasingMetadata)
+            @Html.ValidationMessageFor(model => model.Project.ParaphrasingMetadata)
+            </td></tr>
+        <!--Paraphrasing Service-->
+        <!--Interactive Check-->
+          <tr>
+            <td><b>@Html.LabelFor(model => model.Project.InteractiveCheck):</b></td>
+               <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditInteractiveCheck"  class="help-tooltip" /></td>
+            <td>
+            @Html.DropDownListFor(model => model.Project.InteractiveCheck, new SelectList(Model.InteractiveCheckOptions, "ID", "Label", Model.Project.InteractiveCheck), new { @style = "height:35px;", @id = "ddlInteractiveCheck" })      
+            </td>
+            </tr>
+            <tr>
+            <td><b>@Html.LabelFor(model => model.Project.InteractiveCheckMetadata):</b></td>
+                <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditInteractiveCheckMetadata"   class="help-tooltip" /></td>
+            <td>
+            @Html.EditorFor(model => model.Project.InteractiveCheckMetadata)
+            @Html.ValidationMessageFor(model => model.Project.InteractiveCheckMetadata)
+            </td>
+            </tr>
+        <!--Interactive Check-->
+        
+               <!--Display Translation Options.-->                   
+     <tr>
+        <td><b>@Html.LabelFor(model => model.Project.DisplayTranslationOptions): *</b></td>
+         <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditDisplayTranslationOptions"  class="help-tooltip" /></td>
+       <td>
+           @Html.DropDownListFor(model => model.Project.DisplayTranslationOptions, new SelectList(Model.UseTranslationOptions, "ID", "Label", Model.Project.DisplayTranslationOptions), new { @style = "height:35px;", @id = "ddlShowTranslationOptions" })
+       </td>
+        </tr>
+
+        
+        <tr>
+        <td><b>@Html.LabelFor(model => model.Project.CustomInterfaceConfiguration):</b></td>
+        <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditUserCanCannotDisplaySource" class="help-tooltip" /></td>
+       <td>
+          @Html.DropDownListFor(model => model.Project.CustomInterfaceConfiguration, new SelectList(Model.CustomInterfaceConfigurationOptions, "ID", "Label", Model.Project.CustomInterfaceConfiguration), new { @style = "height:35px;" })      
+       </td>
+    </tr>
+        
+        <tr>
+     <td><b>@Html.LabelFor(model => model.Project.External):</b></td>
+            <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")"  data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditExternalProject" class="help-tooltip" /></td>
+       <td>
+        
+        @if (Model.Project.External)
+        {
+             @Html.HiddenFor(x => x.Project.External)
+          @Html.CheckBoxFor(model => model.Project.External, new { @style = "min-width:300px;width:100%;height:35px;", @disabled = "disabled", @checked = "checked" })      
+        }
+        else
+        { 
+         @Html.HiddenFor(x => x.Project.External)
+         @Html.CheckBoxFor(model => model.Project.External, new { @style = "min-width:300px;width:100%;height:35px;", @disabled = "disabled" })      
+        }
+        
+
+       </td>
+    </tr>
+
+        <tr>
+    <td><b>@Html.LabelFor(model => model.Project.SingleRevision):</b></td>
+    <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditSingleRevisionProject"  class="help-tooltip" /></td>
+    <td>
+     @if (Model.Project.SingleRevision)
+     {
+          @Html.HiddenFor(x => x.Project.SingleRevision)
+        @Html.CheckBoxFor(model => model.Project.SingleRevision, new { @style = "min-width:300px;width:100%;height:35px;", @checked = "checked", @id = "chkSingleRevision", @disabled = "disabled" })                                              
+     }
+     else
+     { 
+          @Html.HiddenFor(x => x.Project.SingleRevision)
+      @Html.CheckBoxFor(model => model.Project.SingleRevision, new { @style = "min-width:300px;width:100%;height:35px;", @checked = "", @id = "chkSingleRevision", @disabled = "disabled" })                                              
+     }
+    </td>     
+    </tr>
+
+    <tr>
+    <td><b>@Html.LabelFor(model => model.Project.MaxThreshold):</b></td>
+    <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditSingleRevisionMaxLockingPeriod"  class="help-tooltip" /></td>
+    <td>
+     @if (Model.Project.SingleRevision)
+     {
+        @Html.TextBox("Project.MaxThreshold", Model.Project.MaxThreshold, new { @style = "height:35px;", @id = "inputMaxThreshold", @disabled = "disabled" })             
+     }
+     else
+     { 
+        @Html.TextBox("Project.MaxThreshold", Model.Project.MaxThreshold, new { @style = "height:35px;", @id = "inputMaxThreshold", @disabled = "disabled" })             
+     }
+    </td>
+    </tr>
+
+     <tr>
+        <td><b>@Html.LabelFor(model => model.Project.ProjectOptions): *</b></td>
+        <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")"  data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditProjectCommentsDDLOptionsList" class="help-tooltip" /></td>
+       <td>                
+        <div class="space">
+            @Html.TextBox("txtOptions", string.Empty, new { @readonly = "readonly" }) 
+        </div>
+
+        <div class="space">            
+            <select multiple="multiple" id="optionsList" style="height:100px;"></select>        
+        </div>
+          @Html.HiddenFor(model => model.AllOptions, new { @id = "hddListOptions" })
+       </td>
+        </tr>
+
+     <tr>
+        <td><b>@Html.LabelFor(model => model.Project.ProjQuestion): *</b></td>
+         <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditProjectFinalQuestion"  class="help-tooltip" /></td>
+       <td>
+       @Html.TextBoxFor(model => model.Project.ProjQuestion, new { @readonly = "readonly" })
+
+     
+            @Html.ValidationMessageFor(model => model.Project.ProjQuestion)      
+       </td>
+        </tr>
+    
+            
+    }
+    
+     <tr>
+        <td><b>@Html.LabelFor(model => model.Project.EmailInvitationBodyText):</b></td>
+        <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditInvitationBodyText" class="help-tooltip" /></td>
+       <td>
+            @Html.EditorFor(model => model.Project.EmailInvitationBodyText)
+            @Html.ValidationMessageFor(model => model.Project.EmailInvitationBodyText)
+       </td>
+    </tr>
+    
+     <tr>
+        <td><b>@Html.LabelFor(model => model.Project.ProjectSurvey):</b></td>
+        <td class="help"><img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.HelpMessagePostEditProjectSurveyLink"   class="help-tooltip" /></td>
+       <td>
+              @Html.EditorFor(model => model.Project.ProjectSurvey)
+            @Html.ValidationMessageFor(model => model.Project.ProjectSurvey)
+       </td>
+    </tr>
+
+
+    <tr style="display:none">
+        <td colspan="2">
+              <input id="submitProjectUpdate" style="display:none" type="submit" value="" />
+        </td>
+    </tr>
+</table>    
+}
+</div>
+
+<div style="margin:0px;float:left;padding:0px;">
+    @Html.ActionLink(@AcceptPortal.Resources.Global.PostEditBackToListLabel, "Index") <input id="btnUpdateProject" class="btn btn-primary" type="button" value="@AcceptPortal.Resources.Global.UpdatePostEditProjectLabel"  />    
+</div>
+
+@section scripts{
+<script type="text/javascript">
+    var displayTranslationOptions = @Html.Raw(Json.Encode(Model.Project.DisplayTranslationOptions));
+    var ddlOptions = @Html.Raw(Json.Encode(Model.Project.ProjectOptions));
+    var uiConfiguration = @Html.Raw(Json.Encode(Model.Project.InterfaceConfigurationId));
+    var customUIConfiguration = @Html.Raw(Json.Encode(Model.Project.CustomInterfaceConfiguration));           
+    var paraPhrasingMode = @Html.Raw(Json.Encode(Model.Project.ParaphrasingMode));
+    var interactiveCheck = @Html.Raw(Json.Encode(Model.Project.InteractiveCheck));
+    var message =  @Html.Raw(Json.Encode(@AcceptPortal.Resources.Global.PostEditSourceAndTargetLanguagesMustBeTheSame));
+    var labelOthers =  @Html.Raw(Json.Encode(@AcceptPortal.Resources.Global.OtherLanguage));
+    var englishLanguageId = 1;
+    var frenchLanguageId = 2;
+    var germanLanguageId = 3;
+</script>
+<script src="@Url.Content("~/Scripts/global/post-edit/edit-project.js")"></script>
+}

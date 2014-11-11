@@ -1,0 +1,187 @@
+﻿@model IEnumerable<AcceptPortal.Models.Admin.Project>
+
+@{
+    ViewBag.Title = AcceptPortal.Resources.Global.PostEditMyProjectsLabel;
+}
+
+@{
+    bool isUserAdmin = (User.IsInRole("Admin") || User.IsInRole("SIGAdmin"));   
+}
+
+<h2>@AcceptPortal.Resources.Global.PostEditMyProjectsLabel</h2> 
+
+@if (Model.Any())
+{
+    <div id="divMain" style="margin-top:5px;float:left;display:none;">
+    <table style="width:500px;" id="tblProjectsList" cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered dataTable" aria-describedby="example_info">
+    <thead>
+        <tr role="row">
+        <th rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 167px;"><b>@AcceptPortal.Resources.Global.EvaluationProjectName</b></th>           
+        <th rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 167px;"><b>@AcceptPortal.Resources.Global.PostEditOrganization</b></th>             
+        <th rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 167px;"><b>@AcceptPortal.Resources.Global.PostEditProjectTypeLabel</b></th>
+        <th rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 167px;"><b>@AcceptPortal.Resources.Global.PostEditProjectSourceLanguage</b></th>
+        <th rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 167px;"><b>@AcceptPortal.Resources.Global.PostEditProjectTargetLanguage</b></th>
+        
+        <th rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 167px;"><b>@AcceptPortal.Resources.Global.PostEditProjects_LabelExternal</b></th>
+        <th rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 167px;"><b>@AcceptPortal.Resources.Global.PostEditProjects_LabelSingleRevision</b></th>
+        <th rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 167px;"><b>@AcceptPortal.Resources.Global.PostEditProjects_LabelDisplaySource </b></th>
+        <th rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 167px;"><b>@AcceptPortal.Resources.Global.LabelDisplayTranslationOptions</b></th>
+        @if (isUserAdmin)
+        {
+            <th rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 167px;"><b>@AcceptPortal.Resources.Global.EvaluationQuestion</b></th>              
+            <th rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 167px;"><b>@AcceptPortal.Resources.Global.PostEditProjectOptions</b></th>
+            <th rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 167px;"><b>@AcceptPortal.Resources.Global.SurveyLabel</b></th>
+        }        
+        <th rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 167px;"><b>@AcceptPortal.Resources.Global.PostEditProjectOwnerLabel</b></th>
+        <th rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 167px;"><b>@AcceptPortal.Resources.Global.EvaluationActions</b></th>
+        </tr>
+    </thead>
+        <tbody role="alert" aria-live="polite" aria-relevant="all">
+    @foreach (var proj in Model)
+    {
+        
+        string projectType = string.Empty;
+        projectType = proj.InterfaceConfigurationId == 2 ? projectType = AcceptPortal.Resources.Global.MonoLingualLabel : projectType = AcceptPortal.Resources.Global.BiLingualLabel;
+
+        switch (proj.SourceLanguageName)
+        {
+            case "English": { proj.SourceLanguageName = AcceptPortal.Resources.Global.English; } break;
+            case "French": { proj.SourceLanguageName = AcceptPortal.Resources.Global.French; } break;
+            case "German": { proj.SourceLanguageName = AcceptPortal.Resources.Global.German; } break;                                
+        }
+        switch (proj.TargetLanguageName)
+        {
+            case "English": { proj.TargetLanguageName = AcceptPortal.Resources.Global.English; } break;
+            case "French": { proj.TargetLanguageName = AcceptPortal.Resources.Global.French; } break;
+            case "German": { proj.TargetLanguageName = AcceptPortal.Resources.Global.German; } break;
+        }                                               
+        <tr>
+        <td><a href="@Url.Action("ProjectDetail", "PostEdit", new { Id = @proj.ID })"> @proj.ProjectName</a></td>        
+        <td><b>@proj.Organization</b></td>
+        <td>@projectType</td>
+        <td>@proj.SourceLanguageName</td>
+        <td>@proj.TargetLanguageName</td>
+
+            
+           
+            @if (proj.External)
+            {
+                <td style="text-align:center"><img style="padding:0px;width:10px;height:10px;" alt="@AcceptPortal.Resources.Global.LabelYes" height="10" width="10" src="@Url.Content("~/Content/images/taskCompleted.png")" /></td>
+            }
+            else
+            {
+                <td style="text-align:center"><img style="padding:0px;width:10px;height:10px;" alt="@AcceptPortal.Resources.Global.LabelNo" height="10" width="10" src="@Url.Content("~/Content/images/taskNotStarted.png")" /></td>
+            }
+           
+            @if (proj.SingleRevision)
+            {
+                <td style="text-align:center"><img style="padding:0px;width:10px;height:10px;" alt="@AcceptPortal.Resources.Global.LabelYes" height="10" width="10" src="@Url.Content("~/Content/images/taskCompleted.png")" /></td>
+            }
+            else
+            {
+                <td style="text-align:center"><img style="padding:0px;width:10px;height:10px;" alt="@AcceptPortal.Resources.Global.LabelNo" height="10" width="10" src="@Url.Content("~/Content/images/taskNotStarted.png")" /></td>
+            }
+                     
+           
+            @if (proj.CustomInterfaceConfiguration == 1)
+            {
+                <td style="text-align:center"><img style="padding:0px;width:10px;height:10px;" alt="@AcceptPortal.Resources.Global.LabelYes" height="10" width="10" src="@Url.Content("~/Content/images/taskCompleted.png")" /></td>
+            }
+            else
+            {
+                <td style="text-align:center"><img style="padding:0px;width:10px;height:10px;width:10px;height:10px;" alt="@AcceptPortal.Resources.Global.LabelNo" height="10" width="10" src="@Url.Content("~/Content/images/taskNotStarted.png")" /></td>
+            }
+              
+            @if (proj.DisplayTranslationOptions != null && proj.DisplayTranslationOptions.ID == 2)
+            {
+                <td style="text-align:center"><img style="padding:0px;width:10px;height:10px;width:10px;height:10px;" alt="@AcceptPortal.Resources.Global.LabelNo" height="10" width="10" src="@Url.Content("~/Content/images/taskNotStarted.png")" /></td>                  
+            }
+            else
+            {
+                <td style="text-align:center"><img style="padding:0px;width:10px;height:10px;" alt="@AcceptPortal.Resources.Global.LabelYes" height="10" width="10" src="@Url.Content("~/Content/images/taskCompleted.png")" /></td>
+            }
+        
+        @if (isUserAdmin)
+        {
+
+        if (proj.ProjQuestion != null && proj.ProjQuestion.Length > 0)
+        {
+           <td style="text-align:center"><img style="padding:2px;width:10px;height:10px;" alt="@AcceptPortal.Resources.Global.LabelYes" height="10" width="10" src="@Url.Content("~/Content/images/taskCompleted.png")" /></td>
+        }
+        else
+        {
+           <td style="text-align:center"><img style="padding:2px;width:10px;height:10px;" alt="@AcceptPortal.Resources.Global.LabelNo" height="10" width="10" src="@Url.Content("~/Content/images/taskNotStarted.png")" /></td>
+        }
+        
+       if (proj.ProjectOptions != null && proj.ProjectOptions.Count > 0)
+       {
+            <td style="text-align:center"><img style="padding:2px;width:10px;height:10px;" alt="@AcceptPortal.Resources.Global.LabelYes" height="10" width="10" src="@Url.Content("~/Content/images/taskCompleted.png")" /></td>
+       }
+       else
+       {
+            <td style="text-align:center"><img style="padding:2px;width:10px;height:10px;" alt="@AcceptPortal.Resources.Global.LabelNo" height="10" width="10" src="@Url.Content("~/Content/images/taskNotStarted.png")" /></td>
+       }
+        if (proj.ProjectSurvey != null && proj.ProjectSurvey.Length > 0)
+        {
+            <td style="text-align:center"><img style="padding:2px;width:10px;height:10px;" alt="@AcceptPortal.Resources.Global.LabelYes" height="10" width="10" src="@Url.Content("~/Content/images/taskCompleted.png")" /></td>
+        }
+        else
+        {
+            <td style="text-align:center"><img style="padding:2px;width:10px;height:10px;" alt="@AcceptPortal.Resources.Global.LabelNo" height="10" width="10" src="@Url.Content("~/Content/images/taskNotStarted.png")" /></td>
+        }
+
+        }
+
+        <td>@proj.ProjectOwner</td>             
+        <td>
+          @if (proj.ProjectOwner.CompareTo(User.Identity.Name) == 0 || proj.UserRoleInProject.CompareTo("PostEditProjMaintainer") == 0)
+          {  
+              <a href="@Url.Action("ProjectDetail", "PostEdit", new { Id = @proj.ID })">@AcceptPortal.Resources.Global.PostEditDetails</a>
+              <a href="@Url.Action("EditProject", "PostEdit", new { Id = @proj.ID })">@AcceptPortal.Resources.Global.EvaluationEdit</a>                                                             
+              <a name="deleteProj_&@proj.ID" style="display:none" href="@Url.Action("DeleteProject", "PostEdit", new { Id = @proj.ID })"> @AcceptPortal.Resources.Global.Account_UserProfile_DeleteLink</a>
+              <b  id="deleteProjectAnchor&@proj.ID" style="cursor:pointer;">  @AcceptPortal.Resources.Global.Account_UserProfile_DeleteLink </b>
+          }
+          else
+          { 
+            <a href="@Url.Action("ProjectDetail", "PostEdit", new { Id = @proj.ID })">@AcceptPortal.Resources.Global.PostEditDetails</a>
+          }
+        </td>
+
+        </tr>
+    }
+        </tbody>
+    </table>  
+          </div>
+}
+else
+{         
+   <h3>@AcceptPortal.Resources.Global.PostEditNoProjectsCreated</h3>
+   <p>@AcceptPortal.Resources.Global.PostEditClickAbove</p>       
+}
+
+<div id="modalDeleteProject" title="@AcceptPortal.Resources.Global.PostEditDeleteProjectDialogTitle" style="display:none">
+	
+    <p>@AcceptPortal.Resources.Global.PostEditDeleteProjectDialogBody</p>      
+
+</div>
+
+<div id="modalProjectUpdated" title="@AcceptPortal.Resources.Global.ProjectUpdateLabel" style="display:none">
+
+<p>@if (ViewBag.ProjectName != null)
+   {@AcceptPortal.Resources.Global.PostEditProjectNameLabel @ViewBag.ProjectName;
+   } </p>
+
+<p>@if (ViewBag.ProjectUpdateMessage != null)
+   {@ViewBag.ProjectUpdateMessage;}  </p>
+
+</div>
+
+@section scripts{ 
+<script type="text/javascript">
+    var yesLabel = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.LabelYes));
+    var noLabel = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.LabelNo));
+    var updatedProjName = @Html.Raw(Json.Encode(ViewBag.ProjectName));
+</script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/datatables/datatables-bootstrap.js")" ></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/global/post-edit/demo-projects.js")"></script>
+}

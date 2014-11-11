@@ -1,0 +1,45 @@
+﻿@model AcceptPortal.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_PortalLoginLayout.cshtml";
+}
+
+<section id="loginForm">
+
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-signin" }))
+    {
+    
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(false)
+
+        @(ViewBag.LoginMessage != null ? Html.Raw("<div class=\"validation-summary-errors\"><span>" + Html.Encode(ViewBag.LoginMessage) + "</span></div>") : Html.Raw(""))
+
+            
+        <h2 class="form-signin-heading">
+            <img alt="ACCEPT" src="@Url.Content("~/Content/images/accept_globe_transparent.png")" /></h2>
+        <input for="UserName" type="text" name="UserName" class="input-block-level" placeholder="@AcceptPortal.Resources.Global.Email" value="@(ViewBag.UserName != null ? ViewBag.UserName : "")">
+        <input for="Password" type="password" name="Password" class="input-block-level" placeholder="@AcceptPortal.Resources.Global.Password">
+        <a href="@Url.Action("PasswordRecovery", "Account")" style="display:inline;float:right;">@AcceptPortal.Resources.Global.ForgottenPasswordLabel</a> 
+        <label for="RememberMe" class="checkbox">
+            @Html.CheckBoxFor(m => m.RememberMe)@AcceptPortal.Resources.Global.RememberMe
+        </label>                                        
+        <button class="btn btn-large btn-block btn-primary" type="submit">@AcceptPortal.Resources.Global.AccountSignIn</button>
+        <button onclick="location.href='@Url.Action("Register", "Account")'" class="btn btn-large btn-block" type="button">@AcceptPortal.Resources.Global.RegisterLabel</button>
+    
+        <div style="text-align: center; margin-top: 5px;">
+            <span>@@@DateTime.UtcNow.Year</span>&nbsp;<span><a href="@Url.Action("Terms", "Documentation")" target="_blank">@AcceptPortal.Resources.Global.TermsLabel</a></span>&nbsp;&&nbsp;<span><a href="@Url.Action("Privacy", "Documentation")" target="_blank">@AcceptPortal.Resources.Global.PrivacyLabel</a></span>
+
+        </div>
+
+    }
+</section>
+
+<section class="social" id="socialLoginForm" style="display: none;">
+
+    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

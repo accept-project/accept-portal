@@ -1,0 +1,148 @@
+﻿@{
+    ViewBag.Title = "German";
+}
+
+<h2>@AcceptPortal.Resources.Global.Demo_Index_GermanDemoLabel</h2>
+
+<p style="text-align:justify;">
+@AcceptPortal.Resources.Global.Demo_ExplanationText_Par1
+</p>
+
+<p  style="text-align:justify;">
+@AcceptPortal.Resources.Global.Demo_ExplanationText_Par2
+</p>
+
+<p>
+@AcceptPortal.Resources.Global.Demo_ExplanationText_Par3
+</p>
+
+
+@*
+<script  type="text/javascript" src="@Url.Content("~/Scripts/PreEdit/v1.1/accept-jquery-plugin-1.1.js")" > </script>
+<link href="http://www.accept-portal.eu/Plugin/v1.0.2/css/Accept.css" rel="stylesheet" type="text/css" />   
+*@
+
+<link href="@Url.Content("~/Content/PreEdit/v2.0/Accept.css")" rel="stylesheet" type="text/css" />  
+@section scripts{
+<script  type="text/javascript" src="@Url.Content("~/Scripts/PreEdit/v2.0/accept-jquery-plugin-2.0.js")" > </script>
+<script type="text/javascript">
+
+    var currentRuleSetName; currentRuleSetName = "Preediting-DE-EN" //"MT-preediting-DE-EN";
+    var apiUrl = @Html.Raw(Json.Encode(ViewBag.AcceptApiUrl)); 
+    var apiKey = "336c1bfb4c424454a19a96a61d9d0396";  
+
+    function populateDdList(data) 
+    {    
+        var data2 = null;
+        debugger;
+        try
+        {                     
+            data2 = jQuery.parseJSON(data);
+            if(data2 === null)
+            data2 = data
+        
+        }catch(e){}
+
+        for (var i = 0; i < data2.ResponseObject.length; i++)        
+            $("#ruleSetDdList").append("<option value=\"" + data2.ResponseObject[i] + "\">" + data2.ResponseObject[i] + "</option>");
+                                  
+        $("#ruleSetDdList").val(currentRuleSetName);
+    }
+
+  
+
+    $(document).ready(function () 
+    {
+        $("#txtAreaGermanDemo").Accept({
+            configurationType: 'tinyMceEmbedded',           
+            Lang: "de",
+            languageUi: 'de',
+            AcceptServerPath:apiUrl,
+            ApiKey:apiKey,               
+            requestFormat: "HTML",                      
+            Rule: currentRuleSetName,
+            imagesPath:'../../Content/PreEdit/v2.0/images',
+            styleSheetPath:'http://www.accept-portal.eu/Plugin/v2.0/css',		
+            editorWidth: '600px',
+            editorHeight: '400px',			
+            showManualCheck:true,            
+            getSessionUser: function () 
+            {
+                return $("#userPlaceHolder").text();
+            },
+        });
+
+        setTimeout(function () 
+        {
+        var replaceAllLabel = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.DemoPage_ReplaceAllCheckBoxLabel)); 
+        var ruleSetlLabel = @Html.Raw(Json.Encode(AcceptPortal.Resources.Global.DemoPage_RuleSetDDLabel)); 
+
+            $("#txtAreaGermanDemo_ifr").css("width", "940px")
+            
+            $("#txtAreaGermanDemo_toolbar1 tr:first").append("<td style=\"position: relative\"><span class=\"mceSeparator\" role=\"separator\" aria-orientation=\"vertical\" tabindex=\"-1\"></span></td><td><b style=\"float:left;\">&nbsp;&nbsp;"+ ruleSetlLabel +" </b><select style=\"background:#FFFFFF;font-size:x-small;\" id=\"ruleSetDdList\"></select></td><td style=\"position: relative\"><span class=\"mceSeparator\" role=\"separator\" aria-orientation=\"vertical\" tabindex=\"-1\"></span></td><td>"
+            + "<b style=\"float:left;\">&nbsp;&nbsp;"+ replaceAllLabel +" </b> &nbsp;<input type=\"checkbox\" id=\"showFixAllDDList\" name=\"\" value=\"on\"  />"            
+            + "</td>");
+            
+            if ($.browser.msie) 
+            {			   
+                var call = apiUrl + '/Core/GetLanguageRulesSet?language=de';			               						
+                var xdr = new XDomainRequest();
+                xdr.open("GET", call);
+                xdr.onload = function () {               
+                populateDdList(xdr.responseText);
+                };
+                xdr.onerror = function () {                    
+                };
+                xdr.onprogress = function () {
+                };
+                xdr.ontimeout = function () {
+                };
+                xdr.onopen = function () {                  
+            };
+            xdr.send();
+            }
+			else
+			{
+                $.ajax({
+                    type: 'GET',                    
+                    url: apiUrl + '/Core/GetLanguageRulesSet?language=de',
+                    async: false,
+                    cache: false,                                
+                    success: function (data) {
+                        debugger;
+                        populateDdList(data);
+                    }
+                });
+            }
+
+
+            $("#ruleSetDdList").change(function () {
+                $.updateRuleSet($("#ruleSetDdList option:selected").val());
+            });
+
+
+            $("#showFixAllDDList").change(function () {               
+                if ($('#showFixAllDDList').is(':checked'))
+                    $.updateShowFixAll(true);  
+                else
+                    $.updateShowFixAll(false);                
+            });
+
+         
+        }, 1000);
+
+
+    });
+
+        </script>
+    }
+      
+        
+<div style="display:block;">
+
+<textarea id="txtAreaGermanDemo" cols="20" rows="10"></textarea>
+
+</div>
+<div style="display:none;" id="userPlaceHolder">@User.Identity.Name</div>
+
+

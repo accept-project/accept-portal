@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "Appraise";
+}
+
+<div style="margin-top:0px;margin:0px;padding:0px;border:hidden;">
+<iframe src="@ViewBag.AppraiseEndpoint" scrolling="auto" style="border-style:none;border-width:0px;min-height:800px;margin:0px;width:100%;">   
+</iframe>
+</div>
+
+@section scripts{
+<script type="text/javascript">
+    $(document).ready(function(){
+    $("#divGlobalHeaderMargin").css("margin-top", "20px");    
+});    
+</script>
+}

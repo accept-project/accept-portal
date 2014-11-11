@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = @AcceptPortal.Resources.Global.HomePageTitle;
+}
+
+  
+<style type="text/css">
+
+
+  #demo-list li{border-top: 1px solid #EEEEEE;
+    clear: both;
+    list-style: none outside none;
+    margin: 0;
+   
+    }
+
+    #page-apps .apps-list li .app-details {
+    float: left;
+    margin-left: 20px;
+}
+
+#headerApps
+{
+     clear: both;
+    list-style: none outside none;
+    margin: 0;
+    min-height: 73px;
+    padding: 20px 0;
+    
+    }
+   
+/* TILES */
+#tiles-wrapper{
+    position: relative;
+    margin-top: 50px;
+    width: auto;
+    overflow: hidden;
+    text-align:center;
+}
+.tile{
+    width: 310px;
+    height: 200px;
+    margin-bottom: 0px;
+    float: left;
+    overflow: hidden;
+    background-color: transparent;
+    text-align:center;
+    border-width:thin;
+    border-style:solid;
+    border-color:#E4E4E3;
+    margin:0px;
+    padding:0px;
+}
+
+    h4
+    {
+        padding:0px;
+    
+    }
+
+</style>
+
+         
+<h2>@AcceptPortal.Resources.Global.Demo_Index_PlugInDemonstrations_Title</h2>
+
+<p style="text-align:justify;">@AcceptPortal.Resources.Global.Demo_Index_PlugInDemonstrations_ParOne</p>
+<p style="text-align:justify;">@AcceptPortal.Resources.Global.Demo_Index_PlugInDemonstrations_ParTwo<a target="_blank"  href="http://www.tinymce.com/"> Tiny MCE </a>@AcceptPortal.Resources.Global.Demo_Index_PlugInDemonstrations_ParTwo_2</p>
+<div id="divDemosList">
+@*<ul id="demo-list">
+
+<li> <a href="@Url.Action("English", "Demo")"> <img  width="32" height="32" alt="Application" style="float:left;width:32px;height:32px;" src="@Url.Content("~/Content/images/demo.png")" />  <h2> @AcceptPortal.Resources.Global.Demo_Index_EnglishDemoLabel </h2></a>   </li>
+<li> <a href="@Url.Action("French", "Demo")"><img  width="32" height="32" alt="Application" style="float:left;width:32px;height:32px;" src="@Url.Content("~/Content/images/demo.png")" />   <h2> @AcceptPortal.Resources.Global.Demo_Index_FrenchDemoLabel </h2> </a>   </li>
+<li> <a href="@Url.Action("German","Demo")"> <img  width="32" height="32" alt="Application" style="float:left;width:32px;height:32px;" src="@Url.Content("~/Content/images/demo.png")" />  <h2> @AcceptPortal.Resources.Global.Demo_Index_GermanDemoLabel</h2>  </a> </li>
+
+</ul>*@
+
+    <div id="tiles-wrapper">
+    <div class="tile">
+
+        <a href="@Url.Action("English", "Demo")"> <img  width="52" height="52" alt="Application" style="width:102px;height:102px;" src="@Url.Content("~/Content/images/demo.png")" />  <h3 style="margin-left:0px;"> @AcceptPortal.Resources.Global.Demo_Index_EnglishDemoLabel </h3></a>
+
+    </div>
+    <div class="tile">
+         <a href="@Url.Action("French", "Demo")"><img  width="32" height="32" alt="Application" style="width:102px;height:102px;" src="@Url.Content("~/Content/images/demo.png")" />   <h3 style="margin-left:0px;"> @AcceptPortal.Resources.Global.Demo_Index_FrenchDemoLabel </h3> </a>   
+
+    </div>
+    <div class="tile">
+        <a href="@Url.Action("German","Demo")"> <img  width="32" height="32" alt="Application" style="width:102px;height:102px;" src="@Url.Content("~/Content/images/demo.png")" />  <h3 style="margin-left:0px;"> @AcceptPortal.Resources.Global.Demo_Index_GermanDemoLabel</h3>  </a> 
+    </div>
+
+    </div>
+
+
+</div>
+
