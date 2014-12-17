@@ -41,3 +41,15 @@ To do so:
 
 4- In Visual Studio Open the Scripts folder and look for each inner folder readme.txt file. within each of them there is specific information on how to solve the dependency.    
  
+Compiling the Solution:
+=======================
+
+If all dependencies and respective references are resolved, the solution can now be successfully compiled.
+
+#How to compile:
+Within the Solution Explorer very top find the solution label: “Solution ‘AcceptPortal’” and right click it, then click “Build”.
+
+Deploying the Solution:
+=======================
+
+There are more than one way to deploy .Net projects: http://www.asp.net/mvc/overview/deployment
