@@ -26,5 +26,18 @@ Note: If for any reason that does not happen, then:
 
 - Within the package manager console Tab, type the following command: “Install packages.config”, when the command completes, right click over “AcceptPortal”(within the Solution Explorer), and click compile.
 
+Solving JavaScript Dependencies:
+================================
 
+Currently these dependencies need to be resolved and then referenced within the project manually.
+
+To do so:
+
+1- Within the "...\packages" folder, search for all JavaScript files you can find, then copy and paste them within the "Scripts"("...\AcceptPortal\Scripts") folder.
+
+2- Back to Visual Studio, within the Solution Explorer, right click over the "Scripts" folder and click "Add", then click "Existing Item...".
+
+3- Select all previously copied JavaScript files and click "Add".
+
+4- In Visual Studio Open the Scripts folder and look for each inner folder readme.txt file. within each of them there is specific information on how to solve the dependency.    
  
