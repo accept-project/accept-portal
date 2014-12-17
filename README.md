@@ -22,7 +22,7 @@ Solving the ACCEPT Portal Project Dependencies:
 
 - Compiling the solution will automatically resolve the missing dependencies.
 
-Note: If for any reason that does not happen, then:
+Note: If for any reason it does not happen, then:
 
 - Within the package manager console Tab, type the following command: “Install packages.config”, when the command completes, right click over “AcceptPortal”(within the Solution Explorer), and click compile.
 
