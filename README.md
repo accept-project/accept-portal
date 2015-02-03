@@ -49,3 +49,7 @@ Within the Solution Explorer very top find the solution label: “Solution ‘Ac
 #Deploying the Solution:
 
 There are more than one way to deploy .Net projects: http://www.asp.net/mvc/overview/deployment
+
+#Initialization Process(Important!):
+
+1. Make sure to add the ACCEPT API URL in the [Configuration file](https://github.com/accept-project/accept-portal/blob/master/AcceptPortal/Web.config), it should be placed within the application setting named as "AcceptPortalApiPath".
