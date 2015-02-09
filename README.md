@@ -1,6 +1,12 @@
 ACCEPT Portal
 =============
 
+#Citing
+
+If you use the ACCEPT Portal in your research work, please cite:
+
+Seretan, V., Roturier, J., Silva, D. & Bouillon, P. 2014. "The ACCEPT Portal: An Online Framework for the Pre-editing and Post-editing of User-Generated Content". In Proceedings of the Workshop on Humans and Computer-Assisted Translation, pp. 66-71, Gothenburg, Sweden, April. ([Bib file](https://raw.githubusercontent.com/accept-project/accept-portal/master/cite.bib))
+
 #Configuration and Deployment instructions. 
 
 ##Getting Started:
