@@ -62,5 +62,5 @@ There are more than one way to deploy .Net projects: http://www.asp.net/mvc/over
 
 ###Support Contact
 Any issue/question on the ACCEPT Portal can be posted
- [here](https://github.com/accept-project/accept-post-edit/issues).
+ [here](https://github.com/accept-project/accept-portal/issues).
 Or contact me directly via davidluzsilva@gmail.com
