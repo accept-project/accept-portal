@@ -7,53 +7,184 @@
 <h2>@AcceptPortal.Resources.Global.EvaluationCreatePageTitle</h2>
 
 
+<style type="text/css">
+    .tooltip
+    {
+        font-size: 16px;
+    }
+</style>
+
 @section scripts{
-<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $(".help-tooltip").attr("data-placement", "left");
+            $(".help-tooltip").tooltip();
+
+            $("#ddlEvaluationType").change(function () {
+                if ($("#ddlPostEditProjects").attr("readonly") == "readonly") {
+                    $('#ddlPostEditProjects').removeAttr('disabled');
+                    $('#ddlPostEditProjects').removeAttr('readonly');
+
+                    $('#ddlEvalMethod').removeAttr('disabled');
+                    $('#ddlEvalMethod').removeAttr('readonly');
+
+                    $('#ddlDuplicationLogic').removeAttr('disabled');
+                    $('#ddlDuplicationLogic').removeAttr('readonly');
+
+                    $('#chkIncludeOwner').removeAttr('checked');
+                    $('#chkIncludeOwner').removeAttr('disabled');
+                    $('#chkIncludeOwner').removeAttr('readonly');
+
+                    $('#emailCustombody').removeAttr('disabled');
+                    $('#emailCustombody').removeAttr('readonly');
+
+                    $("#Domain").val("www.accept-portal.eu");
+                    $('#Domain').attr("readonly", "readonly");
+                    $('#Domain').attr("disabled", "disabled");
+
+                } else {
+                    $("#ddlPostEditProjects").val('-1');
+                    $("#ddlPostEditProjects").attr("readonly", "readonly");
+                    $("#ddlPostEditProjects").attr("disabled", "disabled");
+
+                    $("#ddlEvalMethod").val('0');
+                    $('#ddlEvalMethod').attr("readonly", "readonly");
+                    $('#ddlEvalMethod').attr("disabled", "disabled");
+
+                    $("#ddlDuplicationLogic").val('0');
+                    $('#ddlDuplicationLogic').attr("readonly", "readonly");
+                    $('#ddlDuplicationLogic').attr("disabled", "disabled");
+
+                    $('#chkIncludeOwner').removeAttr('checked');
+                    $('#chkIncludeOwner').attr("readonly", "readonly");
+                    $('#chkIncludeOwner').attr("disabled", "disabled");
+
+                    $("#emailCustombody").val('');
+                    $("#emailCustombody").attr("readonly", "readonly");
+                    $("#emailCustombody").attr("disabled", "disabled");
+
+                    $("#Domain").val("");
+                    $('#Domain').removeAttr('disabled');
+                    $('#Domain').removeAttr('readonly');
+                }
+            });
+            $("form").submit(function (e) {
+                if ($("#ddlEvaluationType").val() == 1 && $("#ddlPostEditProjects").val() < 0) {
+                    e.preventDefault(); alert("Select a valid project...");
+                }
+            });
+        });
+    </script>
 }
 
 <div>
 
-@using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
 
     
- <table border=1 style="border-bottom-width:0px;">
-    <tr>
-        <td width="200"><b>@AcceptPortal.Resources.Global.EvaluationName:</b></td>
-        <td width="200">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
-        </td>
-    </tr>
-    <tr>
-    <td><b>@AcceptPortal.Resources.Global.EvaluationDescription:</b></td>
-    <td>
-             @Html.EditorFor(model => model.Description)
-            @Html.ValidationMessageFor(model => model.Description)
-   </td>
-    </tr>    
-    <tr>
-    <td><b>@AcceptPortal.Resources.Global.EvaluationOrganisation:</b></td>
-    <td>
-             @Html.EditorFor(model => model.Organization)
-            @Html.ValidationMessageFor(model => model.Organization)
-   </td>
-    </tr>    
-    <tr>
-        <td><b>@AcceptPortal.Resources.Global.EvaluationAPIKeyDomain:</b></td>
-       <td>
-                 @Html.EditorFor(model => model.Domain)
-                @Html.ValidationMessageFor(model => model.Domain)
-       </td>
-    </tr>
-   
-</table>    
-    <div style="margin-top:15px;">
-        <input class="btn btn-primary" type="submit" value="@AcceptPortal.Resources.Global.EvaluationCreate" /> | @Html.ActionLink(@AcceptPortal.Resources.Global.EvaluationCancel, "Index")
+        <table border="1" style="border-bottom-width: 0px;">
+            <tr>
+                <td width="200">
+                    <img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.EvaluationProjectCreationDescriptionLabel"  class="help-tooltip" style="margin:2px;margin-bottom:4px;" />
+                    <b>@AcceptPortal.Resources.Global.EvaluationName:</b></td>
+                <td width="200">
+                    @Html.EditorFor(model => model.Name)
+                    @Html.ValidationMessageFor(model => model.Name)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.EvaluationProjectDescriptionLabel"  class="help-tooltip" style="margin:2px;margin-bottom:4px;" />
+                    <b>@AcceptPortal.Resources.Global.EvaluationDescription:</b></td>
+                <td>
+                    @Html.EditorFor(model => model.Description)
+                    @Html.ValidationMessageFor(model => model.Description)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.EvaluationProjectOrganizationDescriptionLabel"  class="help-tooltip" style="margin:2px;margin-bottom:4px;" />
+                    <b>@AcceptPortal.Resources.Global.EvaluationOrganisation:</b></td>
+                <td>
+                    @Html.EditorFor(model => model.Organization)
+                    @Html.ValidationMessageFor(model => model.Organization)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.EvaluationProjectApiKeyDescriptionLabel"  class="help-tooltip" style="margin:2px;margin-bottom:4px;" />
+                    <b>@AcceptPortal.Resources.Global.EvaluationAPIKeyDomain:</b></td>
+                <td>
+                    @Html.EditorFor(model => model.Domain)
+                    @Html.ValidationMessageFor(model => model.Domain)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.EvaluationProjectTypeLabel"  class="help-tooltip" style="margin:2px;margin-bottom:4px;" />
+                    <b>@AcceptPortal.Resources.Global.EvaluationProjectTypeLabel:</b></td>
+                <td>
+                    @Html.DropDownListFor(model => model.EvaluationType, new SelectList(ViewBag.EvaluationProjectType, "Value", "Text"), new { @Id = "ddlEvaluationType" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.EvaluationInternalProjectDescription"  class="help-tooltip" style="margin:2px;margin-bottom:4px;" />
 
-    </div>
+                    <b>@AcceptPortal.Resources.Global.EvaluationProjectReferencePostEditProjectLabel:</b></td>
+                <td>
+                    @Html.DropDownListFor(model => model.PostEditProjectId, new SelectList(ViewBag.PostEditProjects, "Value", "Text"), new { @Id = "ddlPostEditProjects", @readonly = "readonly", @disabled = "disabled" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.EvaluationMethodDescriptionLabel"  class="help-tooltip" style="margin:2px;margin-bottom:4px;" />
+                    <b>@AcceptPortal.Resources.Global.EvaluationMethodLabel:</b></td>
+                <td>
+                    @Html.DropDownListFor(model => model.EvaluationMethod, new SelectList(ViewBag.EvaluationMethods, "Value", "Text"), new { @Id = "ddlEvalMethod", @readonly = "readonly", @disabled = "disabled" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.EvaluationAvoidDuplicationsDescriptionLabel"  class="help-tooltip" style="margin:2px;margin-bottom:4px;" />
+                    <b>@AcceptPortal.Resources.Global.DuplicationLogicLabel:</b></td>
+                <td>
+                    @Html.DropDownListFor(model => model.DuplicationLogic, new SelectList(ViewBag.DuplicationApproachOptions, "Value", "Text"), new { @Id = "ddlDuplicationLogic", @readonly = "readonly", @disabled = "disabled" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.EvaluationIncludeOwnerDescriptionLabel"  class="help-tooltip" style="margin:2px;margin-bottom:4px;" />
+                    <b>@AcceptPortal.Resources.Global.IncludeOwnerRevisionLabel:</b></td>
+                <td>
+                    @Html.CheckBoxFor(model => model.IncludeOwnerRevision, new { @id = "chkIncludeOwner", @readonly = "readonly", @disabled = "disabled" })
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="@Url.Content("~/Content/images/circle_help.png")" data-original-title="@AcceptPortal.Resources.Global.EvaluationEmailInvitationDescriptionLabel"  class="help-tooltip" style="margin:2px;margin-bottom:4px;" />
+                    <b>@AcceptPortal.Resources.Global.CustomEmailBodyLabel:</b></td>
+                <td>
+                    @Html.TextAreaFor(model => model.CustomEmailBody, new { @id = "emailCustombody", @readonly = "readonly", @disabled = "disabled" })
+                </td>
+            </tr>
+
+
+        </table>    
+        <div style="margin-top: 15px;">
+            <input class="btn btn-primary" type="submit" value="@AcceptPortal.Resources.Global.EvaluationCreate" />
+            | @Html.ActionLink(@AcceptPortal.Resources.Global.EvaluationCancel, "Index")
+
+        </div>
     
-}
-
-    </div>
+    }
+</div>

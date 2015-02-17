@@ -66,6 +66,53 @@ namespace AcceptPortal.Utils
         }
 
         /// <summary>
+        /// Post JSON
+        /// </summary>
+        /// <param name="url">URL endpoint</param>
+        /// <param name="contentType">The content type http header</param>
+        /// <returns>JSON string</returns>
+        public static string PostJson(string url, string contentType)
+        {
+
+            string _json = "";
+
+            var request = (HttpWebRequest)WebRequest.Create(url);
+            request.ContentType = contentType;
+            request.Method = "POST";
+            request.Accept = "*/*";
+
+            ServicePointManager.ServerCertificateValidationCallback = new System.Net.Security.RemoteCertificateValidationCallback(AcceptAllCertifications);
+
+            try
+            {
+
+                using (var response = request.GetResponse() as HttpWebResponse)
+                {
+                    if (response != null)
+                    {
+                        var reader = new StreamReader(response.GetResponseStream());
+                        _json = reader.ReadToEnd();
+                        response.Close();
+                    }
+                    else
+                    {
+                        //TODO
+                    }
+                }
+            }
+            catch (WebException e)
+            {
+                //TODO
+            }
+            catch (Exception e)
+            {
+                string errormessage = e.Message;
+            }
+            return _json;
+        }
+
+
+        /// <summary>
         /// GET JSON
         /// </summary>
         /// <param name="url">URL endpoint</param>

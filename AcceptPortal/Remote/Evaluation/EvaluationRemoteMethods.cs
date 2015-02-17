@@ -4,7 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.Script.Serialization;
 using AcceptPortal.Models.Evaluation;
+using AcceptPortal.Models.PosEdit;
 using AcceptPortal.Utils;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace AcceptPortal.Remote.Evaluation
 {
@@ -12,19 +15,19 @@ namespace AcceptPortal.Remote.Evaluation
     {
         #region evaluation
 
-        public static EvaluationProject CreateEvaluationProject(string evalProjectName, string description, string org, string domain, string requestor)
+        public static EvaluationProject CreateEvaluationProject(string evalProjectName, string description, string org, string domain, string requestor, string type, string postEditProjectId, string evaluationMethod, string duplicationLogic, string includeOwnerRevision, string emailBody)
         {
-
             try
             {
-                string jSonResponse = WebUtils.PostJson(CoreUtils.CreateEvaluationProjectPath, string.Format(CoreUtils.CreateEvaluationProjectJsonBody, evalProjectName, description, org, domain, requestor), "application/json");
+                string jSonResponse = WebUtils.PostJson(CoreUtils.CreateEvaluationProjectPath, string.Format(CoreUtils.CreateEvaluationProjectJsonBody, evalProjectName, description, org, domain, requestor, type, postEditProjectId, evaluationMethod, duplicationLogic, includeOwnerRevision, emailBody), "application/json");
 
                 if (jSonResponse.Length > 0)
                 {
                     var serializer = new JavaScriptSerializer();
                     serializer.RegisterConverters(new[] { new DynamicJsonConverter() });
+
                     dynamic obj = serializer.Deserialize(jSonResponse, typeof(object));
-                    if (obj.ResponseStatus == "OK" && obj.ResponseObject.Count > 0)
+                    if (obj.ResponseStatus == "OK" && obj.ResponseObject != null)
                     {
                         return new EvaluationProject(obj.ResponseObject.Id, obj.ResponseObject.Name, obj.ResponseObject.Description,
                             obj.ResponseObject.Organization, obj.ResponseObject.ApiKey, obj.ResponseObject.Domain, obj.ResponseObject.CreationDate);
@@ -40,13 +43,15 @@ namespace AcceptPortal.Remote.Evaluation
             }
         }
 
-        public static EvaluationProject UpdateEvaluationProject(int projectId, string evalProjectName, string description, string org, string apiKey, string domain)
+        public static EvaluationProject UpdateEvaluationProject(int projectId, string evalProjectName, string description,
+             string org, string apiKey, string domain, string type, string postEditProjectId,
+             string evaluationMethod, string duplicationLogic, string includeOwnerRevision, string emailBody)
         {
 
             try
             {
                 string jSonResponse;
-                string jsonRequest = string.Format(CoreUtils.UpdateEvaluationProjectJsonBody, evalProjectName, description, org, apiKey, domain);
+                string jsonRequest = string.Format(CoreUtils.UpdateEvaluationProjectJsonBody, evalProjectName, description, org, apiKey, domain, type, postEditProjectId, evaluationMethod, duplicationLogic, includeOwnerRevision, emailBody);
                 string apiUrl = string.Format(CoreUtils.UpdateEvaluationProjectPath, projectId);
                 jSonResponse = WebUtils.PostJson(apiUrl, jsonRequest, "application/json");
 
@@ -336,8 +341,16 @@ namespace AcceptPortal.Remote.Evaluation
                     dynamic obj = serializer.Deserialize(jSonResponse, typeof(object));
                     if (obj.ResponseStatus == "OK")
                     {
+                        //return new EvaluationProject(obj.ResponseObject.Id, obj.ResponseObject.Name,
+                        //obj.ResponseObject.Description, obj.ResponseObject.Organization, obj.ResponseObject.ApiKey, obj.ResponseObject.Domain, obj.ResponseObject.CreationDate, obj.ResponseObject.AdminToken);
+                        #region EvaluationInternal
                         return new EvaluationProject(obj.ResponseObject.Id, obj.ResponseObject.Name,
-                            obj.ResponseObject.Description, obj.ResponseObject.Organization, obj.ResponseObject.ApiKey, obj.ResponseObject.Domain, obj.ResponseObject.CreationDate, obj.ResponseObject.AdminToken);
+                            obj.ResponseObject.Description, obj.ResponseObject.Organization, obj.ResponseObject.ApiKey, obj.ResponseObject.Domain,
+                            obj.ResponseObject.CreationDate,
+                            obj.ResponseObject.AdminToken, obj.ResponseObject.Type, obj.ResponseObject.PostEditProjectReferenceId, obj.ResponseObject.PostEditProjectEvaluationMethod,
+                            obj.ResponseObject.PostEditProjectDuplicationLogic, obj.ResponseObject.IncludePostEditProjectOwner, obj.ResponseObject.EmailBodyMessage, obj.ResponseObject.Creator.UserName);
+
+                        #endregion
                     }
                 }
 
@@ -676,7 +689,195 @@ namespace AcceptPortal.Remote.Evaluation
         }
 
         #endregion
-    
-    
+
+        #region EvaluationInternal - and not forget the body of the api methods within the config...
+
+        public static InternalEvaluationAudit InsertEvaluationAudit(string token, string user, string status)
+        {
+            try
+            {
+                string jSonResponse = WebUtils.PostJson(string.Format(CoreUtils.InternalEvaluationAuditPath, token, user, status), "application/json");
+                if (jSonResponse.Length > 0)
+                {
+                    var serializer = new JavaScriptSerializer();
+                    serializer.RegisterConverters(new[] { new DynamicJsonConverter() });
+                    dynamic obj = serializer.Deserialize(jSonResponse, typeof(object));
+                    if (obj.ResponseStatus != null && obj.ResponseStatus == "OK")
+                    {
+                        return new InternalEvaluationAudit(obj.ResponseObject.Id,
+                            obj.ResponseObject.ProjectToken, obj.ResponseObject.UserName,
+                            obj.ResponseObject.CreationDate, obj.ResponseObject.Status, obj.ResponseObject.Meta);
+
+                    }
+                }
+
+                return null;
+            }
+            catch (Exception e)
+            {
+                throw (e);
+            }
+        }
+
+        public static List<InternalEvaluationAudit> GetInternalEvaluationAudits(string token, string user, string status)
+        {
+            try
+            {
+                string jSonResponse = WebUtils.GetJson(string.Format(CoreUtils.InternalEvaluationAuditPath, token, user, status, string.Empty), "application/json");
+                if (jSonResponse.Length > 0)
+                {
+                    var serializer = new JavaScriptSerializer();
+                    serializer.RegisterConverters(new[] { new DynamicJsonConverter() });
+                    dynamic obj = serializer.Deserialize(jSonResponse, typeof(object));
+                    if (obj.ResponseStatus != null && obj.ResponseStatus == "OK")
+                    {
+                        var audits = new List<InternalEvaluationAudit>();
+
+                        foreach (var p in obj.ResponseObject)
+                        {
+                            InternalEvaluationAudit t = new InternalEvaluationAudit();
+                            t.UserName = p.UserName;
+                            t.ProjectToken = p.ProjectToken;
+                            t.Meta = p.Meta;
+
+                            audits.Add(t);
+
+                        }
+
+                        return audits;
+
+                    }
+                }
+
+                return new List<InternalEvaluationAudit>();
+            }
+            catch (Exception e)
+            {
+                throw (e);
+            }
+        }
+
+        public static string GetUserRoleEvaluationProject(string userName, int projectId)
+        {
+            try
+            {
+
+                string jSonResponse = WebUtils.GetJson(string.Format(CoreUtils.UserRoleEvaluationProjectPath, userName, projectId), "application/json");
+                if (jSonResponse.Length > 0)
+                {
+                    var serializer = new JavaScriptSerializer();
+                    serializer.RegisterConverters(new[] { new DynamicJsonConverter() });
+                    dynamic obj = serializer.Deserialize(jSonResponse, typeof(object));
+                    if (obj.ResponseStatus != null && obj.ResponseStatus == "OK")
+                        return obj.ResponseObject;
+                }
+                return string.Empty;
+            }
+            catch (Exception e)
+            {
+                return string.Empty;
+            }
+
+
+        }
+
+
+        public static string[] GetEvaluationHistory(string token, string user)
+        {
+
+            try
+            {
+                string jSonResponse = WebUtils.GetJson(string.Format(CoreUtils.GetEvaluationHistory, token, user), "application/json");
+                if (jSonResponse.Length > 0)
+                {
+                    JObject jObject = JObject.Parse(jSonResponse);
+                    string seri = JsonConvert.SerializeObject(jObject["ResponseObject"]);
+                    string[] md5s = JsonConvert.DeserializeObject<string[]>(seri);
+                    return md5s;
+                }
+
+                return new string[] { };
+            }
+            catch (Exception e)
+            {
+                throw (e);
+            }
+        }
+
+
+        public static string InviteUsersToProject(string[] emailsList, string projectOwner, string projectId, string uniqueRoleName)
+        {
+
+            try
+            {
+                List<string> validEmails = new List<string>();
+                foreach (string email in emailsList)
+                    if (StringUtils.EmailValidator(email.Trim()))
+                        validEmails.Add(email.Trim());
+
+                var jsonObject = new { usersList = emailsList, projectId = projectId, uniqueRoleName = uniqueRoleName, projectOwner = projectOwner };
+                JavaScriptSerializer serializer = new JavaScriptSerializer();
+                var output = serializer.Serialize(jsonObject);
+
+                string jSonResponse = WebUtils.PostJson(CoreUtils.InviteUsersPathEvaluation, output, "application/json");
+                return jSonResponse;
+
+            }
+            catch (Exception e)
+            {
+                throw (e);
+            }
+        }
+
+        public static Invitation GetInvitationByCode(string code)
+        {
+            try
+            {
+                string jSonResponse = WebUtils.GetJson(string.Format(CoreUtils.InvitePathEvaluation, code), "application/json");
+                if (jSonResponse.Length > 0)
+                {
+                    var serializer = new JavaScriptSerializer();
+                    serializer.RegisterConverters(new[] { new DynamicJsonConverter() });
+                    dynamic obj = serializer.Deserialize(jSonResponse, typeof(object));
+                    if (obj.ResponseStatus != null && obj.ResponseStatus == "OK")
+                    {
+                        Invitation invitation = new Invitation();
+                        if (obj.ResponseObject != null)
+                        {
+                            invitation.InvitationType = obj.ResponseObject.Type;
+                            invitation.UserName = obj.ResponseObject.UserName;
+                            invitation.ProjectId = obj.ResponseObject.ProjectId;
+                        }
+
+                        return invitation;
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw (e);
+            }
+
+
+            return new Invitation();
+
+        }
+
+        public static void UpdateProjectInviteConfirmationDateByCode(string code)
+        {
+            try
+            {
+                string jSonResponse;
+                jSonResponse = WebUtils.GetJson(string.Format(CoreUtils.UpdateProjectInviteConfirmationDateByCodePathEvaluation, code), "application/json");
+                //TODO: validate response... 
+            }
+            catch (Exception e)
+            {
+                throw (e);
+            }
+        }
+
+        #endregion
     }
 }

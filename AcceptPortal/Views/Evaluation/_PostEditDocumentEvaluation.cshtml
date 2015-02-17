@@ -1,0 +1,60 @@
+﻿@model AcceptPortal.ViewModels.InternalEvaluationInstanceVM
+
+        <div class="tablesim" style="width: 100%;margin-top:25px;">
+                <div class="rowsim">
+                <div class="colsim">
+                    <div data-original-title="The Source Column..." class="help-tooltip">
+                        <img  style="margin:0px;padding:0px;float:left;" src="@Url.Content("~/Content/images/circle_help.png")" />         
+                        <span  style="margin:0px;padding:0px;margin: 0px;font-size:22px;margin-left:7px;">Source</span>
+                    </div>
+                </div>
+                <div class="colsim">   
+                    <div data-original-title="The Target Column..." class="help-tooltip" >                 
+                  <img  style="margin:0px;padding:0px;float:left;" src="@Url.Content("~/Content/images/circle_help.png")" />         
+                        <span  style="margin:0px;padding:0px;margin: 0px;font-size:22px;margin-left:7px;">Target</span>
+                        </div>
+                </div>
+                <div class="colsim">
+          <div style="min-width:150px;" data-original-title="The Question Column..." class="help-tooltip">                 
+                  <img  style="margin:0px;padding:0px;float:left;" src="@Url.Content("~/Content/images/circle_help.png")" />         
+                        <span  style="margin:0px;padding:0px;margin: 0px;font-size:22px;margin-left:7px;">Question</span>
+                        </div>
+                </div>
+                </div>
+
+            @for(var i = 0; i<Model.Sources.Count;i++)  {
+            <div id="@Html.Raw("evaluationRow_"+i.ToString())" class="row-eval">
+                <div id="@Html.Raw("evaluationColSource_"+i.ToString())" class="col-eval">
+                    <span>@Model.Sources[i].ToString()</span>
+                </div>
+                <div class="col-eval">
+                    <span id="@Html.Raw("evaluationSpanTarget_"+i.ToString())">@Model.Targets[i].ToString()</span>
+                    <div style="display:none;">                       
+                       <form  id="@Html.Raw("evaluationSegmentForm_"+i.ToString())"  method="post" action="https://www.accept-portal.com/AcceptApiStg/Api/v1/Evaluation/ScoreFormPost" target="hiddenEvaluationPortalIFrame">                      
+                                <input type="hidden" id="Ehdd0" name="Id" value="" />
+                           <input type="hidden" id="Ehdd1" name="key" value="" />
+                           <input type="hidden" id="Ehdd2" name="answer" value="" />
+                           <input type="hidden" id="Ehdd3" name="param1" value="" />
+                           <input type="hidden" id="Ehdd4" name="param2"  value="" /> 
+                           <input type="hidden" id="Ehdd5" name="param3" value="" /> 
+                           <input type="hidden" id="Ehdd6" name="param4" value="" />
+                           <input type="hidden" id="Ehdd7" name="param5" value="" />  
+                           <input type="hidden" id="Ehdd8" name="param6" value="" /> 
+                           <input type="hidden" id="Ehdd9" name="param7" value="" /> 
+                           <input type="hidden" id="Ehdd10" name="param8" value="" /> 
+                           <input type="hidden" id="Ehdd11" name="param9" value="" /> 
+                           <input type="hidden" id="Ehdd12" name="param10" value="" /> 
+                           </form>    
+                            <iframe style="display:none;" name="@Html.Raw("hiddenEvaluationPortalIFrame_"+i.ToString())" id="@Html.Raw("tempIframeEvalProject_"+i.ToString())" src="@Url.Content("~/Html/EvalTemplate.html")"></iframe>                   
+                    </div>
+                </div>
+                <div class="col-eval" style="text-align: left;" id="@Html.Raw("divFormContainer_"+i.ToString())">
+
+                </div>
+            </div>
+ 
+            }
+
+        </div>
+       
+

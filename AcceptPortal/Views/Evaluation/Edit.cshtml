@@ -6,23 +6,130 @@
 
 <h2>@AcceptPortal.Resources.Global.EvaluationEditProject</h2>
 
+
 @section scripts{
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
-}
+    <script type="text/javascript">
+
+        var isProjectInternalHelper = @Html.Raw(Json.Encode(@ViewBag.ProjectTypeHelper));
+        var methodVal =  @Html.Raw(Json.Encode(@ViewBag.EvalApproach));
+        var duplicationVal =  @Html.Raw(Json.Encode(@ViewBag.AvoidDuplications));
+        var includeOwnerVal =  @Html.Raw(Json.Encode(@ViewBag.IncludeOwner));     
+
+        $(document).ready(function () {
+            debugger;
+            if(isProjectInternalHelper > 0)
+            {
+                $("#ddlEvaluationType").val('1'); 
+                $('#ddlPostEditProjects').removeAttr('disabled');
+                $('#ddlPostEditProjects').removeAttr('readonly');
+
+                $('#ddlEvalMethod').removeAttr('disabled');
+                $('#ddlEvalMethod').removeAttr('readonly');
+
+                $('#ddlDuplicationLogic').removeAttr('disabled');
+                $('#ddlDuplicationLogic').removeAttr('readonly');
+
+                $('#chkIncludeOwner').removeAttr('checked');
+                $('#chkIncludeOwner').removeAttr('disabled');
+                $('#chkIncludeOwner').removeAttr('readonly');
+
+                $('#emailCustombody').removeAttr('disabled');
+                $('#emailCustombody').removeAttr('readonly');
+
+                $("#Domain").val("www.accept-portal.eu");
+                $('#Domain').attr("readonly", "readonly");
+                $('#Domain').attr("disabled", "disabled");
+                debugger;
+                if(includeOwnerVal == true)
+                    $('#chkIncludeOwner').attr("checked","checked");
+
+                if(methodVal > 0)
+                    $('#ddlEvalMethod').val(methodVal.toString());
+
+                if(duplicationVal > 0)
+                    $('#ddlDuplicationLogic').val(duplicationVal.toString());
+            }
+
+            $("#ddlEvaluationType").change(function () {
+                
+                if ($("#ddlPostEditProjects").attr("readonly") == "readonly") {
+                    $('#ddlPostEditProjects').removeAttr('disabled');
+                    $('#ddlPostEditProjects').removeAttr('readonly');
+
+                    $('#ddlEvalMethod').removeAttr('disabled');
+                    $('#ddlEvalMethod').removeAttr('readonly');
+
+                    $('#ddlDuplicationLogic').removeAttr('disabled');
+                    $('#ddlDuplicationLogic').removeAttr('readonly');
+
+                    $('#chkIncludeOwner').removeAttr('checked');
+                    $('#chkIncludeOwner').removeAttr('disabled');
+                    $('#chkIncludeOwner').removeAttr('readonly');
+
+                    $('#emailCustombody').removeAttr('disabled');
+                    $('#emailCustombody').removeAttr('readonly');
+
+                    $("#Domain").val("www.accept-portal.eu");
+                    $('#Domain').attr("readonly", "readonly");
+                    $('#Domain').attr("disabled", "disabled");
+
+                } else {
+                    $("ddlPostEditProjects").val('-1');
+                    $("#ddlPostEditProjects").attr("readonly", "readonly");
+                    $("#ddlPostEditProjects").attr("disabled", "disabled");
+
+                    $("#ddlEvalMethod").val('0');
+                    $('#ddlEvalMethod').attr("readonly", "readonly");
+                    $('#ddlEvalMethod').attr("disabled", "disabled");
+
+                    $("#ddlDuplicationLogic").val('0');
+                    $('#ddlDuplicationLogic').attr("readonly", "readonly");
+                    $('#ddlDuplicationLogic').attr("disabled", "disabled");
+
+                    $('#chkIncludeOwner').removeAttr('checked');
+                    $('#chkIncludeOwner').attr("readonly", "readonly");
+                    $('#chkIncludeOwner').attr("disabled", "disabled");
+
+                    $("#emailCustombody").val('');
+                    $("#emailCustombody").attr("readonly", "readonly");
+                    $("#emailCustombody").attr("disabled", "disabled");
+
+                    $("#Domain").val("");
+                    $('#Domain').removeAttr('disabled');
+                    $('#Domain').removeAttr('readonly');
+
+                }
+            });
+
+
+            $("form").submit(function (e) {
+                if ($("#ddlEvaluationType").val() == 1 && $("#ddlPostEditProjects").val() < 0) {
+                    e.preventDefault(); alert("Select a valid project...");
+                }
+            });
+
+        
+
+        });
+</script>
+    }
 
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
- 
-    <ul class="horizontal-slide">
+
+      <ul class="horizontal-slide">
         <li><a class="underline-over" href="@Url.Action("Project", "Evaluation", new { Id = @Model.ID })">@AcceptPortal.Resources.Global.EvaluationProject</a></li>
         <li><a class="underline-over" href="@Url.Action("Questions", "Evaluation", new { Id = @Model.ID })">@AcceptPortal.Resources.Global.EvaluationQuestions</a></li>   
         <li><a class="underline-over" href="@Url.Action("Metrics", "Evaluation", new { Id = @Model.ID })">@AcceptPortal.Resources.Global.EvaluationMetrics</a></li>
         <li><a class="underline-over" href="@Url.Action("ViewEvaluationData", "Evaluation", new { Id = @Model.ID, @token = @Model.AdminToken })">@AcceptPortal.Resources.Global.EvaluationViewData</a></li>        
     </ul>
-        
+    
+    
     <br />
     
+
     <table border="1">
     <tr>
         <td width="200"><b>@AcceptPortal.Resources.Global.EvaluationName:</b></td>
@@ -55,6 +162,48 @@
         @Html.EditorFor(model => model.Domain)
         </td>
     </tr>
+
+            <tr>
+        <td><b>@AcceptPortal.Resources.Global.EvaluationProjectTypeLabel:</b></td>
+       <td>
+                @Html.DropDownListFor(model=>model.EvaluationType , new  SelectList(ViewBag.EvaluationProjectType, "Value", "Text"), new { @Id = "ddlEvaluationType"})        
+       </td>
+    </tr>
+    <tr>
+        <td><b>@AcceptPortal.Resources.Global.EvaluationProjectReferencePostEditProjectLabel:</b></td>
+       <td>          
+           @Html.DropDownListFor(model=>model.PostEditProjectId , new  SelectList(ViewBag.PostEditProjects, "Value", "Text"), new { @Id = "ddlPostEditProjects", @readonly = "readonly", @disabled = "disabled"})         
+       </td>
+    </tr>
+
+        <tr>
+        <td><b>@AcceptPortal.Resources.Global.EvaluationMethodLabel:</b></td>
+       <td>          
+           @Html.DropDownListFor(model=>model.EvaluationMethod , new  SelectList(ViewBag.EvaluationMethods, "Value", "Text"), new { @Id = "ddlEvalMethod", @readonly = "readonly", @disabled = "disabled"})         
+       </td>
+    </tr>
+
+      <tr>
+        <td><b>@AcceptPortal.Resources.Global.DuplicationLogicLabel:</b></td>
+       <td>          
+           @Html.DropDownListFor(model=>model.DuplicationLogic , new  SelectList(ViewBag.DuplicationApproachOptions, "Value", "Text"), new { @Id = "ddlDuplicationLogic", @readonly = "readonly", @disabled = "disabled"})         
+       </td>
+    </tr>
+
+      <tr>
+        <td><b>@AcceptPortal.Resources.Global.IncludeOwnerRevisionLabel:</b></td>
+       <td>          
+           @Html.CheckBoxFor(model => model.IncludeOwnerRevision, new {  @id="chkIncludeOwner", @readonly = "readonly", @disabled = "disabled" })                                          
+       </td>
+    </tr>
+     
+     <tr>
+        <td><b>@AcceptPortal.Resources.Global.CustomEmailBodyLabel:</b></td>
+       <td>          
+           @Html.TextAreaFor(model => model.CustomEmailBody, new { @id="emailCustombody", @readonly = "readonly", @disabled = "disabled" })                                          
+       </td>
+    </tr>
+
     <tr>
         <td colspan="2">
             <input  class="btn btn-primary" type="submit" value="@AcceptPortal.Resources.Global.EvaluationUpdate" /> | @Html.ActionLink(AcceptPortal.Resources.Global.EvaluationCancel, "Project", new { id = @Model.ID })
@@ -65,5 +214,6 @@
     
 }
 
-<div>    
+<div>
+    
 </div>

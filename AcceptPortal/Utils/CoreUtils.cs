@@ -19,13 +19,13 @@ namespace AcceptPortal.Utils
 
         #region PreEdit
         private static string _preEditApyKey;
-        private static string _preEditEnglishDemoPreEditApiKey;      
-        private static string _preEditEnglishDemoPreEditDefaultRuleSet;        
+        private static string _preEditEnglishDemoPreEditApiKey;
+        private static string _preEditEnglishDemoPreEditDefaultRuleSet;
         private static string _preEditFrenchDemoPreEditApiKey;
         private static string _preEditFrenchDemoPreEditDefaultRuleSet;
         private static string _preEditFrenchDemoPreEditCheckingLevelsDefaultRuleSets;
         private static string _preEditGermanDemoPreEditApiKey;
-        private static string _preEditGermanDemoPreEditDefaultRuleSet;        
+        private static string _preEditGermanDemoPreEditDefaultRuleSet;
         #endregion
 
         #region User
@@ -33,11 +33,11 @@ namespace AcceptPortal.Utils
         private static string _acceptAuthenticateUserPath;
         private static string _acceptAuthenticateUserByEmailCodePath;
         private static string _acceptAuthenticateUserByEmailCodeRequestBody;
-        private static string _acceptUserPasswordRecoveryPath;       
+        private static string _acceptUserPasswordRecoveryPath;
         private static string _acceptUserPasswordRecoveryPathBodyRequest;
         private static string _acceptChangeUserPasswordPath;
         private static string _acceptChangeUserPasswordPathJsonRequestBody;
-        private static string _acceptUserApiKeyPath;       
+        private static string _acceptUserApiKeyPath;
         private static string _acceptCreateUserApiKeyRequestBody;
         private static string _acceptGetUserApiKeysPath;
         private static string _acceptGetUserApiKeysRequestBody;
@@ -45,38 +45,38 @@ namespace AcceptPortal.Utils
         private static string _acceptUpdateUserApiKeyRequestBody;
         private static string _acceptSecretUserKeyPath;
         private static string _userRolePostEditProjectPath;
-        private static string _allUsersPath;               
+        private static string _allUsersPath;
         #endregion
 
         #region PostEdit
         private static string _createUniversePath;
         private static string _createDomainPath;
-        private static string _createProjectPath;        
-        private static string _createUniverseJsonBody;        
+        private static string _createProjectPath;
+        private static string _createUniverseJsonBody;
         private static string _createDomainJsonBody;
         private static string _createProjectJsonBody;
         private static string _getProjectPath;
         private static string _getDomainPath;
         private static string _getUniversetPath;
         private static string _addUserProjectPath;
-        private static string _userProject;       
-        private static string _addUserDomainPath;       
+        private static string _userProject;
+        private static string _addUserDomainPath;
         private static string _addUserDomainJsonBody;
         private static string _getAllUniversesPath;
         private static string _getDomainsByUniversePath;
         private static string _getProjectsByDomainPath;
         private static string _getAllLanguagesPath;
-        private static string _getAllDomainsPath;       
-        private static string _getAllprojectsPath;       
+        private static string _getAllDomainsPath;
+        private static string _getAllprojectsPath;
         private static string _getDocumentByIdPath;
         private static string _getDocumentByTextIdPath;
         private static string _deleteProject;
         private static string _deleteEvaluationProject;
         private static string _deleteEvaluationQuestion;
         private static string _deleteEvaluationQuestionCategory;
-        private static string _deleteEvaluationQuestionAnswer;        
+        private static string _deleteEvaluationQuestionAnswer;
         private static string _getAllEvaluationProjectsPath;
-        private static string _getEvaluationProjectsByUserPath;                
+        private static string _getEvaluationProjectsByUserPath;
         private static string _createEvaluationProjectPath;
         private static string _updateEvaluationProjectPath;
         private static string _deleteEvaluationProjectPath;
@@ -85,7 +85,7 @@ namespace AcceptPortal.Utils
         private static string _createEvaluationQuestionPath;
         private static string _createEvaluationQuestionJsonBody;
         private static string _updateEvaluationQuestionPath;
-        private static string _updateEvaluationQuestionJsonBody;        
+        private static string _updateEvaluationQuestionJsonBody;
         private static string _getEvaluationProjectPath;
         private static string _uploadEvaluationFileJsonBody;
         private static string _getAllEvaluationQuestionsPath;
@@ -106,7 +106,7 @@ namespace AcceptPortal.Utils
         private static string _invitePath;
         private static string _inviteByUserNamePath;
         private static string _projectByUserNamePath;
-        private static string _getDemoProjectsPath;        
+        private static string _getDemoProjectsPath;
         private static string _document;
         private static string _updateProjectInviteConfirmationDateByCodePath;
         private static string _projectWithActiveDocumentsPath;
@@ -114,31 +114,42 @@ namespace AcceptPortal.Utils
         private static string _projectTaskStatus;
         private static string _isProjectStarted;
         private static string _projectInfo;
-        private static string _paraphrasingDefaults;        
+        private static string _paraphrasingDefaults;
         #endregion
 
         #region UserFeedback
 
         private static string _userFeedbackPath;
 
-        
+
         #endregion
 
         #region Evaluation
 
         private static string _addContentToEvaluationProject;
 
+        #region EvaluationInternal
+        private static string _acceptAuthenticateUserByEvaluationProjectEmailCodePath;
+        private static string _inviteUsersPathEvaluation;
+        private static string _invitePathEvaluation;
+        private static string _inviteByUserNamePathEvaluation;
+        private static string _updateProjectInviteConfirmationDateByCodePathEvaluation;
+        private static string _getEvaluationHistory;
+        private static string _userRoleEvaluationProjectPath;
+        private static string _internalEvaluationAuditPath;
+        #endregion
+
 
         #endregion
 
         #region CoreAudit
-        private static string _pageVisitCoreAuditPath;        
+        private static string _pageVisitCoreAuditPath;
         private static string _pageVisitCoreAuditBody;
-        private static readonly bool _isPageVisitAuditEnabled = true;            
-        #endregion       
-        
+        private static readonly bool _isPageVisitAuditEnabled = true;
+        #endregion
+
         #region Appraise
-        private static string _appraiseEndpoint;          
+        private static string _appraiseEndpoint;
         #endregion
 
         #region Learn
@@ -167,7 +178,7 @@ namespace AcceptPortal.Utils
         private static bool _displayFeedback = true;
         #endregion
 
-        #region EvaluationDemo               
+        #region EvaluationDemo
         private static readonly string _evaluationDemoScoresUrl = "EvaluationDemoScoreUrl";
         private static readonly string _evaluationDemoApiKey = "EvaluationDemoApiKey";
         private static readonly string _evaluationDemoQuestionUrl = "EvaluationDemoQuestionUrl";
@@ -211,41 +222,41 @@ namespace AcceptPortal.Utils
             _userRolePostEditProjectPath = _acceptPortalApiPath.EndsWith("/") == true ? _userRolePostEditProjectPath = _acceptPortalApiPath + "Admin/UserRolePostEditProject?userName={0}&projectId={1}" : _userRolePostEditProjectPath = _acceptPortalApiPath + "/Admin/UserRolePostEditProject?userName={0}&projectId={1}";
             _allUsersPath = _acceptPortalApiPath.EndsWith("/") == true ? _allUsersPath = _acceptPortalApiPath + "Admin/GetAllUsers" : _allUsersPath = _acceptPortalApiPath + "/Admin/GetAllUsers";
             #endregion
-           
+
             _createUniversePath = _acceptPortalApiPath.EndsWith("/") == true ? _createUniversePath = _acceptPortalApiPath + "Admin/CreateUniverse" : _createUniversePath = _acceptPortalApiPath + "/Admin/CreateUniverse";
             _createDomainPath = _acceptPortalApiPath.EndsWith("/") == true ? _createDomainPath = _acceptPortalApiPath + "Admin/CreateDomain" : _createDomainPath = _acceptPortalApiPath + "/Admin/CreateDomain";
             _createProjectPath = _acceptPortalApiPath.EndsWith("/") == true ? _createProjectPath = _acceptPortalApiPath + "Admin/CreateProject" : _createProjectPath = _acceptPortalApiPath + "/Admin/CreateProject";
             _projectPath = _acceptPortalApiPath.EndsWith("/") == true ? _projectPath = _acceptPortalApiPath + "Admin/Project" : _projectPath = _acceptPortalApiPath + "/Admin/Project";
             _rolesPath = _acceptPortalApiPath.EndsWith("/") == true ? _rolesPath = _acceptPortalApiPath + "Authentication/Role" : _rolesPath = _acceptPortalApiPath + "/Authentication/Role";
             _createUniverseJsonBody = ConfigurationManager.AppSettings[AcceptPortalSettings.CREATE_UNIVERSE_JSON_BODY];
-            _createDomainJsonBody  = ConfigurationManager.AppSettings[AcceptPortalSettings.CREATE_DOMAIN_JSON_BODY];
+            _createDomainJsonBody = ConfigurationManager.AppSettings[AcceptPortalSettings.CREATE_DOMAIN_JSON_BODY];
             _createProjectJsonBody = ConfigurationManager.AppSettings[AcceptPortalSettings.CREATE_PROJECT_JSON_BODY];
             _getProjectPath = _acceptPortalApiPath.EndsWith("/") == true ? _getProjectPath = _acceptPortalApiPath + "Admin/GetProject/{0}" : _getProjectPath = _acceptPortalApiPath + "/Admin/GetProject/{0}";
             _getDomainPath = _acceptPortalApiPath.EndsWith("/") == true ? _getDomainPath = _acceptPortalApiPath + "Admin/GetDomain/{0}" : _getDomainPath = _acceptPortalApiPath + "/Admin/GetDomain/{0}";
             _getUniversetPath = _acceptPortalApiPath.EndsWith("/") == true ? _getUniversetPath = _acceptPortalApiPath + "Admin/GetUniverse/{0}" : _getUniversetPath = _acceptPortalApiPath + "/Admin/GetUniverse/{0}";
             _addUserProjectPath = _acceptPortalApiPath.EndsWith("/") == true ? _addUserProjectPath = _acceptPortalApiPath + "Admin/AddUserProject" : _addUserProjectPath = _acceptPortalApiPath + "/Admin/AddUserProject";
-            _userProject = _acceptPortalApiPath.EndsWith("/") == true ? _addUserProjectPath = _acceptPortalApiPath + "Admin/UserProject/?userName={0}&token={1}" : _addUserProjectPath = _acceptPortalApiPath + "/Admin/UserProject/?userName={0}&token={1}";            
-            _addUserDomainPath = _acceptPortalApiPath.EndsWith("/") == true ? _addUserDomainPath = _acceptPortalApiPath + "Admin/AddUserDomain" : _addUserDomainPath = _acceptPortalApiPath + "/Admin/AddUserDomain";            
+            _userProject = _acceptPortalApiPath.EndsWith("/") == true ? _addUserProjectPath = _acceptPortalApiPath + "Admin/UserProject/?userName={0}&token={1}" : _addUserProjectPath = _acceptPortalApiPath + "/Admin/UserProject/?userName={0}&token={1}";
+            _addUserDomainPath = _acceptPortalApiPath.EndsWith("/") == true ? _addUserDomainPath = _acceptPortalApiPath + "Admin/AddUserDomain" : _addUserDomainPath = _acceptPortalApiPath + "/Admin/AddUserDomain";
             _addUserDomainJsonBody = ConfigurationManager.AppSettings[AcceptPortalSettings.ADDUSER_DOMAIN_JSON_BODY];
             _getAllUniversesPath = _acceptPortalApiPath.EndsWith("/") == true ? _getAllUniversesPath = _acceptPortalApiPath + "Admin/GetAllUniverse" : _getAllUniversesPath = _acceptPortalApiPath + "/Admin/GetAllUniverse";
             _getDomainsByUniversePath = _acceptPortalApiPath.EndsWith("/") == true ? _getDomainsByUniversePath = _acceptPortalApiPath + "Admin/GetDomainsByUniverse/{0}" : _getDomainsByUniversePath = _acceptPortalApiPath + "/Admin/GetDomainsByUniverse/{0}";
             _getProjectsByDomainPath = _acceptPortalApiPath.EndsWith("/") == true ? _getProjectsByDomainPath = _acceptPortalApiPath + "Admin/GetProjectsByDomain/{0}" : _getProjectsByDomainPath = _acceptPortalApiPath + "/Admin/GetProjectsByDomain/{0}";
             _getAllDomainsPath = _acceptPortalApiPath.EndsWith("/") == true ? _getAllDomainsPath = _acceptPortalApiPath + "Admin/GetAllDomains" : _getAllDomainsPath = _acceptPortalApiPath + "/Admin/GetAllDomains";
             _getAllprojectsPath = _acceptPortalApiPath.EndsWith("/") == true ? _getAllprojectsPath = _acceptPortalApiPath + "Admin/GetAllProjects" : _getAllprojectsPath = _acceptPortalApiPath + "/Admin/GetAllProjects";
-            _getAllLanguagesPath = _acceptPortalApiPath.EndsWith("/") == true ? _getAllLanguagesPath = _acceptPortalApiPath + "Evaluation/Languages" : _getAllLanguagesPath = _acceptPortalApiPath + "/Evaluation/Languages";            
+            _getAllLanguagesPath = _acceptPortalApiPath.EndsWith("/") == true ? _getAllLanguagesPath = _acceptPortalApiPath + "Evaluation/Languages" : _getAllLanguagesPath = _acceptPortalApiPath + "/Evaluation/Languages";
             _getDocumentByIdPath = _acceptPortalApiPath.EndsWith("/") == true ? _getDocumentByIdPath = _acceptPortalApiPath + "PostEdit/GetDocument/{0}" : _getDocumentByIdPath = _acceptPortalApiPath + "/PostEdit/GetDocument/{0}";
             _getDocumentByTextIdPath = _acceptPortalApiPath.EndsWith("/") == true ? _getDocumentByTextIdPath = _acceptPortalApiPath + "PostEdit/GetDocumentByTextId?textId={0}" : _getDocumentByTextIdPath = _acceptPortalApiPath + "/PostEdit/GetDocumentByTextId?textId={0}";
             _deleteProject = _acceptPortalApiPath.EndsWith("/") == true ? _deleteProject = _acceptPortalApiPath + "Admin/DeleteProject/{0}" : _deleteProject = _acceptPortalApiPath + "/Admin/DeleteProject/{0}";
             _deleteEvaluationProject = _acceptPortalApiPath.EndsWith("/") == true ? _deleteEvaluationProject = _acceptPortalApiPath + "Evaluation/DeleteProject/{0}" : _deleteEvaluationProject = _acceptPortalApiPath + "/Evaluation/DeleteProject/{0}";
             _deleteEvaluationQuestion = _acceptPortalApiPath.EndsWith("/") == true ? _deleteEvaluationQuestion = _acceptPortalApiPath + "Evaluation/DeleteQuestion/{0}" : _deleteEvaluationQuestion = _acceptPortalApiPath + "/Evaluation/DeleteQuestion/{0}";
             _deleteEvaluationQuestionCategory = _acceptPortalApiPath.EndsWith("/") == true ? _deleteEvaluationQuestionCategory = _acceptPortalApiPath + "Evaluation/DeleteCategory/{0}" : _deleteEvaluationQuestionCategory = _acceptPortalApiPath + "/Evaluation/DeleteCategory/{0}";
-            _deleteEvaluationQuestionAnswer = _acceptPortalApiPath.EndsWith("/") == true ? _deleteEvaluationQuestionAnswer = _acceptPortalApiPath + "Evaluation/DeleteAnswer/{0}" : _deleteEvaluationQuestionAnswer = _acceptPortalApiPath + "/Evaluation/DeleteAnswer/{0}";            
+            _deleteEvaluationQuestionAnswer = _acceptPortalApiPath.EndsWith("/") == true ? _deleteEvaluationQuestionAnswer = _acceptPortalApiPath + "Evaluation/DeleteAnswer/{0}" : _deleteEvaluationQuestionAnswer = _acceptPortalApiPath + "/Evaluation/DeleteAnswer/{0}";
             _getAllEvaluationProjectsPath = _acceptPortalApiPath.EndsWith("/") == true ? _getAllEvaluationProjectsPath = _acceptPortalApiPath + "Evaluation/GetAllProjects" : _getAllEvaluationProjectsPath = _acceptPortalApiPath + "/Evaluation/GetAllProjects";
             _createEvaluationProjectPath = _acceptPortalApiPath.EndsWith("/") == true ? _createEvaluationProjectPath = _acceptPortalApiPath + "Evaluation/CreateProject" : _createEvaluationProjectPath = _acceptPortalApiPath + "/Evaluation/CreateProject";
             _updateEvaluationProjectPath = _acceptPortalApiPath.EndsWith("/") == true ? _updateEvaluationProjectPath = _acceptPortalApiPath + "Evaluation/UpdateProject/{0}" : _updateEvaluationProjectPath = _acceptPortalApiPath + "/Evaluation/UpdateProject/{0}";
-            _deleteEvaluationProjectPath = _acceptPortalApiPath.EndsWith("/") == true ? _deleteEvaluationProjectPath = _acceptPortalApiPath + "Evaluation/DeleteProject/{0}" : _deleteEvaluationProjectPath = _acceptPortalApiPath + "/Evaluation/DeleteProject/{0}";            
+            _deleteEvaluationProjectPath = _acceptPortalApiPath.EndsWith("/") == true ? _deleteEvaluationProjectPath = _acceptPortalApiPath + "Evaluation/DeleteProject/{0}" : _deleteEvaluationProjectPath = _acceptPortalApiPath + "/Evaluation/DeleteProject/{0}";
             _createEvaluationProjectJsonBody = ConfigurationManager.AppSettings[AcceptPortalSettings.CREATE_EVALUATION_PROJECT_JSON_BODY];
-            _updateEvaluationProjectJsonBody = ConfigurationManager.AppSettings[AcceptPortalSettings.UPDATE_EVALUATION_PROJECT_JSON_BODY];            
+            _updateEvaluationProjectJsonBody = ConfigurationManager.AppSettings[AcceptPortalSettings.UPDATE_EVALUATION_PROJECT_JSON_BODY];
             _getEvaluationProjectPath = _acceptPortalApiPath.EndsWith("/") == true ? _getEvaluationProjectPath = _acceptPortalApiPath + "Evaluation/GetProject/{0}" : _getEvaluationProjectPath = _acceptPortalApiPath + "/Evaluation/GetProject/{0}";
             _createEvaluationQuestionPath = _acceptPortalApiPath.EndsWith("/") == true ? _createEvaluationQuestionPath = _acceptPortalApiPath + "Evaluation/CreateQuestion" : _createEvaluationQuestionPath = _acceptPortalApiPath + "/Evaluation/CreateQuestion";
             _createEvaluationQuestionJsonBody = ConfigurationManager.AppSettings[AcceptPortalSettings.CREATE_EVALUATION_QUESTION_JSON_BODY];
@@ -253,7 +264,7 @@ namespace AcceptPortal.Utils
             _updateEvaluationQuestionJsonBody = ConfigurationManager.AppSettings[AcceptPortalSettings.UPDATE_EVALUATION_QUESTION_JSON_BODY];
             _uploadEvaluationFileJsonBody = ConfigurationManager.AppSettings[AcceptPortalSettings.UPLOAD_EVALUATION_FILE_JSON_BODY];
             _getAllEvaluationQuestionsPath = _acceptPortalApiPath.EndsWith("/") == true ? _getAllEvaluationQuestionsPath = _acceptPortalApiPath + "Evaluation/GetAllQuestions/{0}" : _getAllEvaluationQuestionsPath = _acceptPortalApiPath + "/Evaluation/GetAllQuestions/{0}";
-            _getEvaluationProjectsByUserPath = _acceptPortalApiPath.EndsWith("/") == true ? _getEvaluationProjectsByUserPath = _acceptPortalApiPath + "Evaluation/GetProjectsByUser" : _getEvaluationProjectsByUserPath = _acceptPortalApiPath + "/Evaluation/GetProjectsByUser";            
+            _getEvaluationProjectsByUserPath = _acceptPortalApiPath.EndsWith("/") == true ? _getEvaluationProjectsByUserPath = _acceptPortalApiPath + "Evaluation/GetProjectsByUser" : _getEvaluationProjectsByUserPath = _acceptPortalApiPath + "/Evaluation/GetProjectsByUser";
             _uploadEvaluationFilePath = _acceptPortalApiPath.EndsWith("/") == true ? _uploadEvaluationFilePath = _acceptPortalApiPath + "Evaluation/UploadFile/{0}" : _uploadEvaluationFilePath = _acceptPortalApiPath + "/Evaluation/UploadFile/{0}";
             _getEvaluatioDocumentsPath = _acceptPortalApiPath.EndsWith("/") == true ? _getEvaluatioDocumentsPath = _acceptPortalApiPath + "Evaluation/Documents/{0}" : _getEvaluatioDocumentsPath = _acceptPortalApiPath + "/Evaluation/Documents/{0}";
             _createEvaluationQuestionItemPath = _acceptPortalApiPath.EndsWith("/") == true ? _createEvaluationQuestionItemPath = _acceptPortalApiPath + "Evaluation/CreateQuestionItem" : _createEvaluationQuestionItemPath = _acceptPortalApiPath + "/Evaluation/CreateQuestionItem";
@@ -263,8 +274,8 @@ namespace AcceptPortal.Utils
             _createEvaluationQuestionItemAnswerPath = _acceptPortalApiPath.EndsWith("/") == true ? _createEvaluationQuestionItemAnswerPath = _acceptPortalApiPath + "Evaluation/CreateQuestionItemAnswer" : _createEvaluationQuestionItemAnswerPath = _acceptPortalApiPath + "/Evaluation/CreateQuestionItemAnswer";
             _createEvaluationQuestionItemAnswerJsonBody = ConfigurationManager.AppSettings[AcceptPortalSettings.CREATE_EVALUATION_QUESTION_ITEM_ANSWER_JSON_BODY];
             _updateEvaluationQuestionItemAnswerPath = _acceptPortalApiPath.EndsWith("/") == true ? _updateEvaluationQuestionItemAnswerPath = _acceptPortalApiPath + "Evaluation/UpdateQuestionAnswer" : _updateEvaluationQuestionItemAnswerPath = _acceptPortalApiPath + "/Evaluation/UpdateQuestionAnswer";
-            _updateEvaluationQuestionItemAnswerJsonBody = ConfigurationManager.AppSettings[AcceptPortalSettings.UPDATE_EVALUATION_QUESTION_ITEM_ANSWER_JSON_BODY];                        
-            _getAllEvaluationScoresPath = _acceptPortalApiPath.EndsWith("/") == true ? _getAllEvaluationScoresPath = _acceptPortalApiPath + "Evaluation/Scores/{0}" : _getAllEvaluationScoresPath = _acceptPortalApiPath + "/Evaluation/Scores/?id={0}&token={1}";            
+            _updateEvaluationQuestionItemAnswerJsonBody = ConfigurationManager.AppSettings[AcceptPortalSettings.UPDATE_EVALUATION_QUESTION_ITEM_ANSWER_JSON_BODY];
+            _getAllEvaluationScoresPath = _acceptPortalApiPath.EndsWith("/") == true ? _getAllEvaluationScoresPath = _acceptPortalApiPath + "Evaluation/Scores/{0}" : _getAllEvaluationScoresPath = _acceptPortalApiPath + "/Evaluation/Scores/?id={0}&token={1}";
             _inviteUsersPath = _acceptPortalApiPath.EndsWith("/") == true ? _inviteUsersPath = _acceptPortalApiPath + "PostEdit/InviteUsers" : _inviteUsersPath = _acceptPortalApiPath + "/PostEdit/InviteUsers";
             _invitePath = _acceptPortalApiPath.EndsWith("/") == true ? _invitePath = _acceptPortalApiPath + "PostEdit/Invite?code={0}" : _invitePath = _acceptPortalApiPath + "/PostEdit/Invite?code={0}";
             _inviteByUserNamePath = _acceptPortalApiPath.EndsWith("/") == true ? _inviteByUserNamePath = _acceptPortalApiPath + "PostEdit/InviteByUserName?userName={0}" : _inviteByUserNamePath = _acceptPortalApiPath + "/PostEdit/InviteByUserName?userName={0}";
@@ -273,11 +284,11 @@ namespace AcceptPortal.Utils
             _document = _acceptPortalApiPath.EndsWith("/") == true ? _document = _acceptPortalApiPath + "PostEdit/Document" : _document = _acceptPortalApiPath + "/PostEdit/Document";
             _updateProjectInviteConfirmationDateByCodePath = _acceptPortalApiPath.EndsWith("/") == true ? _updateProjectInviteConfirmationDateByCodePath = _acceptPortalApiPath + "PostEdit/UpdateProjectInviteConfirmationDateByCode?code={0}" : _updateProjectInviteConfirmationDateByCodePath = _acceptPortalApiPath + "/PostEdit/UpdateProjectInviteConfirmationDateByCode?code={0}";
             _projectWithActiveDocumentsPath = _acceptPortalApiPath.EndsWith("/") == true ? _projectWithActiveDocumentsPath = _acceptPortalApiPath + "PostEdit/GetProjectWithValidDocuments" : _projectWithActiveDocumentsPath = _acceptPortalApiPath + "/PostEdit/GetProjectWithValidDocuments";
-            _addDocumentToProjectRawPath = _acceptPortalApiPath.EndsWith("/") == true ? _addDocumentToProjectRawPath = _acceptPortalApiPath + "PostEdit/AddDocumentToProjectRaw" : _addDocumentToProjectRawPath = _acceptPortalApiPath + "/PostEdit/AddDocumentToProjectRaw";                        
-            _projectTaskStatus = _acceptPortalApiPath.EndsWith("/") == true ? _projectTaskStatus = _acceptPortalApiPath + "PostEdit/GetProjectTaskStatus?token={0}" : _projectTaskStatus = _acceptPortalApiPath + "/PostEdit/GetProjectTaskStatus?token={0}";            
+            _addDocumentToProjectRawPath = _acceptPortalApiPath.EndsWith("/") == true ? _addDocumentToProjectRawPath = _acceptPortalApiPath + "PostEdit/AddDocumentToProjectRaw" : _addDocumentToProjectRawPath = _acceptPortalApiPath + "/PostEdit/AddDocumentToProjectRaw";
+            _projectTaskStatus = _acceptPortalApiPath.EndsWith("/") == true ? _projectTaskStatus = _acceptPortalApiPath + "PostEdit/GetProjectTaskStatus?token={0}" : _projectTaskStatus = _acceptPortalApiPath + "/PostEdit/GetProjectTaskStatus?token={0}";
             _isProjectStarted = _acceptPortalApiPath.EndsWith("/") == true ? _isProjectStarted = _acceptPortalApiPath + "Admin/IsProjectStarted?projectId={0}" : _isProjectStarted = _acceptPortalApiPath + "/Admin/IsProjectStarted?projectId={0}";
             _userFeedbackPath = _acceptPortalApiPath.EndsWith("/") == true ? _userFeedbackPath = _acceptPortalApiPath + "Admin/UserFeedback" : _userFeedbackPath = _acceptPortalApiPath + "/Admin/UserFeedback";
-            _projectInfo = _acceptPortalApiPath.EndsWith("/") == true ? _projectInfo = _acceptPortalApiPath + "Admin/ProjectInfo?token={0}" : _projectInfo = _acceptPortalApiPath + "/Admin/ProjectInfo?token={0}";            
+            _projectInfo = _acceptPortalApiPath.EndsWith("/") == true ? _projectInfo = _acceptPortalApiPath + "Admin/ProjectInfo?token={0}" : _projectInfo = _acceptPortalApiPath + "/Admin/ProjectInfo?token={0}";
             _paraphrasingDefaults = _acceptPortalApiPath.EndsWith("/") == true ? _paraphrasingDefaults = _acceptPortalApiPath + "PostEdit/PostEditDefaults?lang={0}" : _paraphrasingDefaults = _acceptPortalApiPath + "/PostEdit/PostEditDefaults?lang={0}";
 
             #region Evaluation
@@ -291,15 +302,15 @@ namespace AcceptPortal.Utils
             #endregion
 
             #region Appraise
-            _appraiseEndpoint = ConfigurationManager.AppSettings[AcceptPortalSettings.APPRAISE_ENDPOINT]; 
-            
+            _appraiseEndpoint = ConfigurationManager.AppSettings[AcceptPortalSettings.APPRAISE_ENDPOINT];
+
             #endregion
 
             #region Learn
             _learnEndpoint = ConfigurationManager.AppSettings[AcceptPortalSettings.LEARN_ENDPOINT];
             _learnEndpointPreEdit = ConfigurationManager.AppSettings[AcceptPortalSettings.LEARN_ENDPOINT_PREEDIT];
             _learnEndpointPostEdit = ConfigurationManager.AppSettings[AcceptPortalSettings.LEARN_ENDPOINT_POSTEDIT];
-            _learnEndpointEvaluation = ConfigurationManager.AppSettings[AcceptPortalSettings.LEARN_ENDPOINT_EVALUATION];          
+            _learnEndpointEvaluation = ConfigurationManager.AppSettings[AcceptPortalSettings.LEARN_ENDPOINT_EVALUATION];
             #endregion
 
             #region RealTime
@@ -327,8 +338,19 @@ namespace AcceptPortal.Utils
             _evaluationDemoApiKey = ConfigurationManager.AppSettings[AcceptPortalSettings.EVALUATION_DEMO_API_KEY];
             #endregion
 
+            #region EvaluationInternal
+            _acceptAuthenticateUserByEvaluationProjectEmailCodePath = _acceptPortalApiPath.EndsWith("/") == true ? _acceptAuthenticateUserByEvaluationProjectEmailCodePath = _acceptPortalApiPath + "Evaluation/AuthenticateUserByConfirmationCode" : _acceptAuthenticateUserByEvaluationProjectEmailCodePath = _acceptPortalApiPath + "/Evaluation/AuthenticateUserByConfirmationCode";
+            _inviteUsersPathEvaluation = _acceptPortalApiPath.EndsWith("/") == true ? _inviteUsersPathEvaluation = _acceptPortalApiPath + "Evaluation/InviteUsers" : _inviteUsersPathEvaluation = _acceptPortalApiPath + "/Evaluation/InviteUsers";
+            _invitePathEvaluation = _acceptPortalApiPath.EndsWith("/") == true ? _invitePathEvaluation = _acceptPortalApiPath + "Evaluation/Invite?code={0}" : _invitePathEvaluation = _acceptPortalApiPath + "/Evaluation/Invite?code={0}";
+            _inviteByUserNamePathEvaluation = _acceptPortalApiPath.EndsWith("/") == true ? _inviteByUserNamePathEvaluation = _acceptPortalApiPath + "Evaluation/InviteByUserName?userName={0}" : _inviteByUserNamePathEvaluation = _acceptPortalApiPath + "/Evaluation/InviteByUserName?userName={0}";
+            _updateProjectInviteConfirmationDateByCodePathEvaluation = _acceptPortalApiPath.EndsWith("/") == true ? _updateProjectInviteConfirmationDateByCodePath = _acceptPortalApiPath + "Evaluation/UpdateProjectInviteConfirmationDateByCode?code={0}" : _updateProjectInviteConfirmationDateByCodePath = _acceptPortalApiPath + "/Evaluation/UpdateProjectInviteConfirmationDateByCode?code={0}";
+            _getEvaluationHistory = _acceptPortalApiPath.EndsWith("/") == true ? _getEvaluationHistory = _acceptPortalApiPath + "Evaluation/EvaluationHistory?token={0}&user={1}" : _getEvaluationHistory = _acceptPortalApiPath + "/Evaluation/EvaluationHistory?token={0}&user={1}";
+            _userRoleEvaluationProjectPath = _acceptPortalApiPath.EndsWith("/") == true ? _userRoleEvaluationProjectPath = _acceptPortalApiPath + "Evaluation/UserRoleEvaluationProject?userName={0}&projectId={1}" : _userRoleEvaluationProjectPath = _acceptPortalApiPath + "/Evaluation/UserRoleEvaluationProject?userName={0}&projectId={1}";
+            _internalEvaluationAuditPath = _acceptPortalApiPath.EndsWith("/") == true ? _internalEvaluationAuditPath = _acceptPortalApiPath + "Evaluation/EvaluationInternalAudit?token={0}&user={1}&status={2}&meta={3}" : _internalEvaluationAuditPath = _acceptPortalApiPath + "/Evaluation/EvaluationInternalAudit?token={0}&user={1}&status={2}&meta={3}";
+            #endregion
+
         }
-        
+
         #region Properties
 
         #region PreEdit
@@ -342,64 +364,64 @@ namespace AcceptPortal.Utils
         public static string PreEditGermanDemoPreEditDefaultRuleSet { get { return CoreUtils._preEditGermanDemoPreEditDefaultRuleSet; } }
         #endregion
 
-        public static string AcceptPortalApiPath  {get { return CoreUtils._acceptPortalApiPath;}}
+        public static string AcceptPortalApiPath { get { return CoreUtils._acceptPortalApiPath; } }
         public static string AcceptProjectHomeUrl { get { return CoreUtils._acceptProjectHomeUrl; } }
-         
+
         public static string AcceptRegisterUserPath { get { return CoreUtils._acceptRegisterUserPath; } }
-        public static string AcceptAuthenticateUserPath { get { return CoreUtils._acceptAuthenticateUserPath; } }        
+        public static string AcceptAuthenticateUserPath { get { return CoreUtils._acceptAuthenticateUserPath; } }
         public static string AcceptPortalRegisterUserRequestBody { get { return CoreUtils._acceptPortalRegisterUserRequestBody; } }
         public static string AcceptPortalAuthenticateUserRequestBody { get { return CoreUtils._acceptPortalAuthenticateUserRequestBody; } }
         public static string AcceptAuthenticateUserByEmailCodePath { get { return CoreUtils._acceptAuthenticateUserByEmailCodePath; } }
-        public static string AcceptAuthenticateUserByEmailCodeRequestBody{get { return CoreUtils._acceptAuthenticateUserByEmailCodeRequestBody; }}
-        public static string AcceptUserPasswordRecoveryPathBodyRequest{get { return CoreUtils._acceptUserPasswordRecoveryPathBodyRequest; }}
-        public static string AcceptUserPasswordRecoveryPath{get { return CoreUtils._acceptUserPasswordRecoveryPath; }}
-        public static string AcceptChangeUserPasswordPath{get { return CoreUtils._acceptChangeUserPasswordPath; }}
-        public static string AcceptChangeUserPasswordPathJsonRequestBody{get { return CoreUtils._acceptChangeUserPasswordPathJsonRequestBody; }}
-        public static string AcceptUserApiKeyPath{get { return CoreUtils._acceptUserApiKeyPath; } }
+        public static string AcceptAuthenticateUserByEmailCodeRequestBody { get { return CoreUtils._acceptAuthenticateUserByEmailCodeRequestBody; } }
+        public static string AcceptUserPasswordRecoveryPathBodyRequest { get { return CoreUtils._acceptUserPasswordRecoveryPathBodyRequest; } }
+        public static string AcceptUserPasswordRecoveryPath { get { return CoreUtils._acceptUserPasswordRecoveryPath; } }
+        public static string AcceptChangeUserPasswordPath { get { return CoreUtils._acceptChangeUserPasswordPath; } }
+        public static string AcceptChangeUserPasswordPathJsonRequestBody { get { return CoreUtils._acceptChangeUserPasswordPathJsonRequestBody; } }
+        public static string AcceptUserApiKeyPath { get { return CoreUtils._acceptUserApiKeyPath; } }
         public static string AcceptCreateUserApiKeyRequestBody { get { return CoreUtils._acceptCreateUserApiKeyRequestBody; } }
         public static string AcceptGetUserApiKeysPath { get { return CoreUtils._acceptGetUserApiKeysPath; } }
         public static string AcceptGetUserApiKeysRequestBody { get { return CoreUtils._acceptGetUserApiKeysRequestBody; } }
-        public static string AcceptApiGetApiKeyBody{get { return CoreUtils._acceptApiGetApiKeyBody; }}
-        public static string AcceptUpdateUserApiKeyRequestBody{get { return CoreUtils._acceptUpdateUserApiKeyRequestBody; }}
+        public static string AcceptApiGetApiKeyBody { get { return CoreUtils._acceptApiGetApiKeyBody; } }
+        public static string AcceptUpdateUserApiKeyRequestBody { get { return CoreUtils._acceptUpdateUserApiKeyRequestBody; } }
         public static string AcceptSecretUserKeyPath { get { return CoreUtils._acceptSecretUserKeyPath; } }
         public static string CreateUniversePath { get { return CoreUtils._createUniversePath; } }
         public static string CreateDomainPath { get { return CoreUtils._createDomainPath; } }
         public static string CreateProjectPath { get { return CoreUtils._createProjectPath; } }
-        public static string CreateUniverseJsonBody {get { return CoreUtils._createUniverseJsonBody; }}        
-        public static string CreateDomainJsonBody{get { return CoreUtils._createDomainJsonBody; }}
-        public static string CreateProjectJsonBody{get { return CoreUtils._createProjectJsonBody; }}
-        public static string GetUniversetPath{get { return CoreUtils._getUniversetPath; }}
-        public static string GetDomainPath{get { return CoreUtils._getDomainPath; }}
-        public static string GetProjectPath{get { return CoreUtils._getProjectPath; }}
-        public static string AddUserProjectPath{get { return CoreUtils._addUserProjectPath; }}
-        public static string AddUserDomainPath{get { return CoreUtils._addUserDomainPath; }}        
-        public static string AddUserDomainJsonBody{get { return CoreUtils._addUserDomainJsonBody; }}
-        public static string GetProjectsByDomainPath{get { return CoreUtils._getProjectsByDomainPath; }}
-        public static string GetAllUniversesPath{get { return CoreUtils._getAllUniversesPath; }}
-        public static string GetDomainsByUniversePath{get { return CoreUtils._getDomainsByUniversePath; }}
+        public static string CreateUniverseJsonBody { get { return CoreUtils._createUniverseJsonBody; } }
+        public static string CreateDomainJsonBody { get { return CoreUtils._createDomainJsonBody; } }
+        public static string CreateProjectJsonBody { get { return CoreUtils._createProjectJsonBody; } }
+        public static string GetUniversetPath { get { return CoreUtils._getUniversetPath; } }
+        public static string GetDomainPath { get { return CoreUtils._getDomainPath; } }
+        public static string GetProjectPath { get { return CoreUtils._getProjectPath; } }
+        public static string AddUserProjectPath { get { return CoreUtils._addUserProjectPath; } }
+        public static string AddUserDomainPath { get { return CoreUtils._addUserDomainPath; } }
+        public static string AddUserDomainJsonBody { get { return CoreUtils._addUserDomainJsonBody; } }
+        public static string GetProjectsByDomainPath { get { return CoreUtils._getProjectsByDomainPath; } }
+        public static string GetAllUniversesPath { get { return CoreUtils._getAllUniversesPath; } }
+        public static string GetDomainsByUniversePath { get { return CoreUtils._getDomainsByUniversePath; } }
         public static string GetAllLanguagesPath { get { return CoreUtils._getAllLanguagesPath; } }
-        public static string GetAllDomainsPath{get { return CoreUtils._getAllDomainsPath; } }
-        public static string GetAllprojectsPath { get { return CoreUtils._getAllprojectsPath; } }       
-        public static string GetDocumentByIdPath{get { return CoreUtils._getDocumentByIdPath; }}
-        public static string GetDocumentByTextIdPath{get { return CoreUtils._getDocumentByTextIdPath; }}
-        public static string GetAllUsersPath{get { return CoreUtils._allUsersPath; }}        
+        public static string GetAllDomainsPath { get { return CoreUtils._getAllDomainsPath; } }
+        public static string GetAllprojectsPath { get { return CoreUtils._getAllprojectsPath; } }
+        public static string GetDocumentByIdPath { get { return CoreUtils._getDocumentByIdPath; } }
+        public static string GetDocumentByTextIdPath { get { return CoreUtils._getDocumentByTextIdPath; } }
+        public static string GetAllUsersPath { get { return CoreUtils._allUsersPath; } }
         public static string DeleteProject { get { return CoreUtils._deleteProject; } }
 
         #region Evolution
         public static string DeleteEvaluationProject { get { return CoreUtils._deleteEvaluationProject; } }
         public static string DeleteEvaluationQuestion { get { return CoreUtils._deleteEvaluationQuestion; } }
         public static string DeleteEvaluationQuestionCategory { get { return CoreUtils._deleteEvaluationQuestionCategory; } }
-        public static string DeleteEvaluationQuestionAnswer { get { return CoreUtils._deleteEvaluationQuestionAnswer; } }   
+        public static string DeleteEvaluationQuestionAnswer { get { return CoreUtils._deleteEvaluationQuestionAnswer; } }
         public static string GetAllEvaluationProjectsPath { get { return CoreUtils._getAllEvaluationProjectsPath; } }
         public static string GetEvaluationProjectsByUserPath { get { return CoreUtils._getEvaluationProjectsByUserPath; } }
         public static string CreateEvaluationProjectPath { get { return CoreUtils._createEvaluationProjectPath; } }
         public static string CreateEvaluationProjectJsonBody { get { return CoreUtils._createEvaluationProjectJsonBody; } }
         public static string UpdateEvaluationProjectPath { get { return CoreUtils._updateEvaluationProjectPath; } }
-        public static string UpdateEvaluationProjectJsonBody { get { return CoreUtils._updateEvaluationProjectJsonBody; } }        
+        public static string UpdateEvaluationProjectJsonBody { get { return CoreUtils._updateEvaluationProjectJsonBody; } }
         public static string CreateEvaluationQuestionPath { get { return CoreUtils._createEvaluationQuestionPath; } }
         public static string CreateEvaluationQuestionJsonBody { get { return CoreUtils._createEvaluationQuestionJsonBody; } }
         public static string UpdateEvaluationQuestionPath { get { return CoreUtils._updateEvaluationQuestionPath; } }
-        public static string UpdateEvaluationQuestionJsonBody { get { return CoreUtils._updateEvaluationQuestionJsonBody; } }                
+        public static string UpdateEvaluationQuestionJsonBody { get { return CoreUtils._updateEvaluationQuestionJsonBody; } }
         public static string GetEvaluationProjectPath { get { return CoreUtils._getEvaluationProjectPath; } }
         public static string GetEvaluationDocumentsPath { get { return CoreUtils._getEvaluatioDocumentsPath; } }
         public static string UploadEvaluationFileJsonBody { get { return CoreUtils._uploadEvaluationFileJsonBody; } }
@@ -417,30 +439,30 @@ namespace AcceptPortal.Utils
         #endregion
 
         public static string ProjectPath { get { return CoreUtils._projectPath; } }
-        public static string RolesPath{get { return CoreUtils._rolesPath; }}
-        public static string InviteUsersPath{get { return CoreUtils._inviteUsersPath; }}
-        public static string InvitePath{get { return CoreUtils._invitePath; }}
-        public static string InviteByUserNamePath{get { return CoreUtils._inviteByUserNamePath; }}
-        public static string ProjectByUserNamePath{get { return CoreUtils._projectByUserNamePath; }}
-        public static string GetDemoProjectsPath { get { return CoreUtils._getDemoProjectsPath; } }                     
-        public static string Document{get { return CoreUtils._document; }}
-        public static string ProjectWithActiveDocumentsPath{get { return CoreUtils._projectWithActiveDocumentsPath; }}
-        public static string UpdateProjectInviteConfirmationDateByCodePath{get { return CoreUtils._updateProjectInviteConfirmationDateByCodePath; }}
-        public static string AddDocumentToProjectRawPath{get { return CoreUtils._addDocumentToProjectRawPath; } }
-        public static string ProjectTaskStatus{get { return CoreUtils._projectTaskStatus; }}
-        public static string UserFeedbackPath{get { return CoreUtils._userFeedbackPath; }}
-        public static string IsProjectStarted{get { return CoreUtils._isProjectStarted; }}
-        public static string UserRolePostEditProjectPath{ get { return CoreUtils._userRolePostEditProjectPath; } }
+        public static string RolesPath { get { return CoreUtils._rolesPath; } }
+        public static string InviteUsersPath { get { return CoreUtils._inviteUsersPath; } }
+        public static string InvitePath { get { return CoreUtils._invitePath; } }
+        public static string InviteByUserNamePath { get { return CoreUtils._inviteByUserNamePath; } }
+        public static string ProjectByUserNamePath { get { return CoreUtils._projectByUserNamePath; } }
+        public static string GetDemoProjectsPath { get { return CoreUtils._getDemoProjectsPath; } }
+        public static string Document { get { return CoreUtils._document; } }
+        public static string ProjectWithActiveDocumentsPath { get { return CoreUtils._projectWithActiveDocumentsPath; } }
+        public static string UpdateProjectInviteConfirmationDateByCodePath { get { return CoreUtils._updateProjectInviteConfirmationDateByCodePath; } }
+        public static string AddDocumentToProjectRawPath { get { return CoreUtils._addDocumentToProjectRawPath; } }
+        public static string ProjectTaskStatus { get { return CoreUtils._projectTaskStatus; } }
+        public static string UserFeedbackPath { get { return CoreUtils._userFeedbackPath; } }
+        public static string IsProjectStarted { get { return CoreUtils._isProjectStarted; } }
+        public static string UserRolePostEditProjectPath { get { return CoreUtils._userRolePostEditProjectPath; } }
         public static string AddContentToEvaluationProject { get { return _addContentToEvaluationProject; } }
-        public static string UserProject{get { return CoreUtils._userProject; }}
-        public static string ProjectInfo{get { return CoreUtils._projectInfo; }}
+        public static string UserProject { get { return CoreUtils._userProject; } }
+        public static string ProjectInfo { get { return CoreUtils._projectInfo; } }
         public static string ParaphrasingDefaults { get { return CoreUtils._paraphrasingDefaults; } }
 
         #region Appraise
-        public static string AppraiseEndpoint{get { return CoreUtils._appraiseEndpoint; }}
+        public static string AppraiseEndpoint { get { return CoreUtils._appraiseEndpoint; } }
         #endregion
 
-        #region Learn      
+        #region Learn
         public static string LearnEndpoint { get { return CoreUtils._learnEndpoint; } }
         public static string LearnEndpointPreEdit { get { return CoreUtils._learnEndpointPreEdit; } }
         public static string LearnEndpointPostEdit { get { return CoreUtils._learnEndpointPostEdit; } }
@@ -463,7 +485,7 @@ namespace AcceptPortal.Utils
         public static bool DisplayPreEdit { get { return CoreUtils._displayPreEdit; } }
         public static bool DisplayPreEditDownload { get { return CoreUtils._displayPreEditDownload; } }
         public static bool DisplayPreEditDemo { get { return CoreUtils._displayPreEditDemo; } }
-        public static bool DisplayPreEditAppCreation { get { return CoreUtils._displayPreEditAppCreation; } }        
+        public static bool DisplayPreEditAppCreation { get { return CoreUtils._displayPreEditAppCreation; } }
         public static bool DisplayPostEdit { get { return CoreUtils._displayPostEdit; } }
         public static bool DisplayPostEditDemo { get { return CoreUtils._displayPostEditDemo; } }
         public static bool DisplayEvaluation { get { return CoreUtils._displayEvaluation; } }
@@ -477,6 +499,30 @@ namespace AcceptPortal.Utils
         public static string EvaluationDemoScoresUrl { get { return CoreUtils._evaluationDemoScoresUrl; } }
         public static string EvaluationDemoApiKey { get { return CoreUtils._evaluationDemoApiKey; } }
         #endregion
+
+        #region EvaluationInternal
+        public static string AcceptAuthenticateUserByEvaluationProjectEmailCodePath { get { return CoreUtils._acceptAuthenticateUserByEvaluationProjectEmailCodePath; } }
+        public static string InviteUsersPathEvaluation { get { return CoreUtils._inviteUsersPathEvaluation; } }
+        public static string InvitePathEvaluation { get { return CoreUtils._invitePathEvaluation; } }
+        public static string InviteByUserNamePathEvaluation { get { return CoreUtils._inviteByUserNamePathEvaluation; } }
+        public static string UpdateProjectInviteConfirmationDateByCodePathEvaluation { get { return CoreUtils._updateProjectInviteConfirmationDateByCodePathEvaluation; } }
+        public static string GetEvaluationHistory { get { return CoreUtils._getEvaluationHistory; } }
+        public static string UserRoleEvaluationProjectPath { get { return CoreUtils._userRoleEvaluationProjectPath; } }
+        public static string InternalEvaluationAuditPath { get { return CoreUtils._internalEvaluationAuditPath; } }
+        #endregion
+
+        public static string Base64Encode(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+
+
+        public static string Base64Decode(string base64EncodedData)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
 
         #endregion
     }

@@ -14,6 +14,11 @@ using ICSharpCode.SharpZipLib.Zip;
 using AcceptPortal.Models.Audit;
 using AcceptPortal.Remote.Evaluation;
 using AcceptPortal.Remote.Miscellaneous;
+using AcceptPortal.ViewModels;
+using System.Xml.Linq;
+using AcceptPortal.Remote.PostEdit;
+using System.Web.Routing;
+using AcceptPortal.Resources;
 
 namespace AcceptPortal.Controllers.Evaluation
 {
@@ -26,7 +31,7 @@ namespace AcceptPortal.Controllers.Evaluation
         // GET: /PostEdit/
         [AuditFilter(AuditAction = AuditFilter.READ, AuditType = AuditFilter.TYPEDEFAULT, AuditDescription = AuditFilter.AUDIT_DEFAULT_DESCRIPTION)]
         public ActionResult Index()
-        {            
+        {
             string username = User.Identity.Name;
             List<EvaluationProject> projects = EvaluationRemoteMethods.GetEvaluationProjectsByUser(username);
             return View(projects);
@@ -35,11 +40,44 @@ namespace AcceptPortal.Controllers.Evaluation
         [HttpGet]
         public ActionResult Create()
         {
+            List<Project> projects = PostEditRemoteMethods.GetProjectsByUser(User.Identity.Name);
+            List<SelectListItem> projectsList = new List<SelectListItem>();
+            List<SelectListItem> projectsTypesList = new List<SelectListItem>();
+
+            List<SelectListItem> evaluationMethods = new List<SelectListItem>();
+            List<SelectListItem> duplicationApproachOptions = new List<SelectListItem>();
+
+
+            projectsList.Add(new SelectListItem() { Text = Global.EvaluationProjectSelectLabel, Value = "-1" });
+
+            foreach (Project p in projects)
+            {
+                if (p.ProjectOwner == User.Identity.Name)
+                    projectsList.Add(new SelectListItem() { Text = p.ProjectName, Value = p.ID.ToString() });
+            }
+
+            projectsTypesList.Add(new SelectListItem() { Text = Global.EvaluationProjectExternalProjectLabel, Value = "2" });
+            projectsTypesList.Add(new SelectListItem() { Text = Global.EvaluationProjectInternalLabel, Value = "1" });
+
+            evaluationMethods.Add(new SelectListItem() { Text = Global.NotSet, Value = "0" });
+            evaluationMethods.Add(new SelectListItem() { Text = Global.EvaluateOriginalLabel, Value = "1" });
+            evaluationMethods.Add(new SelectListItem() { Text = Global.EvaluateOriginalAndAllRevisionsLabel, Value = "2" });
+            evaluationMethods.Add(new SelectListItem() { Text = Global.EvaluateAllRevisionsOnlyLabel, Value = "3" });
+
+            duplicationApproachOptions.Add(new SelectListItem() { Text = Global.NotSet, Value = "0" });
+            duplicationApproachOptions.Add(new SelectListItem() { Text = Global.AvoidDuplicationTaskLevel, Value = "1" });
+            duplicationApproachOptions.Add(new SelectListItem() { Text = Global.AvoidDuplicationProjectLevel, Value = "2" });
+
+            @ViewBag.PostEditProjects = projectsList;
+            @ViewBag.EvaluationProjectType = projectsTypesList;
+            @ViewBag.EvaluationMethods = evaluationMethods;
+            @ViewBag.DuplicationApproachOptions = duplicationApproachOptions;
+
             return View();
         }
 
         /// <summary>
-        /// Creates a New Evaluation Project.
+        /// Create a New Evaluation Project
         /// </summary>
         /// <param name="collection">Collection of Form items</param>
         /// <returns></returns>
@@ -55,9 +93,21 @@ namespace AcceptPortal.Controllers.Evaluation
                 string evalDomain = collection["Domain"];
                 string username = User.Identity.Name;
 
-                EvaluationProject p = EvaluationRemoteMethods.CreateEvaluationProject(evalProjectName, evalDescription, evalOrganization, evalDomain, username);
+                string evalProjectType = collection["EvaluationType"];
+                string evalPostEditProjectId = collection["PostEditProjectId"] != null ? evalPostEditProjectId = collection["PostEditProjectId"] : evalPostEditProjectId = "-1";
+                string evalMethod = collection["EvaluationMethod"] != null ? evalMethod = collection["EvaluationMethod"] : evalMethod = "0";
+                string includeOwnerRev = collection["IncludeOwnerRevision"].Replace("true,false", "true").Replace("False,false", "false");
+                string duplicationLogic = collection["DuplicationLogic"] != null ? duplicationLogic = collection["DuplicationLogic"] : duplicationLogic = "0";
+                string emailBody = collection["CustomEmailBody"] != null ? emailBody = collection["CustomEmailBody"] : emailBody = string.Empty;
 
-                return RedirectToAction("Index");
+                EvaluationProject p = EvaluationRemoteMethods.CreateEvaluationProject(evalProjectName, evalDescription,
+                    evalOrganization, evalDomain, username, evalProjectType, evalPostEditProjectId
+                    , evalMethod, duplicationLogic, includeOwnerRev, emailBody);
+
+                if (p != null && p.ID > 0)
+                    return RedirectToAction("Questions", new { @Id = p.ID });
+                else
+                    return RedirectToAction("Index");
             }
             catch
             {
@@ -87,15 +137,15 @@ namespace AcceptPortal.Controllers.Evaluation
                         demoQuestion = q;
                     }
                 }
-               
+
             }
 
             return View(demoQuestion);
         }
-       
+
         public ActionResult Project(int id)
         {
-            EvaluationProject project = EvaluationRemoteMethods.GetEvaluationProject(id);            
+            EvaluationProject project = EvaluationRemoteMethods.GetEvaluationProject(id);
             return View(project);
         }
 
@@ -155,10 +205,10 @@ namespace AcceptPortal.Controllers.Evaluation
 
             if (file == null)
                 return RedirectToAction("AddData", new { id = id });
-        
+
             string originalFileName = Path.GetFileNameWithoutExtension(file.FileName);
             string filePath = originalFileName + "_" + Guid.NewGuid().ToString("N") + ".zip";
-            string docsUploadPath = Server.MapPath("~/App_Data/uploads"); 
+            string docsUploadPath = Server.MapPath("~/App_Data/uploads");
 
             if (docsUploadPath.StartsWith("~"))
             {
@@ -169,7 +219,7 @@ namespace AcceptPortal.Controllers.Evaluation
                 Directory.CreateDirectory(docsUploadPath);
             }
 
-            filePath = Path.Combine(docsUploadPath, filePath);          
+            filePath = Path.Combine(docsUploadPath, filePath);
             file.SaveAs(filePath);
 
             string tagerFolder = Path.Combine(docsUploadPath, Path.GetFileNameWithoutExtension(filePath));
@@ -178,7 +228,7 @@ namespace AcceptPortal.Controllers.Evaluation
                 FastZip zip = new FastZip();
                 zip.ExtractZip(filePath, tagerFolder, "\\.*$");
             }
-            catch 
+            catch
             {
                 bError = true;
                 errorMessage = "Unable to extract ZIP archive";
@@ -203,7 +253,7 @@ namespace AcceptPortal.Controllers.Evaluation
                     errorMessage = "Upload archive was empty";
                 }
             }
-         
+
             if (!bError)
             {
                 foreach (string item in importFiles)
@@ -382,10 +432,10 @@ namespace AcceptPortal.Controllers.Evaluation
             {
                 foreach (var q in evaluationQuestion.LanguageQuestions)
                 {
-                        if (q.ID == qid)
-                        {
-                            return View(q);
-                        }
+                    if (q.ID == qid)
+                    {
+                        return View(q);
+                    }
                 }
             }
             return View();
@@ -424,7 +474,7 @@ namespace AcceptPortal.Controllers.Evaluation
         {
             ViewData["ProjectID"] = Id;
             List<EvaluationQuestion> questions = EvaluationRemoteMethods.GetAllQuestions(Id);
-            EvaluationQuestionItemAnswer answerItem = null;           
+            EvaluationQuestionItemAnswer answerItem = null;
             foreach (var evaluationQuestion in questions)
             {
                 foreach (var q in evaluationQuestion.LanguageQuestions)
@@ -452,6 +502,49 @@ namespace AcceptPortal.Controllers.Evaluation
         public ActionResult Edit(int id)
         {
             EvaluationProject project = EvaluationRemoteMethods.GetEvaluationProject(id);
+
+            List<Project> projects = PostEditRemoteMethods.GetProjectsByUser(User.Identity.Name);
+            List<SelectListItem> projectsList = new List<SelectListItem>();
+            List<SelectListItem> projectsTypesList = new List<SelectListItem>();
+
+            List<SelectListItem> evaluationMethods = new List<SelectListItem>();
+            List<SelectListItem> duplicationApproachOptions = new List<SelectListItem>();
+
+
+            projectsList.Add(new SelectListItem() { Text = Global.EvaluationProjectSelectLabel, Value = "-1" });
+
+            foreach (Project p in projects)
+            {
+                if (p.ProjectOwner == User.Identity.Name)
+                    projectsList.Add(new SelectListItem() { Text = p.ProjectName, Value = p.ID.ToString() });
+            }
+
+            projectsTypesList.Add(new SelectListItem() { Text = Global.EvaluationProjectExternalProjectLabel, Value = "2" });
+            projectsTypesList.Add(new SelectListItem() { Text = Global.EvaluationProjectInternalLabel, Value = "1" });
+
+            evaluationMethods.Add(new SelectListItem() { Text = Global.NotSet, Value = "0" });
+            evaluationMethods.Add(new SelectListItem() { Text = Global.EvaluateOriginalLabel, Value = "1" });
+            evaluationMethods.Add(new SelectListItem() { Text = Global.EvaluateOriginalAndAllRevisionsLabel, Value = "2" });
+            evaluationMethods.Add(new SelectListItem() { Text = Global.EvaluateAllRevisionsOnlyLabel, Value = "3" });
+
+            duplicationApproachOptions.Add(new SelectListItem() { Text = Global.NotSet, Value = "0" });
+            duplicationApproachOptions.Add(new SelectListItem() { Text = Global.AvoidDuplicationTaskLevel, Value = "1" });
+            duplicationApproachOptions.Add(new SelectListItem() { Text = Global.AvoidDuplicationProjectLevel, Value = "2" });
+
+            @ViewBag.PostEditProjects = projectsList;
+            @ViewBag.EvaluationProjectType = projectsTypesList;
+            @ViewBag.EvaluationMethods = evaluationMethods;
+            @ViewBag.DuplicationApproachOptions = duplicationApproachOptions;
+
+            @ViewBag.ProjectTypeHelper = project.PostEditProjectId;
+
+            @ViewBag.EvalApproach = project.EvaluationMethod;
+            @ViewBag.AvoidDuplications = project.DuplicationLogic;
+            @ViewBag.IncludeOwner = project.IncludeOwnerRevision;
+
+
+
+
             return View(project);
         }
 
@@ -466,8 +559,21 @@ namespace AcceptPortal.Controllers.Evaluation
                 string evalDescription = collection["Description"];
                 string evalApiKey = collection["ApiKey"];
                 string evalDomain = collection["Domain"];
-                EvaluationProject p = EvaluationRemoteMethods.UpdateEvaluationProject(id, evalProjectName, evalDescription, evalOrganization, evalApiKey, evalDomain);
-                return RedirectToAction("Project", new { id = id });               
+
+
+                string evalProjectType = collection["EvaluationType"];
+                string evalPostEditProjectId = collection["PostEditProjectId"] != null ? evalPostEditProjectId = collection["PostEditProjectId"] : evalPostEditProjectId = "-1";
+                string evalMethod = collection["EvaluationMethod"] != null ? evalMethod = collection["EvaluationMethod"] : evalMethod = "0";
+                string includeOwnerRev = collection["IncludeOwnerRevision"].Replace("true,false", "true").Replace("False,false", "false");
+                string duplicationLogic = collection["DuplicationLogic"] != null ? duplicationLogic = collection["DuplicationLogic"] : duplicationLogic = "0";
+                string emailBody = collection["CustomEmailBody"] != null ? emailBody = collection["CustomEmailBody"] : emailBody = string.Empty;
+
+
+                EvaluationProject p = EvaluationRemoteMethods.UpdateEvaluationProject(id, evalProjectName, evalDescription,
+                    evalOrganization, evalApiKey, evalDomain, evalProjectType, evalPostEditProjectId
+                    , evalMethod, duplicationLogic, includeOwnerRev, emailBody);
+                return RedirectToAction("Project", new { id = id });
+
             }
             catch
             {
@@ -482,7 +588,7 @@ namespace AcceptPortal.Controllers.Evaluation
             var languages = MiscellaneousRemoteMethods.GetAllLanguages();
             List<EvaluationQuestion> questions = EvaluationRemoteMethods.GetAllQuestions(id);
             EvaluationQuestionItem questionItem = null;
-            
+
             //find the question.
             foreach (var evaluationQuestion in questions)
             {
@@ -514,7 +620,7 @@ namespace AcceptPortal.Controllers.Evaluation
             EvaluationQuestion categoryItem = EvaluationRemoteMethods.UpdateEvaluationQuestion(qid, language, name, action, confirmation);
 
 
-           return RedirectToAction("Questions", new { id = id });
+            return RedirectToAction("Questions", new { id = id });
         }
 
         public ActionResult EditQuestionCategory(int id, int category)
@@ -566,7 +672,7 @@ namespace AcceptPortal.Controllers.Evaluation
             return RedirectToAction("Questions", new { id = id });
         }
 
-        [HttpPost]        
+        [HttpPost]
         public ActionResult UploadFile(HttpPostedFileBase file, string projectId)
         {
             try
@@ -588,7 +694,7 @@ namespace AcceptPortal.Controllers.Evaluation
                     }
 
                     jsonContent = System.Text.Encoding.UTF8.GetString(data);
-                                    
+
                     //fix BOM.
                     int index = jsonContent.IndexOf('{');
                     if (index > 0)
@@ -604,5 +710,219 @@ namespace AcceptPortal.Controllers.Evaluation
                 throw (e);
             }
         }
+
+        #region EvaluationInternal
+
+        [Authorize]
+        [HttpPost]
+        public JsonResult InviteUsers(string usersList, string projectInvitatedId, string projectOwner)
+        {
+            return Json(EvaluationRemoteMethods.InviteUsersToProject(usersList.Split(new string[] { ";" }, StringSplitOptions.RemoveEmptyEntries), projectOwner, projectInvitatedId, "Guest"));
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        public ActionResult Invitation(string code)
+        {
+
+            if (StringUtils.Validate32CharactersGuid(code))
+            {
+                Invitation invitation = EvaluationRemoteMethods.GetInvitationByCode(code);
+                TempData.Remove("ProjectIdInvitationEval");
+                TempData.Remove("ProjectIdInvitationUserNameEval");
+                if (invitation != null)
+                {
+                    if (invitation.InvitationType == 2)
+                    {
+                        #region redirection cookie
+                        HttpCookie myCookie = new HttpCookie("AceeptRedirectionEval");
+                        myCookie["UserIdEval"] = invitation.UserName.ToString();
+                        myCookie["ProjectIdEval"] = invitation.ProjectId.ToString();
+                        myCookie.Expires = DateTime.Now.AddDays(30);
+                        System.Web.HttpContext.Current.Response.Cookies.Add(myCookie);
+                        #endregion
+                        EvaluationRemoteMethods.UpdateProjectInviteConfirmationDateByCode(code);
+                        TempData.Add("ProjectIdInvitationUserNameEval", invitation.UserName);
+                        return RedirectToAction("Register", "Account");
+                    }
+                    else
+                    {
+                        if (invitation.InvitationType == 1)
+                        {
+                            if (User.Identity.IsAuthenticated && invitation.UserName == User.Identity.Name)
+                            {
+
+                                EvaluationRemoteMethods.UpdateProjectInviteConfirmationDateByCode(code);
+                                TempData.Add("ProjectIdInvitationEval", invitation.ProjectId);
+                                TempData.Add("ProjectIdInvitationUserNameEval", invitation.UserName);
+
+                                return RedirectToAction("EvaluateProject", new RouteValueDictionary(new { controller = "Evaluation", action = "EvaluateProject", Id = invitation.ProjectId }));
+
+                            }
+                            else
+                            {
+                                EvaluationRemoteMethods.UpdateProjectInviteConfirmationDateByCode(code);
+                                TempData.Add("ProjectIdInvitationEval", invitation.ProjectId);
+                                TempData.Add("ProjectIdInvitationUserNameEval", invitation.UserName);
+                                return RedirectToAction("Login", "Account");
+                            }
+                        }
+                        else
+                        {
+                            if (User.Identity.IsAuthenticated && invitation.UserName == User.Identity.Name)
+                                return RedirectToAction("Index", "Evaluation");
+                            else
+                                return RedirectToAction("Login", "Account");
+                        }
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+            }
+
+            //last return to login.
+            return RedirectToAction("Login", "Account");
+        }
+
+
+        public ActionResult EvaluateProject(int Id)
+        {
+            string userRole = EvaluationRemoteMethods.GetUserRoleEvaluationProject(User.Identity.Name, Id);
+            if (userRole.CompareTo("ProjUser") != 0 && userRole.CompareTo("ProjAdmin") != 0)
+                return RedirectToAction("Index");
+
+            InternalEvaluationVM model = new InternalEvaluationVM();
+
+            model.EvaluationProject = EvaluationRemoteMethods.GetEvaluationProject(Id);
+
+            //this method slowsdown everything!
+            var p = PostEditRemoteMethods.GetProject(model.EvaluationProject.PostEditProjectId);
+
+            model.PostEditProjectInEvaluation = PostEditRemoteMethods.GetProjectWithValidDocuments(model.EvaluationProject.PostEditProjectId, p.ProjectOwner);
+
+            PostEditRemoteMethods.GetProjectTasksStatus(model.PostEditProjectInEvaluation.AdminToken);
+
+            if (model.PostEditProjectInEvaluation.SingleRevision)
+            {
+
+                foreach (var doc in model.PostEditProjectInEvaluation.Documents)
+                    model.ProjectTaskStatus.Tasks.Add(doc.TextId);
+
+                foreach (string t in model.ProjectTaskStatus.Tasks)
+                    model.ProjectTaskStatus.Users.Add(model.PostEditProjectInEvaluation.ProjectOwner);
+            }
+            else
+            {
+
+                model.ProjectTaskStatus.Tasks = (from w in model.ProjectTaskStatus.UserTaskStatus
+                                                 select w.TextId).Distinct().ToList();
+
+                model.ProjectTaskStatus.Users = (from w in model.ProjectTaskStatus.UserTaskStatus
+                                                 select w.UserId).Distinct().ToList();
+
+            }
+
+            model.InternalAudits = EvaluationRemoteMethods.GetInternalEvaluationAudits(model.EvaluationProject.AdminToken, User.Identity.Name, "1");
+            return View(model);
+        }
+
+        //[AuditFilter(AuditAction = AuditFilter.READ, AuditType = AuditFilter.TYPEDEFAULT, AuditDescription = AuditDescriptor.)]
+        public ActionResult EvaluateProjectAction(int Id, string user, string task)
+        {
+
+            user = @AcceptPortal.Utils.CoreUtils.Base64Decode(user);
+            task = @AcceptPortal.Utils.CoreUtils.Base64Decode(task);
+
+            string userRole = EvaluationRemoteMethods.GetUserRoleEvaluationProject(User.Identity.Name, Id);
+            if (userRole.CompareTo("ProjUser") != 0 && userRole.CompareTo("ProjAdmin") != 0)
+                return RedirectToAction("Index");
+
+            InternalEvaluationVM model = new InternalEvaluationVM();
+            model.EvaluationProject = EvaluationRemoteMethods.GetEvaluationProject(Id);
+
+            model.EvaluationProject.Questions = EvaluationRemoteMethods.GetAllQuestions(Id);
+
+            var p = PostEditRemoteMethods.GetProject(model.EvaluationProject.PostEditProjectId);
+
+            if (user == "MT")
+                model.PostEditProjectInEvaluation = PostEditRemoteMethods.GetProjectWithValidDocuments(model.EvaluationProject.PostEditProjectId, p.ProjectOwner);
+            else
+                model.PostEditProjectInEvaluation = PostEditRemoteMethods.GetProjectWithValidDocuments(model.EvaluationProject.PostEditProjectId, user);//User.Identity.Name
+
+            ViewBag.CurrentUser = user;
+            ViewBag.CurrentTaskId = task;
+            string[] test = EvaluationRemoteMethods.GetEvaluationHistory(model.EvaluationProject.AdminToken, User.Identity.Name);
+            ViewBag.EvaluationHistory = test;
+
+            ViewBag.AcceptApiUrl = CoreUtils.AcceptPortalApiPath;
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult GetPosEditedDocument(string textId, string userName, string owner, bool isSingleRevision)
+        {
+
+            string urlDoc = CoreUtils.AcceptPortalApiPath + "/PostEdit/DocumentXliff?userId={0}&textId={1}";
+            InternalEvaluationInstanceVM model = new InternalEvaluationInstanceVM();
+            model.UserId = userName;
+            model.TextId = textId;
+            try
+            {
+                string jSonResponse;
+
+                if (userName != "MT" && !isSingleRevision)
+                    jSonResponse = WebUtils.GetJson(string.Format(urlDoc, userName, textId), "application/xml");
+                else
+                    jSonResponse = WebUtils.GetJson(string.Format(urlDoc, owner, textId), "application/xml");
+                XDocument obj = XDocument.Parse(jSonResponse);
+                XNamespace df = obj.Root.Name.Namespace;
+                foreach (XElement transUnitNode in obj.Descendants(df + "trans-unit"))
+                {
+                    XElement sourceNode = transUnitNode.Element(df + "source");
+                    XElement targetNode = transUnitNode.Element(df + "target");
+                    XElement mtBaselineNode = transUnitNode.Elements().Where(x => x.Name == "alt-trans" && x.Attribute("phase-name").Value == "mt_baseline").FirstOrDefault();
+
+                    List<XElement> alternativeTranslationNodes = transUnitNode.Elements().Where(x => x.Name == "alt-trans" && x.Attribute("phase-name").Value != "mt_baseline").ToList();
+
+                    if (alternativeTranslationNodes != null && alternativeTranslationNodes.Count > 0)
+                    {
+                        List<string> altersTrans; altersTrans = new List<string>();
+                        foreach (XElement alter in alternativeTranslationNodes)
+                            altersTrans.Add(alter.Value);
+
+                        model.AlternativeTranslations.Add(altersTrans);
+                    }
+
+                    model.Sources.Add(sourceNode.Value);
+                    model.Targets.Add(targetNode.Value);
+
+                    if (mtBaselineNode != null && mtBaselineNode.Value != null)
+                        model.MTBaselines.Add(mtBaselineNode.Value);
+                    else
+                    {
+                        mtBaselineNode = transUnitNode.Elements().Where(x => x.Name == "target" && x.Attribute("phase-name").Value == "mt_baseline").FirstOrDefault();
+                        if (mtBaselineNode != null && mtBaselineNode.Value != null)
+                            model.MTBaselines.Add(mtBaselineNode.Value);
+                        else
+                            model.MTBaselines.Add("@@NOMTNODE@@");
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                throw (e);
+            }
+
+            if (userName == "MT")
+                model.Targets = model.MTBaselines;
+
+            return PartialView("_PostEditDocumentEvaluation", model);
+        }
+        #endregion
+
     }
 }

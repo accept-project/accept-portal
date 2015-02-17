@@ -1,0 +1,149 @@
+﻿@model AcceptPortal.ViewModels.InternalEvaluationVM
+
+@{
+    ViewBag.Title = @AcceptPortal.Resources.Global.MainMenuEvaluateLabel;
+}
+
+
+<style type="text/css">
+
+    #evalContainer .tooltip
+    {
+      font-size:16px;    
+    }
+   
+    #evalContainer .help-tooltip
+    {     
+        cursor:help;
+    }
+
+    #evalContainer .col-eval
+    {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .evaluation-body
+    {
+        background-color:white;
+        margin-top:25px;
+        margin-bottom:25px;
+        font-size:18px;
+    }
+
+    .evaluation-header
+    {
+        margin-bottom:80px;
+    }
+
+</style>
+
+@section scripts{ 
+
+    <script src="@Url.Content("~/Scripts/global/evaluation/evaluate.js")"></script>
+    <script src="@Url.Content("~/Scripts/md5/md5.js")"></script>
+    <script src="@Url.Content("~/Scripts/Underscore/underscore-min.js")"></script>
+
+    <script type="text/javascript">
+        
+        var questions = @Html.Raw(Json.Encode(Model.EvaluationProject.Questions));
+        var postDocumentUrl = '@Url.Content("~/En-us/Evaluation/GetPosEditedDocument")'
+        var userInEvaluation =  @Html.Raw(Json.Encode(ViewBag.CurrentUser));
+        var textIdInEvaluation =  @Html.Raw(Json.Encode(ViewBag.CurrentTaskId));
+        var apiPublicKey = @Html.Raw(Json.Encode(Model.EvaluationProject.ApiKey));
+        var projectId = @Html.Raw(Json.Encode(Model.EvaluationProject.ID));
+        var projectToken = @Html.Raw(Json.Encode(Model.EvaluationProject.AdminToken));  
+        var createQuestionUrl = '@Url.Content("~/En-us/Evaluation/Questions/"+Model.EvaluationProject.ID+"")'
+        var userEvaluating =  @Html.Raw(Json.Encode(User.Identity.Name));                  
+        var duplicationLogic =  @Html.Raw(Json.Encode(Model.EvaluationProject.DuplicationLogic));        
+        var owner = @Html.Raw(Json.Encode(Model.EvaluationProject.ProjectCreator));  
+        var evaluationHistory = @Html.Raw(Json.Encode(ViewBag.EvaluationHistory));  
+        var isSingleRevision = @Html.Raw(Json.Encode(Model.PostEditProjectInEvaluation.SingleRevision));
+
+        var apiUrl = @Html.Raw(Json.Encode(ViewBag.AcceptApiUrl)); 
+
+        var selector = "div[id^='divFormContainer_']";
+        var localStorageLabel = "evaluatedItems";
+        var clientSideLog = undefined;
+        var defaultConfirmationMessage = "Evaluation Done!"
+
+        
+
+        function loadClusterTotals(textId, userId)    {
+            $("#evalContainer").load(postDocumentUrl + "?textId=" + encodeURIComponent(textId) + "&userName=" + encodeURIComponent(userId) + "&owner=" + encodeURIComponent(owner) + "&isSingleRevision=" + isSingleRevision + "",function(data){                                                                                                                     
+
+                $("form[id^='evaluationSegmentForm_'").each(function(){
+                    $(this).find("#Ehdd0").val(projectId);
+                    $(this).find("#Ehdd1").val(apiPublicKey);                                                  
+                });
+
+
+               
+                if(questions.length > 0 && questions[0].LanguageQuestions.length > 0)
+                {
+                  
+                    $('div[id^="evaluationRow_"]').each(function(){
+
+                       
+                        var index = this.id.split('_')[1];
+                        var source = $("#evaluationColSource_"+index.toString()+"").text();
+                        var target = $("#evaluationSpanTarget_"+index.toString()+"").text();
+                        getNext(source, target, index);                    
+                    });         
+                   
+                    isFinished();
+
+                }else
+                {
+                    if(userEvaluating == owner)
+                    {
+                        $("#spanIsFinished").html('Attention: you need to create some questions first. You can do that by clicking <a href="'+createQuestionUrl+'">here</a>');
+                        $("#spanIsFinished").show();
+                        $(".evaluation-header").remove();
+                    }
+                    else
+                    {
+                        $("#spanIsFinished").html('Attention: No Questions available for this project. Please contact project administrator.');
+                        $("#spanIsFinished").show();
+                        $(".evaluation-header").remove();
+                    
+                    }
+                }
+                
+
+                $(".help-tooltip").unbind();
+                $(".help-tooltip").attr("data-placement","left");           
+                $(".help-tooltip").tooltip();
+                                           
+            });  
+        
+        }     
+
+        $(document).ready(function () {
+                                
+            clientSideLog = evaluationHistory;
+            if(clientSideLog == undefined) clientSideLog = evaluationHistory;
+            loadClusterTotals(textIdInEvaluation,userInEvaluation);
+            $("#divMainContainerPortal").css("width", "90%");
+        });
+
+    </script>
+
+}
+
+
+<div class="evaluation-project">
+    <h1>@AcceptPortal.Resources.Global.EvaluatingProjectLabel - @Model.PostEditProjectInEvaluation.ProjectName</h1>   
+    
+    <div class="evaluation-header">
+     
+    <div style="float:right;margin:2px;color:#08c;margin-bottom:15px;font-size:22px;"><a href="@Url.Action("EvaluateProject", new {@ID = Model.EvaluationProject.ID })"><span id="goBack"><span>&lt;&lt;</span><span>@AcceptPortal.Resources.Global.GoBackLabel</span></span></a></div>
+    <span id="spanIsFinished" style="color:#f00;display:none;">@AcceptPortal.Resources.Global.EvaluationFinishedHereLabel</span>
+        </div>
+        <div class="evaluation-body">
+  
+        <div id="evalContainer">
+        </div>
+
+        </div>
+</div>

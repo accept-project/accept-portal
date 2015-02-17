@@ -1,0 +1,329 @@
+﻿@model AcceptPortal.ViewModels.InternalEvaluationVM
+
+@{
+    ViewBag.Title = @AcceptPortal.Resources.Global.MainMenuEvaluateLabel;
+}
+
+<style type="text/css">
+
+.column {
+    width: 220px;
+    float: left;    
+}
+
+.portlet {
+    margin: 0 0.5em 0.5em 0;
+    padding: 0.3em;
+    width:170px;
+    text-align:center;
+    cursor:pointer;
+}
+
+.portlet-header {
+    padding: 0.2em 0.3em;
+    margin-bottom: 0.5em;
+}
+
+.portlet-toggle {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -8px;
+}
+.portlet-content {
+    padding: 0.4em;
+}
+.portlet-placeholder {
+    border: 1px dotted black;
+    margin: 0 1em 1em 0;
+    height: 50px;
+}
+
+.matrix
+{
+    width:100%;   
+    margin-top:50px;
+}
+ 
+</style>
+
+
+
+<div class="evaluation-project">
+    <h1>@AcceptPortal.Resources.Global.EvaluatingProjectLabel - @Model.PostEditProjectInEvaluation.ProjectName</h1>   
+   <div class="evaluation-header">
+     
+    <div style="float:right;margin:2px;color:#08c;margin-bottom:15px;font-size:22px;"><a href="@Url.Action("Project", new { @ID = Model.EvaluationProject.ID })"><span>&lt;&lt;</span><span>@AcceptPortal.Resources.Global.GoBackLabel</span></a></div>
+    
+        </div>
+
+
+<div class="matrix">
+    
+    <div>
+
+         @{
+             var taskUsers = new List<AcceptPortal.ViewModels.TaskStatus>();
+           
+             
+           
+           }
+         
+        
+        @if (Model.PostEditProjectInEvaluation.SingleRevision)
+        {
+            for (var i = 0; i < Model.ProjectTaskStatus.Tasks.Count; i++)
+            {
+
+                switch (Model.EvaluationProject.EvaluationMethod)
+                {
+                    case 1:
+                        { 
+                               <div class="portlet">
+                        <div class="portlet-header">@Html.Raw("Task: " + (i + 1).ToString())</div>   
+                     
+                          <div class="portlet-content">
+                           <a href="@Url.Action("EvaluateProjectAction", new { @ID = Model.EvaluationProject.ID, @user = @AcceptPortal.Utils.CoreUtils.Base64Encode("MT"), @task = @AcceptPortal.Utils.CoreUtils.Base64Encode(Model.ProjectTaskStatus.Tasks[i]) })">                
+                           @Html.Raw(@Model.GetLabelFromAudit("MT", Model.ProjectTaskStatus.Tasks[i]))
+
+                              
+                               </a>              
+                        </div>
+                        </div>
+                                                  
+                        } break;
+                    case 2:
+                        {
+                            <!--original-->
+                                <div class="portlet">
+                        <div class="portlet-header">@Html.Raw("Task: " + (i + 1).ToString())</div>                                        
+                          <div class="portlet-content">
+                           <a href="@Url.Action("EvaluateProjectAction", new { @ID = Model.EvaluationProject.ID, @user = @AcceptPortal.Utils.CoreUtils.Base64Encode("MT"), @task = @AcceptPortal.Utils.CoreUtils.Base64Encode(Model.ProjectTaskStatus.Tasks[i]) })">                
+                          @Html.Raw(@Model.GetLabelFromAudit("MT", Model.ProjectTaskStatus.Tasks[i]))
+                               </a>              
+                        </div>
+                        </div>                                                    
+                        <!--collaborative revision-->
+                            <div class="portlet">
+                            <div class="portlet-header" style="display:none;"></div>   
+                            <div class="portlet-content" title="Revision">
+                               <a href="@Url.Action("EvaluateProjectAction", new { @ID = Model.EvaluationProject.ID, @user = @AcceptPortal.Utils.CoreUtils.Base64Encode(Model.PostEditProjectInEvaluation.ProjectOwner), @task = @AcceptPortal.Utils.CoreUtils.Base64Encode(Model.ProjectTaskStatus.Tasks[i]) })">                             
+                           @Html.Raw(@Model.GetLabelFromAudit(Model.PostEditProjectInEvaluation.ProjectOwner, Model.ProjectTaskStatus.Tasks[i]))
+                                   </a>              
+                            </div>
+                            </div>
+                    
+                    
+            
+
+
+                        } break;
+                    default:
+                        {
+                                
+                            <!--original-->
+                                <div class="portlet">
+                        <div class="portlet-header">@Html.Raw("Task: " + (i + 1).ToString())</div>                                        
+                          <div class="portlet-content">
+                           <a href="@Url.Action("EvaluateProjectAction", new { @ID = Model.EvaluationProject.ID, @user = @AcceptPortal.Utils.CoreUtils.Base64Encode("MT"), @task = @AcceptPortal.Utils.CoreUtils.Base64Encode(Model.ProjectTaskStatus.Tasks[i]) })">                
+                             @Html.Raw(@Model.GetLabelFromAudit("MT", Model.ProjectTaskStatus.Tasks[i]))
+                               </a>              
+                        </div>
+                        </div>                                                    
+                        <!--collaborative revision-->
+                            <div class="portlet">
+                            <div class="portlet-header" style="display:none;"></div>   
+                            <div class="portlet-content">
+                               <a href="@Url.Action("EvaluateProjectAction", new { @ID = Model.EvaluationProject.ID, @user = @AcceptPortal.Utils.CoreUtils.Base64Encode(Model.PostEditProjectInEvaluation.ProjectOwner), @task = @AcceptPortal.Utils.CoreUtils.Base64Encode(Model.ProjectTaskStatus.Tasks[i]) })">                             
+                            @Html.Raw(@Model.GetLabelFromAudit(Model.PostEditProjectInEvaluation.ProjectOwner, Model.ProjectTaskStatus.Tasks[i]))
+                                   </a>              
+                            </div>
+                            </div>
+                           
+                         
+                        } break;
+                }
+
+
+            }
+
+        }
+        else
+        {
+
+            for (var i = 0; i < Model.ProjectTaskStatus.Tasks.Count; i++)
+            {
+    <div class="column">
+ 
+        @{  
+            
+                                                  
+                if (Model.EvaluationProject.IncludeOwnerRevision)
+                {
+                    taskUsers = (from w in Model.ProjectTaskStatus.UserTaskStatus
+                                 where w.TextId == Model.ProjectTaskStatus.Tasks[i]
+                                 select w).ToList();
+                }
+                else
+                {
+
+                    taskUsers = (from w in Model.ProjectTaskStatus.UserTaskStatus
+                                 where w.TextId == Model.ProjectTaskStatus.Tasks[i] && w.UserId != Model.PostEditProjectInEvaluation.ProjectOwner
+                                 select w).ToList();
+
+                }
+        
+        }
+
+
+        @if (taskUsers != null && taskUsers.Count > 0)
+        {
+
+            switch (Model.EvaluationProject.EvaluationMethod)
+            {
+                case 1:
+                    { 
+                               <div class="portlet">
+                        <div class="portlet-header">@Html.Raw("Task: " + (i + 1).ToString())</div>   
+                     
+                          <div class="portlet-content">
+                           <a href="@Url.Action("EvaluateProjectAction", new { @ID = Model.EvaluationProject.ID, @user = @AcceptPortal.Utils.CoreUtils.Base64Encode("MT"), @task = @AcceptPortal.Utils.CoreUtils.Base64Encode(Model.ProjectTaskStatus.Tasks[i]) })">                
+                           @Html.Raw(@Model.GetLabelFromAudit("MT", Model.ProjectTaskStatus.Tasks[i]))
+                               </a>              
+                        </div>
+                        </div>
+                                                  
+                    } break;
+                case 2:
+                    {
+
+                               <div class="portlet">
+                        <div class="portlet-header">@Html.Raw("Task: " + (i + 1).ToString())</div>                                        
+                          <div class="portlet-content">
+                           <a href="@Url.Action("EvaluateProjectAction", new { @ID = Model.EvaluationProject.ID, @user = @AcceptPortal.Utils.CoreUtils.Base64Encode("MT"), @task = @AcceptPortal.Utils.CoreUtils.Base64Encode(Model.ProjectTaskStatus.Tasks[i]) })">                
+                           @Html.Raw(@Model.GetLabelFromAudit("MT", Model.ProjectTaskStatus.Tasks[i]))
+                               </a>              
+                        </div>
+                        </div>                                                    
+                        for (var j = 0; j < taskUsers.Count; j++)
+                        {
+                
+                            <div class="portlet">
+                            <div class="portlet-header" style="display:none;"></div>   
+                            <div class="portlet-content">
+                               <a href="@Url.Action("EvaluateProjectAction", new { @ID = Model.EvaluationProject.ID, @user = @AcceptPortal.Utils.CoreUtils.Base64Encode(taskUsers[j].UserId), @task = @AcceptPortal.Utils.CoreUtils.Base64Encode(taskUsers[j].TextId) })">                                                       
+                                     @Html.Raw(@Model.GetLabelFromAudit(taskUsers[j].UserId, Model.ProjectTaskStatus.Tasks[i]))
+                                   </a>              
+                            </div>
+                            </div>
+                        }
+
+
+                    } break;
+                case 3:
+                    {
+                    
+                         <div class="portlet">
+                        <div class="portlet-header">@Html.Raw("Task: " + (i + 1).ToString())</div>   
+                     
+                          <div class="portlet-content">
+                           <a href="@Url.Action("EvaluateProjectAction", new { @ID = Model.EvaluationProject.ID, @user = @AcceptPortal.Utils.CoreUtils.Base64Encode(taskUsers[0].UserId), @task = @AcceptPortal.Utils.CoreUtils.Base64Encode(Model.ProjectTaskStatus.Tasks[i]) })">                
+                           @Html.Raw(@Model.GetLabelFromAudit(taskUsers[0].UserId, Model.ProjectTaskStatus.Tasks[i]))
+                               </a>              
+                        </div>
+                        </div>
+                             
+                        for (var j = 1; j < taskUsers.Count; j++)
+                        {
+                
+                            <div class="portlet">
+                            <div class="portlet-header" style="display:none;"></div>   
+                            <div class="portlet-content">
+                               <a href="@Url.Action("EvaluateProjectAction", new { @ID = Model.EvaluationProject.ID, @user = @AcceptPortal.Utils.CoreUtils.Base64Encode(taskUsers[j].UserId), @task = @AcceptPortal.Utils.CoreUtils.Base64Encode(taskUsers[j].TextId) })">
+                                                          
+                                  @Html.Raw(@Model.GetLabelFromAudit(taskUsers[j].UserId, Model.ProjectTaskStatus.Tasks[i]))
+                                   </a>              
+                            </div>
+                            </div>
+                        }
+
+                        
+                    } break;
+                default:
+                    {
+                                
+                          <div class="portlet">
+                        <div class="portlet-header">@Html.Raw("Task: " + (i + 1).ToString())</div>   
+                     
+                          <div class="portlet-content">
+                           <a href="@Url.Action("EvaluateProjectAction", new { @ID = Model.EvaluationProject.ID, @user = @AcceptPortal.Utils.CoreUtils.Base64Encode("MT"), @task = @AcceptPortal.Utils.CoreUtils.Base64Encode(Model.ProjectTaskStatus.Tasks[i]) })">                
+                           @Html.Raw(@Model.GetLabelFromAudit("MT", Model.ProjectTaskStatus.Tasks[i]))
+                               </a>              
+                        </div>
+                        </div>
+                  
+           
+                        for (var j = 0; j < taskUsers.Count; j++)
+                        {
+                
+                            <div class="portlet">
+                            <div class="portlet-header" style="display:none;"></div>   
+                            <div class="portlet-content">
+                               <a href="@Url.Action("EvaluateProjectAction", new { @ID = Model.EvaluationProject.ID, @user = @AcceptPortal.Utils.CoreUtils.Base64Encode(taskUsers[j].UserId), @task = @AcceptPortal.Utils.CoreUtils.Base64Encode(taskUsers[j].TextId) })">
+                                                          
+                                  @Html.Raw(@Model.GetLabelFromAudit(taskUsers[j].UserId, Model.ProjectTaskStatus.Tasks[i]))
+                                   </a>              
+                            </div>
+                            </div>
+                        }
+
+                    } break;
+            }
+        }
+
+    </div>
+            }
+        }
+            
+              
+        </div>
+</div>
+</div>
+
+
+
+
+@section scripts{
+<script type="text/javascript">
+
+    var evalDetailUrl = '@Url.Content("~/En-us/Evaluation/GetPosEditedDocument/")'
+    
+
+    $(function () {
+            $(document).ready(function () { 
+            $(function () {
+                $(".column").sortable({
+                    connectWith: ".column",
+                    handle: ".portlet-header",
+                    cancel: ".portlet-toggle",
+                    placeholder: "portlet-placeholder ui-corner-all"
+                });
+                $(".portlet")
+                 .addClass("ui-widget ui-widget-content ui-helper-clearfix ui-corner-all")
+                 .find(".portlet-header")
+                   .addClass("ui-widget-header ui-corner-all")
+                   .prepend("<span></span>");
+
+                $(".portlet-toggle").click(function () {
+                    var icon = $(this);
+                    icon.toggleClass("ui-icon-minusthick ui-icon-plusthick");
+                    icon.closest(".portlet").find(".portlet-content").toggle();
+                });
+         
+            });
+        });
+		
+	});
+	</script>
+}
+
