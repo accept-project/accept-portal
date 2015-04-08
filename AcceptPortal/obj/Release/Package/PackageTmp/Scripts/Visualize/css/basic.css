@@ -1,9 +1,0 @@
-/* page styles */
-table d1emometrics {  border-collapse: collapse; }
-d1emometrics td, th { 
-   text-align: center; 
-   border: 1px solid #ddd; 
-   padding:2px 5px; 
-   }
-   
-d1emometrics caption {margin: 0 0 .5em; font-weight: bold; }
