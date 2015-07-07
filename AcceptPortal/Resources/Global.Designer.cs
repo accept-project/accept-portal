@@ -61,7 +61,7 @@ namespace AcceptPortal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ACCEPT is a Collaborative Project – STREP aimed at developing new methods and techniques to make machine translation (MT) work better in the environment characterised by internet communities sharing specific information..
+        ///   Looks up a localized string similar to This software was created during the ACCEPT Project. ACCEPT is a Collaborative Project – STREP aimed at developing new methods and techniques to make machine translation (MT) work better in the environment characterised by internet communities sharing specific information..
         /// </summary>
         public static string About_Index_Par1 {
             get {
@@ -414,6 +414,24 @@ namespace AcceptPortal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Avoid duplication at the Project level.
+        /// </summary>
+        public static string AvoidDuplicationProjectLevel {
+            get {
+                return ResourceManager.GetString("AvoidDuplicationProjectLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Avoid duplication at the Task level.
+        /// </summary>
+        public static string AvoidDuplicationTaskLevel {
+            get {
+                return ResourceManager.GetString("AvoidDuplicationTaskLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back to Applications List.
         /// </summary>
         public static string BackToApplicationListLabel {
@@ -491,6 +509,15 @@ namespace AcceptPortal.Resources {
         public static string CurrentPassword {
             get {
                 return ResourceManager.GetString("CurrentPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom Email Invitation Message.
+        /// </summary>
+        public static string CustomEmailBodyLabel {
+            get {
+                return ResourceManager.GetString("CustomEmailBodyLabel", resourceCulture);
             }
         }
         
@@ -687,15 +714,11 @@ namespace AcceptPortal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Read &lt;a {0}&gt;this&lt;/a&gt; documentation to start.
-        ///The ACCEPT plugin is written in JavaScript and uses the jQuery and jQuery UI libraries.
-        ///Both are included as part of the download package, but you can always grab the latest version of jQuery core library &lt;a target=&quot;_blank&quot; {1}&gt;here&lt;/a&gt; and the last version of jQuery UI &lt;a target=&quot;_blank&quot; {2}&gt; here&lt;/a&gt;. 
-        ///The download package contains all the information  needed for the plug-in installation and some additional working examples.
-        ///Keep in mind that in order to us [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Avoid Duplications.
         /// </summary>
-        public static string DownloadMainMessage {
+        public static string DuplicationLogicLabel {
             get {
-                return ResourceManager.GetString("DownloadMainMessage", resourceCulture);
+                return ResourceManager.GetString("DuplicationLogicLabel", resourceCulture);
             }
         }
         
@@ -781,6 +804,42 @@ namespace AcceptPortal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Evaluate Only Last (Per Segment) Revisions.
+        /// </summary>
+        public static string EvaluateAllRevisionsOnlyLabel {
+            get {
+                return ResourceManager.GetString("EvaluateAllRevisionsOnlyLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate Original Document and Last (Per Segment) Revisions.
+        /// </summary>
+        public static string EvaluateOriginalAndAllRevisionsLabel {
+            get {
+                return ResourceManager.GetString("EvaluateOriginalAndAllRevisionsLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate Only Original Document.
+        /// </summary>
+        public static string EvaluateOriginalLabel {
+            get {
+                return ResourceManager.GetString("EvaluateOriginalLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluating Project.
+        /// </summary>
+        public static string EvaluatingProjectLabel {
+            get {
+                return ResourceManager.GetString("EvaluatingProjectLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Action.
         /// </summary>
         public static string EvaluationAction {
@@ -858,6 +917,15 @@ namespace AcceptPortal.Resources {
         public static string EvaluationAPIKeyDomain {
             get {
                 return ResourceManager.GetString("EvaluationAPIKeyDomain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specify how you want to handle duplicated segments: Not set (evaluate duplicated segments), task-level (do not evaluate segments that are duplicated at the task level), or project level (do not evaluate segments that are duplicated at the project level)..
+        /// </summary>
+        public static string EvaluationAvoidDuplicationsDescriptionLabel {
+            get {
+                return ResourceManager.GetString("EvaluationAvoidDuplicationsDescriptionLabel", resourceCulture);
             }
         }
         
@@ -1006,7 +1074,7 @@ namespace AcceptPortal.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This DEMO page shows how the Accept Evaluation API can be used to gather feedback. Please note that as part of this DEMO we will also record your Browser type and Browser language when you submit new feedback. To view demo metrics click on the View Demo Metrics link above..
+        ///   Looks up a localized string similar to This DEMO page shows how the Accept Evaluation API can be used to gather feedback. Please note that as part of this DEMO we will also record your Browser type and Browser language when you submit new feedback. To view demo metrics click &lt;a href={0}&gt;here&lt;/a&gt;..
         /// </summary>
         public static string EvaluationDemoOverview {
             get {
@@ -1042,6 +1110,24 @@ namespace AcceptPortal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Specify a custom text to include in your invitation email..
+        /// </summary>
+        public static string EvaluationEmailInvitationDescriptionLabel {
+            get {
+                return ResourceManager.GetString("EvaluationEmailInvitationDescriptionLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Evaluation process is finished here....
+        /// </summary>
+        public static string EvaluationFinishedHereLabel {
+            get {
+                return ResourceManager.GetString("EvaluationFinishedHereLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ID.
         /// </summary>
         public static string EvaluationID {
@@ -1051,11 +1137,29 @@ namespace AcceptPortal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Specify whether you want to evaluate the post-editing project owner&apos;s revisions..
+        /// </summary>
+        public static string EvaluationIncludeOwnerDescriptionLabel {
+            get {
+                return ResourceManager.GetString("EvaluationIncludeOwnerDescriptionLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Evaluation Projects.
         /// </summary>
         public static string EvaluationIndexPageTitle {
             get {
                 return ResourceManager.GetString("EvaluationIndexPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specify the post-editing project you want to evaluate..
+        /// </summary>
+        public static string EvaluationInternalProjectDescription {
+            get {
+                return ResourceManager.GetString("EvaluationInternalProjectDescription", resourceCulture);
             }
         }
         
@@ -1119,6 +1223,24 @@ namespace AcceptPortal.Resources {
         public static string EvaluationMaximumLength50 {
             get {
                 return ResourceManager.GetString("EvaluationMaximumLength50", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specify the evaluation approach (whether you want to only evaluate the original segments, only the edited segments, or both).
+        /// </summary>
+        public static string EvaluationMethodDescriptionLabel {
+            get {
+                return ResourceManager.GetString("EvaluationMethodDescriptionLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluation Approach.
+        /// </summary>
+        public static string EvaluationMethodLabel {
+            get {
+                return ResourceManager.GetString("EvaluationMethodLabel", resourceCulture);
             }
         }
         
@@ -1195,11 +1317,38 @@ namespace AcceptPortal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Specify a domain name (e.g. www.example.com).
+        /// </summary>
+        public static string EvaluationProjectApiKeyDescriptionLabel {
+            get {
+                return ResourceManager.GetString("EvaluationProjectApiKeyDescriptionLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specify a project name..
+        /// </summary>
+        public static string EvaluationProjectCreationDescriptionLabel {
+            get {
+                return ResourceManager.GetString("EvaluationProjectCreationDescriptionLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Evaluation Project Data.
         /// </summary>
         public static string EvaluationProjectData {
             get {
                 return ResourceManager.GetString("EvaluationProjectData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specify a project description..
+        /// </summary>
+        public static string EvaluationProjectDescriptionLabel {
+            get {
+                return ResourceManager.GetString("EvaluationProjectDescriptionLabel", resourceCulture);
             }
         }
         
@@ -1231,11 +1380,38 @@ namespace AcceptPortal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to External Project.
+        /// </summary>
+        public static string EvaluationProjectExternalProjectLabel {
+            get {
+                return ResourceManager.GetString("EvaluationProjectExternalProjectLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ID.
         /// </summary>
         public static string EvaluationProjectID {
             get {
                 return ResourceManager.GetString("EvaluationProjectID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Internal Project.
+        /// </summary>
+        public static string EvaluationProjectInternalLabel {
+            get {
+                return ResourceManager.GetString("EvaluationProjectInternalLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluation Logic.
+        /// </summary>
+        public static string EvaluationProjectLogicLabel {
+            get {
+                return ResourceManager.GetString("EvaluationProjectLogicLabel", resourceCulture);
             }
         }
         
@@ -1254,6 +1430,42 @@ namespace AcceptPortal.Resources {
         public static string EvaluationProjectName {
             get {
                 return ResourceManager.GetString("EvaluationProjectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Specify an organization for this project..
+        /// </summary>
+        public static string EvaluationProjectOrganizationDescriptionLabel {
+            get {
+                return ResourceManager.GetString("EvaluationProjectOrganizationDescriptionLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Post-Edit Project.
+        /// </summary>
+        public static string EvaluationProjectReferencePostEditProjectLabel {
+            get {
+                return ResourceManager.GetString("EvaluationProjectReferencePostEditProjectLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Project....
+        /// </summary>
+        public static string EvaluationProjectSelectLabel {
+            get {
+                return ResourceManager.GetString("EvaluationProjectSelectLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Project Type.
+        /// </summary>
+        public static string EvaluationProjectTypeLabel {
+            get {
+                return ResourceManager.GetString("EvaluationProjectTypeLabel", resourceCulture);
             }
         }
         
@@ -1344,6 +1556,24 @@ namespace AcceptPortal.Resources {
         public static string EvaluationTasks {
             get {
                 return ResourceManager.GetString("EvaluationTasks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluated..
+        /// </summary>
+        public static string EvaluationTileCompletedLabel {
+            get {
+                return ResourceManager.GetString("EvaluationTileCompletedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluate Me!.
+        /// </summary>
+        public static string EvaluationTileLabel {
+            get {
+                return ResourceManager.GetString("EvaluationTileLabel", resourceCulture);
             }
         }
         
@@ -1506,6 +1736,15 @@ namespace AcceptPortal.Resources {
         public static string German {
             get {
                 return ResourceManager.GetString("German", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go Back.
+        /// </summary>
+        public static string GoBackLabel {
+            get {
+                return ResourceManager.GetString("GoBackLabel", resourceCulture);
             }
         }
         
@@ -1690,6 +1929,15 @@ namespace AcceptPortal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Include Project Owner Revisions.
+        /// </summary>
+        public static string IncludeOwnerRevisionLabel {
+            get {
+                return ResourceManager.GetString("IncludeOwnerRevisionLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Disabled.
         /// </summary>
         public static string InteractiveCheckDisabledLabel {
@@ -1776,6 +2024,15 @@ namespace AcceptPortal.Resources {
         public static string LabelYes {
             get {
                 return ResourceManager.GetString("LabelYes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Learn More....
+        /// </summary>
+        public static string LearnMoreLabel {
+            get {
+                return ResourceManager.GetString("LearnMoreLabel", resourceCulture);
             }
         }
         
@@ -1888,29 +2145,47 @@ namespace AcceptPortal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The ACCEPT Portal is an open-source demonstration and experimentation Web application that allows you or your users to perform many content editing and evaluation/rating activities.&lt;/p&gt;&lt;p&gt;These activities can be accessed from the top menu, but some of them involve advanced technical skills, especially if they are to be conducted outside of the Portal using the &lt;a href=&quot;https://github.com/accept-project/accept-api/blob/master/README.md&quot; target=&quot;_blank&quot;&gt;ACCEPT API&lt;/a&gt;.&lt;/p&gt;.
+        /// </summary>
+        public static string MainSlide_1 {
+            get {
+                return ResourceManager.GetString("MainSlide_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The first activity type concerns Pre-Editing, which allows you or your users to check textual content and improve it based on the spelling, grammar and style feedback received.&lt;/p&gt;&lt;p&gt;From the PreEdit menu, you can either use the demos or generate an application key in order to deploy the Pre-Edit plug-in in your Web environment.&lt;/p&gt;.
+        /// </summary>
+        public static string MainSlide_2 {
+            get {
+                return ResourceManager.GetString("MainSlide_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The second activity type concerns Post-Editing, which allows you or your users to improve existing (machine-)translated content.&lt;/p&gt;&lt;p&gt;From the PostEdit menu, you can either use the demos or create or access your own projects.&lt;/p&gt;.
+        /// </summary>
+        public static string MainSlide_3 {
+            get {
+                return ResourceManager.GetString("MainSlide_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;The third activity type concerns Evaluation, which allows you or your users to evaluate (machine-)translated content.&lt;/p&gt;&lt;p&gt;From the Evaluate menu, you can either use the demos or create or access your own projects.&lt;/p&gt;.
+        /// </summary>
+        public static string MainSlide_4 {
+            get {
+                return ResourceManager.GetString("MainSlide_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Max. Locking Period.
         /// </summary>
         public static string MaxThresholdLabel {
             get {
                 return ResourceManager.GetString("MaxThresholdLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to successfully added to project..
-        /// </summary>
-        public static string MessageInternalProjectUserAdded {
-            get {
-                return ResourceManager.GetString("MessageInternalProjectUserAdded", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to not added to project..
-        /// </summary>
-        public static string MessageInternalProjectUserNotAdded {
-            get {
-                return ResourceManager.GetString("MessageInternalProjectUserNotAdded", resourceCulture);
             }
         }
         
@@ -2019,6 +2294,15 @@ namespace AcceptPortal.Resources {
         public static string NotAllowCustomUIValue {
             get {
                 return ResourceManager.GetString("NotAllowCustomUIValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Set.
+        /// </summary>
+        public static string NotSet {
+            get {
+                return ResourceManager.GetString("NotSet", resourceCulture);
             }
         }
         
@@ -2181,6 +2465,15 @@ namespace AcceptPortal.Resources {
         public static string PostEditAcceptPortalTeamLabel {
             get {
                 return ResourceManager.GetString("PostEditAcceptPortalTeamLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Access Projects.
+        /// </summary>
+        public static string PostEditAccessProjectsLabel {
+            get {
+                return ResourceManager.GetString("PostEditAccessProjectsLabel", resourceCulture);
             }
         }
         
@@ -2680,6 +2973,33 @@ namespace AcceptPortal.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [Technical]Access Keys.
+        /// </summary>
+        public static string PreEditAccessKeysLabel {
+            get {
+                return ResourceManager.GetString("PreEditAccessKeysLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Technical]Create Key.
+        /// </summary>
+        public static string PreEditCreateKeyLabel {
+            get {
+                return ResourceManager.GetString("PreEditCreateKeyLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Technical]Download.
+        /// </summary>
+        public static string PreEditDownloadLabel {
+            get {
+                return ResourceManager.GetString("PreEditDownloadLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Privacy Policy.
         /// </summary>
         public static string PrivacyLabel {
@@ -2784,6 +3104,42 @@ namespace AcceptPortal.Resources {
         public static string SingleRevision {
             get {
                 return ResourceManager.GetString("SingleRevision", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Welcome!.
+        /// </summary>
+        public static string SlidesTitle_1 {
+            get {
+                return ResourceManager.GetString("SlidesTitle_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pre-Editing.
+        /// </summary>
+        public static string SlidesTitle_2 {
+            get {
+                return ResourceManager.GetString("SlidesTitle_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Post-Editing.
+        /// </summary>
+        public static string SlidesTitle_3 {
+            get {
+                return ResourceManager.GetString("SlidesTitle_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Evaluation.
+        /// </summary>
+        public static string SlidesTitle_4 {
+            get {
+                return ResourceManager.GetString("SlidesTitle_4", resourceCulture);
             }
         }
         
@@ -2910,6 +3266,24 @@ namespace AcceptPortal.Resources {
         public static string UploadTask_InvalidJsonMessage {
             get {
                 return ResourceManager.GetString("UploadTask_InvalidJsonMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Demo.
+        /// </summary>
+        public static string UseDemoLabel {
+            get {
+                return ResourceManager.GetString("UseDemoLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Demos.
+        /// </summary>
+        public static string UseDemosLabel {
+            get {
+                return ResourceManager.GetString("UseDemosLabel", resourceCulture);
             }
         }
         

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About_Index_Par1" xml:space="preserve">
-    <value>ACCEPT ist ein Gemeinschaftsprojekt. STREP strebte es an, neue Methoden und Techniken zu entwickeln, um maschinelle Übersetzung (MÜ) im Bereich von Internet-Communities und spezifischem Informationsaustausch, zu verbessern.</value>
+    <value>Diese Software wurde im Zuge des ACCEPT Projekts entwickelt. ACCEPT ist ein Gemeinschaftsprojekt - STREP strebte es an, neue Methoden und Techniken zu entwickeln um maschinelle Übersetzung (MÜ) in einer Umgebung geprägt von Gemeinschaften online, in denen spezielle Inhalte geteilt werden, zu verbessern.</value>
   </data>
   <data name="About_Index_Par2" xml:space="preserve">
     <value>Im Prinzip kann heutzutage jeder Informationen erstelle und sie weltweit für jeden mit Internetanschluss zugänglich machen. Eine Sprachbarriere bleibt jedoch bestehen: Auch wenn Inhalte noch so zugänglich sind, werden sie immer nur für diejenigen wirklich zugänglich sein, die die Sprache sprechen in der die Inhalte verfasst wurden. Das Ziel von ACCEPT ist es, Communities zu helfen Inhalte effizienter über die Sprachbarriere hinweg zu teilen, indem die Qualität des maschinell übersetzten Inhalts der Community verbessert wird.</value>
@@ -219,7 +219,7 @@ Der API-Schlüssel wird zusammen mit den Anwendungsdetails angezeigt.</value>
     <value>Sie haben derzeit keine Anwendungen.</value>
   </data>
   <data name="Account_UserProfile_NoAppsPar1" xml:space="preserve">
-    <value>Um das ACCEPT-Plugin nutzen zu können, benötigen Sie einen API-Schlüssel. Klicken Sie auf "Anwendung erstellen" um einen API-Schlüssel zu erhalten.</value>
+    <value>Um das ACCEPT-Plugin nutzen zu können, benötigen Sie einen API-Schlüssel. Klicken Sie auf &quot;Anwendung erstellen&quot; um einen API-Schlüssel zu erhalten.</value>
   </data>
   <data name="Account_UserProfile_ViewBagTitle" xml:space="preserve">
     <value>Benutzerprofil</value>
@@ -263,7 +263,7 @@ Dieser Editor hat viele Funktionen, von denen die meisten für diese Demo nicht 
 Die Hauptfunktionalität dieses Editors ist die grüne ACCEPT-Schaltfläche, welche die Rechtschreib-, Grammatik und Stilprüfung für den Text auslöst, der entweder in das Textfeld eingegeben oder eingefügt wurde.</value>
   </data>
   <data name="Demo_ExplanationText_Par2" xml:space="preserve">
-    <value>Sobald Ihr Text geprüft wurde, werden die Ergebnisse in einem Pop-Up Fenster angezeigt, in welchem potenzielle Rechtschreib-, Grammatik oder Stilprobleme  unterstrichen sind. In einfachen Fällen werden Vorschläge eingeblendet, von denen Sie entscheiden können, ob Sie diese auswählen möchten um Ihren Text zu verbessern, wenn Sie mit der Maus über ein unterstrichenes Wort fahren. In komplexeren Fällen werden keine Vorschläge zur Verfügung stehen. Sie werden dann die Möglichkeit haben Ratschläge (in den "Tooltips") zu lesen und zu entscheiden, ob Sie Änderungen im Textfeld selbst vornehmen wollen. Sie können zu jeder Zeit den Originaltext mit dem Text des Pop-Up Fensters ersetzen, indem Sie auf "Ersetzen" klicken. Viel Spaß beim Prüfen!</value>
+    <value>Sobald Ihr Text geprüft wurde, werden die Ergebnisse in einem Pop-Up Fenster angezeigt, in welchem potenzielle Rechtschreib-, Grammatik oder Stilprobleme  unterstrichen sind. In einfachen Fällen werden Vorschläge eingeblendet, von denen Sie entscheiden können, ob Sie diese auswählen möchten um Ihren Text zu verbessern, wenn Sie mit der Maus über ein unterstrichenes Wort fahren. In komplexeren Fällen werden keine Vorschläge zur Verfügung stehen. Sie werden dann die Möglichkeit haben Ratschläge (in den &quot;Tooltips&quot;) zu lesen und zu entscheiden, ob Sie Änderungen im Textfeld selbst vornehmen wollen. Sie können zu jeder Zeit den Originaltext mit dem Text des Pop-Up Fensters ersetzen, indem Sie auf &quot;Ersetzen&quot; klicken. Viel Spaß beim Prüfen!</value>
   </data>
   <data name="Demo_Index_EnglishDemoLabel" xml:space="preserve">
     <value>englische Demoversion</value>
@@ -402,7 +402,7 @@ Das Plugin wurde so designt, dass es mit minimalem Aufwand in jede webbasierte A
     <value>Demo-Metriken</value>
   </data>
   <data name="EvaluationDemoOverview" xml:space="preserve">
-    <value>Diese Demoseite zeigt Ihnen, wie das ACCEPT-Bewertungs-API genutzt werden kann, um Feedback zu sammeln. Beachten Sie bitte, dass im Zuge dieser Demo, Ihr Browser-Typ und Ihre Browser-Sprache gespeichert werden wenn Sie neues Feedback senden. Um Demometriken anzusehen, klicken Sie bitte oben auf "Demometriken ansehen".</value>
+    <value>Diese Demoseite zeigt wie das ACCEPT-Bewerungs-API genutzt werden kann, um Feedback zu sammeln. Beachten Sie bitte, dass als Teil dieser Demo die Art und Sprache Ihres Browsers gespeichert wird, wenn sie Ihr neues Feedback absenden. Um Demometriken anzusehen, klicken Sie bitte &lt;a href={0}&gt;hier&lt;/a&gt; auf &quot;Demometriken ansehen&quot; .</value>
   </data>
   <data name="EvaluationDescription" xml:space="preserve">
     <value>Beschreibung</value>
@@ -705,7 +705,7 @@ Das Plugin wurde so designt, dass es mit minimalem Aufwand in jede webbasierte A
     <value>Bitte füllen Sie diese Umfrage aus:</value>
   </data>
   <data name="PostEditInsertEmailsNoteText" xml:space="preserve">
-    <value>Hinweis: Mehrere Email-Adressen sollten durch ein Semikolon ";" getrennt werden.</value>
+    <value>Hinweis: Mehrere Email-Adressen sollten durch ein Semikolon &quot;;&quot; getrennt werden.</value>
   </data>
   <data name="PostEditInsertEmailText" xml:space="preserve">
     <value>Bitte tragen Sie die Email-Adresse(n) ein:</value>
@@ -873,13 +873,13 @@ Das Plugin wurde so designt, dass es mit minimalem Aufwand in jede webbasierte A
     <value>Benutzer das Anzeigen des Originals ermöglichen</value>
   </data>
   <data name="DemoPage_ReplaceAllCheckBoxLabel" xml:space="preserve">
-    <value>Schaltfläche "Alles ersetzen" anzeigen:</value>
+    <value>Schaltfläche &quot;Alles ersetzen&quot; anzeigen:</value>
   </data>
   <data name="DemoPage_RuleSetDDLabel" xml:space="preserve">
     <value>Regelsatz:</value>
   </data>
   <data name="Demo_ExplanationText_Par3" xml:space="preserve">
-    <value>In dieser Demo haben Sie die Möglichkeit, die Regeln zu ändern, die verwendet werden, um Ihren Text zu überprüfen, indem Sie eine Option aus der „Regelliste" Dropdown-Liste auswählen. Verwenden Sie die standardmäßig aktiviert Regelliste, wenn Sie sich unsicher sind welche Sie verwenden sollen. Sie haben auch die Möglichkeit die Schaltfläche "Alles ersetzen" anzeigen zu lassen, mit der Sie alle Vorschläge der Rechtschreib- und Grammatik Prüfung automatisch andwenden können. Beachten Sie, dass diese Schaltfläche nur angezeigt wird, wenn die Rechtschreib- und Grammatik Prüfung Vorschläge anbietet. Abhängig von der Sprache Ihres Zieltextes können Sie auch vordefinierte Regellisten der Reihe nach anwenden. </value>
+    <value>In dieser Demo haben Sie die Möglichkeit, die Regeln zu ändern, die verwendet werden, um Ihren Text zu überprüfen, indem Sie eine Option aus der „Regelliste&quot; Dropdown-Liste auswählen. Verwenden Sie die standardmäßig aktiviert Regelliste, wenn Sie sich unsicher sind welche Sie verwenden sollen. Sie haben auch die Möglichkeit die Schaltfläche &quot;Alles ersetzen&quot; anzeigen zu lassen, mit der Sie alle Vorschläge der Rechtschreib- und Grammatik Prüfung automatisch andwenden können. Beachten Sie, dass diese Schaltfläche nur angezeigt wird, wenn die Rechtschreib- und Grammatik Prüfung Vorschläge anbietet. Abhängig von der Sprache Ihres Zieltextes können Sie auch vordefinierte Regellisten der Reihe nach anwenden. </value>
   </data>
   <data name="EvaluationProjectDetailLabelAddContent" xml:space="preserve">
     <value>Inhalte hinzufügen</value>
@@ -975,7 +975,7 @@ Das Plugin wurde so designt, dass es mit minimalem Aufwand in jede webbasierte A
     <value>Bedingungen &amp; Datenschutz</value>
   </data>
   <data name="TermsAndConditionsMessage" xml:space="preserve">
-    <value>Wenn Sie auf "Registrieren" klicken und das ACCEPT Portal nutzen, gehen Sie eine rechtswirksame Vereinbarung ein und stimmen den folgenden &lt;a {0} target="_blank"&gt;Bedingungen&lt;/a&gt; zu. Sie stimmen zudem unserer &lt;a {1} target="_blank"&gt;Datenschutzerklärung&lt;/a&gt; zu, die die Sammlung, Verarbeitung und das Speichern der Daten betrifft. </value>
+    <value>Wenn Sie auf &quot;Registrieren&quot; klicken und das ACCEPT Portal nutzen, gehen Sie eine rechtswirksame Vereinbarung ein und stimmen den folgenden &lt;a {0} target=&quot;_blank&quot;&gt;Bedingungen&lt;/a&gt; zu. Sie stimmen zudem unserer &lt;a {1} target=&quot;_blank&quot;&gt;Datenschutzerklärung&lt;/a&gt; zu, die die Sammlung, Verarbeitung und das Speichern der Daten betrifft. </value>
   </data>
   <data name="TermsLabel" xml:space="preserve">
     <value>Bedingungen</value>
@@ -1059,7 +1059,7 @@ Das Plugin wurde so designt, dass es mit minimalem Aufwand in jede webbasierte A
     <value>Falls Ihr Projekt ein Gemeinschaftsprojekt ist, geben Sie an, wie lange ein Benutzer an einer Aufgabe arbeiten kann, bis ein anderer Benutzer diese Aufgabe in Anspruch nehmen kann. Das Format ist HH:MM:SS; 00:02:00 z.B. ist 2 Minuten.</value>
   </data>
   <data name="HelpMessagePostEditSingleRevisionProject" xml:space="preserve">
-    <value>Wenn Sie es wünschen, dass Benutzer an Aufgaben zusammenarbeiten, aktivieren Sie "Gemeinschaftsprojekt". Standardmäßig bearbeiten Benutzer Aufgaben in unabhängiger Weise.</value>
+    <value>Wenn Sie es wünschen, dass Benutzer an Aufgaben zusammenarbeiten, aktivieren Sie &quot;Gemeinschaftsprojekt&quot;. Standardmäßig bearbeiten Benutzer Aufgaben in unabhängiger Weise.</value>
   </data>
   <data name="HelpMessagePostEditSourceLangId" xml:space="preserve">
     <value>Geben Sie die Sprache des Originaltextes an.</value>
@@ -1073,11 +1073,139 @@ Das Plugin wurde so designt, dass es mit minimalem Aufwand in jede webbasierte A
   <data name="LabelSequentialCheckFrenchDemo" xml:space="preserve">
     <value>Aufeinanderfolgende Regellisten:</value>
   </data>
-  <data name="DownloadMainMessage" xml:space="preserve">
-    <value>Lesen Sie &lt;a {0}&gt; diese&lt;/a&gt; Dokumentation um zu beginnen.
-Das ACCEPT-Plugin wurde in JavaScript geschrieben und verwendet JavaScript-Bibliotheken jQuery und jQuery UI.
-Beide sind Bestandteil des Download-Pakets. Sie können jedoch jederzeit  &lt;a target="_blank" {1}&gt; hier&lt;/a&gt; die neueste Version von jQuery Core und &lt;a target="_blank" {2}&gt; hier&lt;/a&gt; die neueste Version von jQuery UI herunterladen.
-Das Downloadpaket enthält alle Informationen die für die Installation des Plug-ins erforderlich sind und einige zusätzliche Anwendungsbeispiele.
-Beachten Sie, dass Sie zur Verwendung des ACCEPT-Plug-ins einen API-Schlüssel benötigen, den Sie &lt;a {3}&gt; hier&lt;/a&gt; generieren können.</value>
+  <data name="EvaluationProjectExternalProjectLabel" xml:space="preserve">
+    <value>Externes Projekt</value>
+  </data>
+  <data name="EvaluationProjectInternalLabel" xml:space="preserve">
+    <value>Internes Projekt</value>
+  </data>
+  <data name="EvaluationProjectLogicLabel" xml:space="preserve">
+    <value>Bewertungslogik</value>
+  </data>
+  <data name="EvaluationProjectReferencePostEditProjectLabel" xml:space="preserve">
+    <value>Nachbearbeitungsprojekt</value>
+  </data>
+  <data name="EvaluationProjectTypeLabel" xml:space="preserve">
+    <value>Projektart</value>
+  </data>
+  <data name="EvaluationProjectSelectLabel" xml:space="preserve">
+    <value>Projekt auswählen</value>
+  </data>
+  <data name="AvoidDuplicationProjectLevel" xml:space="preserve">
+    <value>Duplikate auf Projektebene vermeiden</value>
+  </data>
+  <data name="AvoidDuplicationTaskLevel" xml:space="preserve">
+    <value>Duplikate auf Aufgabenebene vermeiden</value>
+  </data>
+  <data name="CustomEmailBodyLabel" xml:space="preserve">
+    <value>Benutzerdefinierter Email-Einladungstext</value>
+  </data>
+  <data name="DuplicationLogicLabel" xml:space="preserve">
+    <value>Duplikate vermeiden</value>
+  </data>
+  <data name="EvaluateAllRevisionsOnlyLabel" xml:space="preserve">
+    <value>Nur die letzte Überarbeitung (pro Segment) bewerten</value>
+  </data>
+  <data name="EvaluateOriginalAndAllRevisionsLabel" xml:space="preserve">
+    <value>Originales Dokument und die letzte Überarbeitung (pro Segment) bewerten</value>
+  </data>
+  <data name="EvaluateOriginalLabel" xml:space="preserve">
+    <value>Nur das original Dokument bewerten</value>
+  </data>
+  <data name="EvaluationMethodLabel" xml:space="preserve">
+    <value>Bewertungsmethode</value>
+  </data>
+  <data name="IncludeOwnerRevisionLabel" xml:space="preserve">
+    <value>Überarbeitungen des Projektbesitzers mit einschließen</value>
+  </data>
+  <data name="NotSet" xml:space="preserve">
+    <value>Unbestimmt</value>
+  </data>
+  <data name="EvaluationAvoidDuplicationsDescriptionLabel" xml:space="preserve">
+    <value>Geben Sie an, wie sie mit Segment-Duplikaten vorgehen möchten: Unbestimmt (Segment-Duplikate bewerten), Aufgabenebene (Segment-Duplikate auf Aufgabenebene nicht bewerten), oder Projektebene (Segment-Duplikate auf Projektebene nicht bewerten).</value>
+  </data>
+  <data name="EvaluationEmailInvitationDescriptionLabel" xml:space="preserve">
+    <value>Geben Sie einen benutzerdefinierten Text für Ihre Einladungs-Email an </value>
+  </data>
+  <data name="EvaluationIncludeOwnerDescriptionLabel" xml:space="preserve">
+    <value>Geben Sie an, ob Sie die Überarbeitungen des Nachbearbeitungs-Projektbesitzers bewerten möchten.</value>
+  </data>
+  <data name="EvaluationMethodDescriptionLabel" xml:space="preserve">
+    <value>Geben Sie die Bewertungsmethode an (ob Sie nur die originalen Segmente, nur die bearbeiteten Segmente, oder beide, bewerten möchten).</value>
+  </data>
+  <data name="EvaluationProjectApiKeyDescriptionLabel" xml:space="preserve">
+    <value>Geben Sie einen Domain-Namen an (z.B. www.beispiel.com).</value>
+  </data>
+  <data name="EvaluationProjectCreationDescriptionLabel" xml:space="preserve">
+    <value>Geben Sie einen Projektnamen an.</value>
+  </data>
+  <data name="EvaluationProjectDescriptionLabel" xml:space="preserve">
+    <value>Geben Sie eine Projektbeschreibung an.</value>
+  </data>
+  <data name="EvaluationProjectOrganizationDescriptionLabel" xml:space="preserve">
+    <value>Geben Sie eine Organisation für dieses Projekt an.</value>
+  </data>
+  <data name="EvaluationTileCompletedLabel" xml:space="preserve">
+    <value>Bewerted.</value>
+  </data>
+  <data name="EvaluationTileLabel" xml:space="preserve">
+    <value>Hier bewerten!</value>
+  </data>
+  <data name="EvaluatingProjectLabel" xml:space="preserve">
+    <value>Bewertungsprojekt</value>
+  </data>
+  <data name="EvaluationFinishedHereLabel" xml:space="preserve">
+    <value>Der Bewertungsvorgang ist nun beendet...</value>
+  </data>
+  <data name="EvaluationInternalProjectDescription" xml:space="preserve">
+    <value>Geben Sie das Nachbearbeitungsprojekt an, welches Sie bearbeiten möchten.</value>
+  </data>
+  <data name="GoBackLabel" xml:space="preserve">
+    <value>Zurück gehen</value>
+  </data>
+  <data name="LearnMoreLabel" xml:space="preserve">
+    <value>Weitere Informationen...</value>
+  </data>
+  <data name="MainSlide_1" xml:space="preserve">
+    <value>&lt;p&gt;Das ACCEPT Portal ist eine Open Source Demo- und Test-Webanwendung, die Ihnen oder Ihren Benutzern verschiedene Bearbeitungs- und Bewertungs-Aktivitäten Ihrer Inhalte ermöglicht.&lt;/p&gt;&lt;p&gt;Sie können auf diese Aktivitäten über das oben angezeigte Menü zugreifen. Einige dieser erfordern jedoch erweiterte technischer Fähigkeiten, vor allem, wenn sie außerhalb des Portals mithilfe der &lt;a href=&quot;https://github.com/accept-project/accept-api/blob/master/README.md&quot; target=&quot;_blank&quot;&gt; ACCEPT API &lt;/a&gt; ausgeführt werden sollen.&lt;/p&gt;</value>
+  </data>
+  <data name="MainSlide_2" xml:space="preserve">
+    <value>Die erste Aktivität betrifft die Vorbearbeitung, die es Ihnen oder Ihren Benutzern ermöglicht, Textinhalte zu überprüfen und, basierend auf die erhaltenen Vorschläge zur Rechtschreibung, Grammatik und Stil, zu verbessern.&lt;/p&gt;&lt;p&gt;Vom Vorbearbeitungsmenü können Sie entweder die Demos ausprobieren oder einen ANwendungsschlüssel erstellen lassen um das Vorbearbeitungs-Plugin in Ihrer Web-Oberfläche anzuwenden.</value>
+  </data>
+  <data name="MainSlide_3" xml:space="preserve">
+    <value>&lt;p&gt;Die zweite Aktivität betrifft die Nachbearbeitung, mit der Sie oder Ihre Benutzer vorhandene (maschinell) übersetzte Inhalte verbessern können.&lt;/p&gt;&lt;p&gt;Vom Nachbearbeitungs-Menü, können Sie entweder die Demos ausprobieren, Ihre eigenen Projekte erstellen oder auf diese zugreifen.&lt;/p&gt;</value>
+  </data>
+  <data name="MainSlide_4" xml:space="preserve">
+    <value>&lt;p&gt;Die dritte Aktivität betrifft die Bewertung, die es Ihnen oder Ihren Benutzern ermöglicht, (maschinell) übersetzte Inhalte zu bewerten.&lt;/p&gt;&lt;p&gt;Vom Bewertungsmenü können Sie entweder die Demos ausprobieren, Ihre eigenen Projekte erstellen oder auf diese zugreifen.&lt;/p&gt;</value>
+  </data>
+  <data name="PostEditAccessProjectsLabel" xml:space="preserve">
+    <value>Zugriffsprojekte</value>
+  </data>
+  <data name="PreEditAccessKeysLabel" xml:space="preserve">
+    <value>[Technischer]Zugriffsschlüssel</value>
+  </data>
+  <data name="PreEditCreateKeyLabel" xml:space="preserve">
+    <value>[Technisch]Schlüssel erstellen</value>
+  </data>
+  <data name="PreEditDownloadLabel" xml:space="preserve">
+    <value>[Technischer]Download</value>
+  </data>
+  <data name="UseDemoLabel" xml:space="preserve">
+    <value>Demo verwenden</value>
+  </data>
+  <data name="UseDemosLabel" xml:space="preserve">
+    <value>Demos verwenden</value>
+  </data>
+  <data name="SlidesTitle_1" xml:space="preserve">
+    <value>Willkommen!</value>
+  </data>
+  <data name="SlidesTitle_2" xml:space="preserve">
+    <value>Vorbearbeitung</value>
+  </data>
+  <data name="SlidesTitle_3" xml:space="preserve">
+    <value>Nachbearbeitung</value>
+  </data>
+  <data name="SlidesTitle_4" xml:space="preserve">
+    <value>Bewertung</value>
   </data>
 </root>

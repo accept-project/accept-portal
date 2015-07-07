@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About_Index_Par1" xml:space="preserve">
-    <value>ACCEPT is a Collaborative Project – STREP aimed at developing new methods and techniques to make machine translation (MT) work better in the environment characterised by internet communities sharing specific information.</value>
+    <value>This software was created during the ACCEPT Project. ACCEPT is a Collaborative Project – STREP aimed at developing new methods and techniques to make machine translation (MT) work better in the environment characterised by internet communities sharing specific information.</value>
   </data>
   <data name="About_Index_Par2" xml:space="preserve">
     <value>Today, anyone can in principle create information and make it available to anyone in the world with internet access. Yet the language barrier remains: however accessible information is, it is still only available to those who speak the language it is written in. ACCEPT’s mission is to help communities share information more effectively across the language barrier, by improving the quality of machine-translated community content.</value>
@@ -402,7 +402,7 @@ The  plugin has been designed so that it can be integrated into any Web based ap
     <value>Demo Metrics</value>
   </data>
   <data name="EvaluationDemoOverview" xml:space="preserve">
-    <value>This DEMO page shows how the Accept Evaluation API can be used to gather feedback. Please note that as part of this DEMO we will also record your Browser type and Browser language when you submit new feedback. To view demo metrics click on the View Demo Metrics link above.</value>
+    <value>This DEMO page shows how the Accept Evaluation API can be used to gather feedback. Please note that as part of this DEMO we will also record your Browser type and Browser language when you submit new feedback. To view demo metrics click &lt;a href={0}&gt;here&lt;/a&gt;.</value>
   </data>
   <data name="EvaluationDescription" xml:space="preserve">
     <value>Description</value>
@@ -1074,17 +1074,139 @@ The  plugin has been designed so that it can be integrated into any Web based ap
   <data name="LabelSequentialCheckFrenchDemo" xml:space="preserve">
     <value>Sequential Rule-Sets:</value>
   </data>
-  <data name="DownloadMainMessage" xml:space="preserve">
-    <value>Read &lt;a {0}&gt;this&lt;/a&gt; documentation to start.
-The ACCEPT plugin is written in JavaScript and uses the jQuery and jQuery UI libraries.
-Both are included as part of the download package, but you can always grab the latest version of jQuery core library &lt;a target="_blank" {1}&gt;here&lt;/a&gt; and the last version of jQuery UI &lt;a target="_blank" {2}&gt; here&lt;/a&gt;. 
-The download package contains all the information  needed for the plug-in installation and some additional working examples.
-Keep in mind that in order to use the ACCEPT plug-in an API key is needed, you can generate one &lt;a {3}&gt; here&lt;/a&gt;.</value>
+  <data name="EvaluationProjectExternalProjectLabel" xml:space="preserve">
+    <value>External Project</value>
   </data>
-  <data name="MessageInternalProjectUserAdded" xml:space="preserve">
-    <value>successfully added to project.</value>
+  <data name="EvaluationProjectInternalLabel" xml:space="preserve">
+    <value>Internal Project</value>
   </data>
-  <data name="MessageInternalProjectUserNotAdded" xml:space="preserve">
-    <value>not added to project.</value>
+  <data name="EvaluationProjectLogicLabel" xml:space="preserve">
+    <value>Evaluation Logic</value>
+  </data>
+  <data name="EvaluationProjectReferencePostEditProjectLabel" xml:space="preserve">
+    <value>Post-Edit Project</value>
+  </data>
+  <data name="EvaluationProjectTypeLabel" xml:space="preserve">
+    <value>Project Type</value>
+  </data>
+  <data name="EvaluationProjectSelectLabel" xml:space="preserve">
+    <value>Select Project...</value>
+  </data>
+  <data name="AvoidDuplicationProjectLevel" xml:space="preserve">
+    <value>Avoid duplication at the Project level</value>
+  </data>
+  <data name="AvoidDuplicationTaskLevel" xml:space="preserve">
+    <value>Avoid duplication at the Task level</value>
+  </data>
+  <data name="CustomEmailBodyLabel" xml:space="preserve">
+    <value>Custom Email Invitation Message</value>
+  </data>
+  <data name="DuplicationLogicLabel" xml:space="preserve">
+    <value>Avoid Duplications</value>
+  </data>
+  <data name="EvaluateAllRevisionsOnlyLabel" xml:space="preserve">
+    <value>Evaluate Only Last (Per Segment) Revisions</value>
+  </data>
+  <data name="EvaluateOriginalAndAllRevisionsLabel" xml:space="preserve">
+    <value>Evaluate Original Document and Last (Per Segment) Revisions</value>
+  </data>
+  <data name="EvaluateOriginalLabel" xml:space="preserve">
+    <value>Evaluate Only Original Document</value>
+  </data>
+  <data name="EvaluationMethodLabel" xml:space="preserve">
+    <value>Evaluation Approach</value>
+  </data>
+  <data name="IncludeOwnerRevisionLabel" xml:space="preserve">
+    <value>Include Project Owner Revisions</value>
+  </data>
+  <data name="NotSet" xml:space="preserve">
+    <value>Not Set</value>
+  </data>
+  <data name="EvaluationAvoidDuplicationsDescriptionLabel" xml:space="preserve">
+    <value>Specify how you want to handle duplicated segments: Not set (evaluate duplicated segments), task-level (do not evaluate segments that are duplicated at the task level), or project level (do not evaluate segments that are duplicated at the project level).</value>
+  </data>
+  <data name="EvaluationEmailInvitationDescriptionLabel" xml:space="preserve">
+    <value>Specify a custom text to include in your invitation email.</value>
+  </data>
+  <data name="EvaluationIncludeOwnerDescriptionLabel" xml:space="preserve">
+    <value>Specify whether you want to evaluate the post-editing project owner's revisions.</value>
+  </data>
+  <data name="EvaluationMethodDescriptionLabel" xml:space="preserve">
+    <value>Specify the evaluation approach (whether you want to only evaluate the original segments, only the edited segments, or both)</value>
+  </data>
+  <data name="EvaluationProjectApiKeyDescriptionLabel" xml:space="preserve">
+    <value>Specify a domain name (e.g. www.example.com)</value>
+  </data>
+  <data name="EvaluationProjectCreationDescriptionLabel" xml:space="preserve">
+    <value>Specify a project name.</value>
+  </data>
+  <data name="EvaluationProjectDescriptionLabel" xml:space="preserve">
+    <value>Specify a project description.</value>
+  </data>
+  <data name="EvaluationProjectOrganizationDescriptionLabel" xml:space="preserve">
+    <value>Specify an organization for this project.</value>
+  </data>
+  <data name="EvaluationTileCompletedLabel" xml:space="preserve">
+    <value>Evaluated.</value>
+  </data>
+  <data name="EvaluationTileLabel" xml:space="preserve">
+    <value>Evaluate Me!</value>
+  </data>
+  <data name="EvaluatingProjectLabel" xml:space="preserve">
+    <value>Evaluating Project</value>
+  </data>
+  <data name="EvaluationFinishedHereLabel" xml:space="preserve">
+    <value>The Evaluation process is finished here...</value>
+  </data>
+  <data name="EvaluationInternalProjectDescription" xml:space="preserve">
+    <value>Specify the post-editing project you want to evaluate.</value>
+  </data>
+  <data name="GoBackLabel" xml:space="preserve">
+    <value>Go Back</value>
+  </data>
+  <data name="LearnMoreLabel" xml:space="preserve">
+    <value>Learn More...</value>
+  </data>
+  <data name="MainSlide_1" xml:space="preserve">
+    <value>&lt;p&gt;The ACCEPT Portal is an open-source demonstration and experimentation Web application that allows you or your users to perform many content editing and evaluation/rating activities.&lt;/p&gt;&lt;p&gt;These activities can be accessed from the top menu, but some of them involve advanced technical skills, especially if they are to be conducted outside of the Portal using the &lt;a href="https://github.com/accept-project/accept-api/blob/master/README.md" target="_blank"&gt;ACCEPT API&lt;/a&gt;.&lt;/p&gt;</value>
+  </data>
+  <data name="MainSlide_2" xml:space="preserve">
+    <value>&lt;p&gt;The first activity type concerns Pre-Editing, which allows you or your users to check textual content and improve it based on the spelling, grammar and style feedback received.&lt;/p&gt;&lt;p&gt;From the PreEdit menu, you can either use the demos or generate an application key in order to deploy the Pre-Edit plug-in in your Web environment.&lt;/p&gt;</value>
+  </data>
+  <data name="MainSlide_3" xml:space="preserve">
+    <value>&lt;p&gt;The second activity type concerns Post-Editing, which allows you or your users to improve existing (machine-)translated content.&lt;/p&gt;&lt;p&gt;From the PostEdit menu, you can either use the demos or create or access your own projects.&lt;/p&gt;</value>
+  </data>
+  <data name="MainSlide_4" xml:space="preserve">
+    <value>&lt;p&gt;The third activity type concerns Evaluation, which allows you or your users to evaluate (machine-)translated content.&lt;/p&gt;&lt;p&gt;From the Evaluate menu, you can either use the demos or create or access your own projects.&lt;/p&gt;</value>
+  </data>
+  <data name="PostEditAccessProjectsLabel" xml:space="preserve">
+    <value>Access Projects</value>
+  </data>
+  <data name="PreEditAccessKeysLabel" xml:space="preserve">
+    <value>[Technical]Access Keys</value>
+  </data>
+  <data name="PreEditCreateKeyLabel" xml:space="preserve">
+    <value>[Technical]Create Key</value>
+  </data>
+  <data name="PreEditDownloadLabel" xml:space="preserve">
+    <value>[Technical]Download</value>
+  </data>
+  <data name="UseDemoLabel" xml:space="preserve">
+    <value>Use Demo</value>
+  </data>
+  <data name="UseDemosLabel" xml:space="preserve">
+    <value>Use Demos</value>
+  </data>
+  <data name="SlidesTitle_1" xml:space="preserve">
+    <value>Welcome!</value>
+  </data>
+  <data name="SlidesTitle_2" xml:space="preserve">
+    <value>Pre-Editing</value>
+  </data>
+  <data name="SlidesTitle_3" xml:space="preserve">
+    <value>Post-Editing</value>
+  </data>
+  <data name="SlidesTitle_4" xml:space="preserve">
+    <value>Evaluation</value>
   </data>
 </root>

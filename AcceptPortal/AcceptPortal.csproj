@@ -218,6 +218,9 @@
     <Compile Include="Models\Evaluation\EvaluationQuestion.cs" />
     <Compile Include="Models\Evaluation\EvaluationSimpleScore.cs" />
     <Compile Include="Models\Evaluation\EvaluationType.cs" />
+	<Compile Include="ViewModels\InternalEvaluationInstanceVM.cs" />
+    <Compile Include="ViewModels\InternalEvaluationVM.cs" />
+	<Compile Include="Models\Evaluation\InternalEvaluationAudit.cs" />
     <Compile Include="Models\PosEdit\Document.cs" />
     <Compile Include="Models\PosEdit\Invitation.cs" />
     <Compile Include="ViewModels\TaskStatusVM.cs" />

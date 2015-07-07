@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About_Index_Par1" xml:space="preserve">
-    <value>ACCEPT est un  projet collaboratif STREP, qui a pour but de développer de nouvelles méthodes et techniques visant à améliorer la traduction automatique (TA) dans le cadre des communautés Internet partageant des informations spécialisées.</value>
+    <value>Ce logiciel a été développé dans le cadre du projet ACCEPT. ACCEPT est un  projet collaboratif STREP, qui a pour but de développer de nouvelles méthodes et techniques visant à améliorer la traduction automatique (TA) dans le cadre des communautés Internet partageant des informations spécialisées.</value>
   </data>
   <data name="About_Index_Par2" xml:space="preserve">
-    <value>De nos jours, n'importe qui peut, en théorie, créer et partager des informations avec le reste du monde grâce à Internet. Et pourtant la barrière linguistique est toujours là: même si l'information est disponible, elle n'est disponible que pour ceux qui parlent la langue dans laquelle elle a été écrite. La mission d'ACCEPT est d'aider les communautés à partager leurs informations de manière plus efficace malgré la barrière linguistique, en améliorant la qualité du contenu communautaire traduit par un outil automatique.</value>
+    <value>De nos jours, n&apos;importe qui peut, en théorie, créer et partager des informations avec le reste du monde grâce à Internet. Et pourtant la barrière linguistique est toujours là: même si l&apos;information est disponible, elle n&apos;est disponible que pour ceux qui parlent la langue dans laquelle elle a été écrite. La mission d&apos;ACCEPT est d&apos;aider les communautés à partager leurs informations de manière plus efficace malgré la barrière linguistique, en améliorant la qualité du contenu communautaire traduit par un outil automatique.</value>
   </data>
   <data name="About_Index_Par3" xml:space="preserve">
     <value>Vous voulez en savoir plus?</value>
@@ -133,7 +133,7 @@
     <value>Informations sur le compte</value>
   </data>
   <data name="Account_ApplicationDetail_Title" xml:space="preserve">
-    <value>Détails de l'application</value>
+    <value>Détails de l&apos;application</value>
   </data>
   <data name="Account_ChangePassword" xml:space="preserve">
     <value>Changer de mot de passe</value>
@@ -183,7 +183,7 @@ La clé API est affichée avec les détails de votre application.</value>
     <value>La récupération du mot de passe a échoué. Veuillez corriger les erreurs et réessayer.</value>
   </data>
   <data name="Account_ProviderError" xml:space="preserve">
-    <value>Le fournisseur d'authentification a renvoyé une erreur. Veuillez vérifier votre saisie et réessayer. Si le problème persiste, contactez votre administrateur système.</value>
+    <value>Le fournisseur d&apos;authentification a renvoyé une erreur. Veuillez vérifier votre saisie et réessayer. Si le problème persiste, contactez votre administrateur système.</value>
   </data>
   <data name="Account_Register_CreateNewAccountLabel" xml:space="preserve">
     <value>Créer un nouveau compte.</value>
@@ -195,7 +195,7 @@ La clé API est affichée avec les détails de votre application.</value>
     <value>Les mots de passe doivent faire au moins {0} caractères.</value>
   </data>
   <data name="Account_Register_RegisterButton" xml:space="preserve">
-    <value>S'inscrire</value>
+    <value>S&apos;inscrire</value>
   </data>
   <data name="Account_Register_ValidationSummary" xml:space="preserve">
     <value>La création du compte a échoué. Veuillez corriger les erreurs et réessayer.</value>
@@ -213,13 +213,13 @@ La clé API est affichée avec les détails de votre application.</value>
     <value>Supprimer</value>
   </data>
   <data name="Account_UserProfile_MyAppsLabel" xml:space="preserve">
-    <value>Mes clés d'application</value>
+    <value>Mes clés d&apos;application</value>
   </data>
   <data name="Account_UserProfile_NoAppsHeader" xml:space="preserve">
-    <value>Vous n'avez pas encore d'applications.</value>
+    <value>Vous n&apos;avez pas encore d&apos;applications.</value>
   </data>
   <data name="Account_UserProfile_NoAppsPar1" xml:space="preserve">
-    <value>Afin d'utiliser le plug-in ACCEPT, vous aurez besoin d'une clé API. Pour obtenir une clé API, cliquez sur le bouton "Créer une nouvelle application"</value>
+    <value>Afin d&apos;utiliser le plug-in ACCEPT, vous aurez besoin d&apos;une clé API. Pour obtenir une clé API, cliquez sur le bouton &quot;Créer une nouvelle application&quot;</value>
   </data>
   <data name="Account_UserProfile_ViewBagTitle" xml:space="preserve">
     <value>Profil utilisateur</value>
@@ -258,28 +258,28 @@ La clé API est affichée avec les détails de votre application.</value>
     <value>Démo</value>
   </data>
   <data name="Demo_ExplanationText_Par1" xml:space="preserve">
-    <value>Cette démo présente l'intégration de notre application de vérification de texte ACCEPT avec un éditeur basé sur Web (TinyMCE).
-Cet éditeur possède de nombreuses fonctionnalités mais la plupart d'entre elles ne sont pas nécessaires dans le cadre de cette démonstration.
+    <value>Cette démo présente l&apos;intégration de notre application de vérification de texte ACCEPT avec un éditeur basé sur Web (TinyMCE).
+Cet éditeur possède de nombreuses fonctionnalités mais la plupart d&apos;entre elles ne sont pas nécessaires dans le cadre de cette démonstration.
 Vous devriez prendre connaissance du bouton vert ACCEPT, qui déclenche une vérification orthographique, grammaticale et stylistique sur le texte que vous avez saisi ou collé dans la zone de texte.</value>
   </data>
   <data name="Demo_ExplanationText_Par2" xml:space="preserve">
-    <value>Une fois votre texte vérifié, les résultats s'afficheront dans une fenêtre pop-up où de potentiels problèmes orthographiques, grammaticaux ou stylistiques seront soulignés. Pour les cas simples, vous pourrez afficher des suggestions en passant avec la souris sur le mot souligné, suggestions que vous pouvez utiliser afin d'améliorer votre texte. Pour les cas plus complexes, il n'y aura pas de suggestions mais vous aurez la possibilité de lire les conseils (dans les bulles) afin de décider si vous souhaitez faire des modifications dans la zone de texte même. A tout moment vous pouvez remplacer votre texte de départ avec le texte du pop-up en cliquant "Appliquer". Bonnes vérifications!</value>
+    <value>Une fois votre texte vérifié, les résultats s&apos;afficheront dans une fenêtre pop-up où de potentiels problèmes orthographiques, grammaticaux ou stylistiques seront soulignés. Pour les cas simples, vous pourrez afficher des suggestions en passant avec la souris sur le mot souligné, suggestions que vous pouvez utiliser afin d&apos;améliorer votre texte. Pour les cas plus complexes, il n&apos;y aura pas de suggestions mais vous aurez la possibilité de lire les conseils (dans les bulles) afin de décider si vous souhaitez faire des modifications dans la zone de texte même. A tout moment vous pouvez remplacer votre texte de départ avec le texte du pop-up en cliquant &quot;Appliquer&quot;. Bonnes vérifications!</value>
   </data>
   <data name="Demo_Index_EnglishDemoLabel" xml:space="preserve">
-    <value>Démonstration pour l'Anglais</value>
+    <value>Démonstration pour l&apos;Anglais</value>
   </data>
   <data name="Demo_Index_FrenchDemoLabel" xml:space="preserve">
     <value>Démonstration pour le Français</value>
   </data>
   <data name="Demo_Index_GermanDemoLabel" xml:space="preserve">
-    <value>Démonstration pour l'Allemand</value>
+    <value>Démonstration pour l&apos;Allemand</value>
   </data>
   <data name="Demo_Index_PlugInDemonstrations_ParOne" xml:space="preserve">
-    <value>Le plug-in ACCEPT peut être utilisé afin d'améliorer la qualité des textes saisis par vos utilisateurs. Ses fonctionnalités comprennent des corrections orthographiques, grammaticales et stylistiques. 
-Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément avec toute application Web. Le but est de fournir une solution qui peut être utilisée avec toute zone de texte.</value>
+    <value>Le plug-in ACCEPT peut être utilisé afin d&apos;améliorer la qualité des textes saisis par vos utilisateurs. Ses fonctionnalités comprennent des corrections orthographiques, grammaticales et stylistiques. 
+Le plug-in a été conçu de telle sorte qu&apos;il puisse être intégré aisément avec toute application Web. Le but est de fournir une solution qui peut être utilisée avec toute zone de texte.</value>
   </data>
   <data name="Demo_Index_PlugInDemonstrations_ParTwo" xml:space="preserve">
-    <value>Les démonstrations suivantes présentent l'intégration du plug-in ACCEPT avec un éditeur de texte</value>
+    <value>Les démonstrations suivantes présentent l&apos;intégration du plug-in ACCEPT avec un éditeur de texte</value>
   </data>
   <data name="Demo_Index_PlugInDemonstrations_ParTwo_2" xml:space="preserve">
     <value>avec une configuration en trois langues:</value>
@@ -300,7 +300,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Voulez-vous intégrer votre solution avec le plug-in ACCEPT?</value>
   </data>
   <data name="Download_ParagraphTwo" xml:space="preserve">
-    <value>Familiarisez-vous avec $ces informations$ pour débuter.  Le plug-in ACCEPT est écrit en JavaScript et utilise les bibliothèques jQuery et jQuery UI, qui sont toutes deux inclues dans le paquet à télécharger. Vous pouvez cependant récupérer les toutes dernières versions  de  jQuery $ici$ et jQuery UI $là$. Le paquet à télécharger contient toutes les informations requises pour installer le plug-in avec plusieurs exemples. Souvenez-vous qu'afin de pouvoir utiliser le plug-in ACCEPT vous devez utiliser une clé d'API que vous pouvez télécharger $ici$.</value>
+    <value>Familiarisez-vous avec $ces informations$ pour débuter.  Le plug-in ACCEPT est écrit en JavaScript et utilise les bibliothèques jQuery et jQuery UI, qui sont toutes deux inclues dans le paquet à télécharger. Vous pouvez cependant récupérer les toutes dernières versions  de  jQuery $ici$ et jQuery UI $là$. Le paquet à télécharger contient toutes les informations requises pour installer le plug-in avec plusieurs exemples. Souvenez-vous qu&apos;afin de pouvoir utiliser le plug-in ACCEPT vous devez utiliser une clé d&apos;API que vous pouvez télécharger $ici$.</value>
   </data>
   <data name="Download_Title" xml:space="preserve">
     <value>Télécharger le plug-in ACCEPT</value>
@@ -309,7 +309,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Modifier le projet</value>
   </data>
   <data name="EditProjectRestrictionsLabel" xml:space="preserve">
-    <value>Les champs marqués avec * peuvent être modifiés jusqu'à l'invitation d'un utilisateur au projet. Les champs marqués avec ** ne peuvent pas être modifiés. Les champs sans * peuvent être modifiés à tout moment.</value>
+    <value>Les champs marqués avec * peuvent être modifiés jusqu&apos;à l&apos;invitation d&apos;un utilisateur au projet. Les champs marqués avec ** ne peuvent pas être modifiés. Les champs sans * peuvent être modifiés à tout moment.</value>
   </data>
   <data name="Email" xml:space="preserve">
     <value>Adresse email</value>
@@ -321,10 +321,10 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Anglais</value>
   </data>
   <data name="EnterPassword" xml:space="preserve">
-    <value>Veuillez saisir nom d'utilisateur et mot de passe.</value>
+    <value>Veuillez saisir nom d&apos;utilisateur et mot de passe.</value>
   </data>
   <data name="EnterPassword_2" xml:space="preserve">
-    <value>si vous n'avez pas de compte.</value>
+    <value>si vous n&apos;avez pas de compte.</value>
   </data>
   <data name="EvaluationAction" xml:space="preserve">
     <value>Action</value>
@@ -348,10 +348,10 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Valeur</value>
   </data>
   <data name="EvaluationAPIKey" xml:space="preserve">
-    <value>Clé d'API</value>
+    <value>Clé d&apos;API</value>
   </data>
   <data name="EvaluationAPIKeyDomain" xml:space="preserve">
-    <value>Domaine de la clé d'API</value>
+    <value>Domaine de la clé d&apos;API</value>
   </data>
   <data name="EvaluationCancel" xml:space="preserve">
     <value>Annuler</value>
@@ -363,7 +363,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Confirmer</value>
   </data>
   <data name="EvaluationConfirmation" xml:space="preserve">
-    <value>Confirmation de l'action</value>
+    <value>Confirmation de l&apos;action</value>
   </data>
   <data name="EvaluationCreate" xml:space="preserve">
     <value>Créer</value>
@@ -372,7 +372,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Créer nouveau projet</value>
   </data>
   <data name="EvaluationCreatePageTitle" xml:space="preserve">
-    <value>Créer un projet d'évaluation</value>
+    <value>Créer un projet d&apos;évaluation</value>
   </data>
   <data name="EvaluationDelete" xml:space="preserve">
     <value>Supprimer</value>
@@ -396,13 +396,13 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Supprimer la catégorie de question</value>
   </data>
   <data name="EvaluationDemo" xml:space="preserve">
-    <value>Démonstration de l'évaluation</value>
+    <value>Démonstration de l&apos;évaluation</value>
   </data>
   <data name="EvaluationDemoMetrics" xml:space="preserve">
     <value>Statistiques de la démo</value>
   </data>
   <data name="EvaluationDemoOverview" xml:space="preserve">
-    <value>Cette page de démo montre comment l'API d'évaluation ACCEPT peut servir à recueillir des commentaires. Veuillez noter que dans le cadre de cette démonstration nous allons également enregistrer le type et la langue de votre navigateur lorsque vous soumettez de nouveaux commentaires. Pour afficher les statistiques de la démo, cliquez sur le lien Voir les statistiques de la démo ci-dessus.</value>
+    <value>Cette page de démo montre comment l&apos;API d&apos;évaluation ACCEPT peut servir à recueillir des commentaires. Veuillez noter que dans le cadre de cette démonstration nous allons également enregistrer votre type de navigateur et la langue du navigateur lorsque vous soumettez de nouveaux commentaires. Pour afficher les statistiques de la démo, cliquez &lt;a href={0}&gt;ici&lt;/a&gt;.</value>
   </data>
   <data name="EvaluationDescription" xml:space="preserve">
     <value>Description</value>
@@ -411,13 +411,13 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Editer</value>
   </data>
   <data name="EvaluationEditProject" xml:space="preserve">
-    <value>Modifier le projet d'évaluation</value>
+    <value>Modifier le projet d&apos;évaluation</value>
   </data>
   <data name="EvaluationID" xml:space="preserve">
     <value>ID</value>
   </data>
   <data name="EvaluationIndexPageTitle" xml:space="preserve">
-    <value>Projets d'évaluation</value>
+    <value>Projets d&apos;évaluation</value>
   </data>
   <data name="EvaluationLanguage" xml:space="preserve">
     <value>Langue</value>
@@ -426,7 +426,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Langues</value>
   </data>
   <data name="EvaluationManagement" xml:space="preserve">
-    <value>Gestion de l'évaluation</value>
+    <value>Gestion de l&apos;évaluation</value>
   </data>
   <data name="EvaluationMaximumLength100" xml:space="preserve">
     <value>La longueur maximale est de 100 caractères.</value>
@@ -447,16 +447,16 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Nom</value>
   </data>
   <data name="EvaluationNoProjectsDescription" xml:space="preserve">
-    <value>Il n'y a actuellement aucun projet d'évaluation en cours</value>
+    <value>Il n&apos;y a actuellement aucun projet d&apos;évaluation en cours</value>
   </data>
   <data name="EvaluationNoProjectsTitle" xml:space="preserve">
-    <value>Aucun projet d'évaluation disponible</value>
+    <value>Aucun projet d&apos;évaluation disponible</value>
   </data>
   <data name="EvaluationNoQuestionsDescription" xml:space="preserve">
-    <value>Il n'y a actuellement aucune question d'évaluation ajoutée au projet.</value>
+    <value>Il n&apos;y a actuellement aucune question d&apos;évaluation ajoutée au projet.</value>
   </data>
   <data name="EvaluationNoQuestionsTitle" xml:space="preserve">
-    <value>Aucune question d'évaluation disponible</value>
+    <value>Aucune question d&apos;évaluation disponible</value>
   </data>
   <data name="EvaluationOrganisation" xml:space="preserve">
     <value>Organisation</value>
@@ -465,7 +465,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Projet</value>
   </data>
   <data name="EvaluationProjectData" xml:space="preserve">
-    <value>Données du projet d'évaluation </value>
+    <value>Données du projet d&apos;évaluation </value>
   </data>
   <data name="EvaluationProjectDetails" xml:space="preserve">
     <value>Détails du projet</value>
@@ -474,7 +474,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>ID</value>
   </data>
   <data name="EvaluationProjectMetrics" xml:space="preserve">
-    <value>Statistiques du projet d'évaluation</value>
+    <value>Statistiques du projet d&apos;évaluation</value>
   </data>
   <data name="EvaluationProjectName" xml:space="preserve">
     <value>Nom du projet</value>
@@ -498,7 +498,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Questions</value>
   </data>
   <data name="EvaluationQuestionsPageTitle" xml:space="preserve">
-    <value>Questions du projet d'évaluation</value>
+    <value>Questions du projet d&apos;évaluation</value>
   </data>
   <data name="EvaluationRequiredField" xml:space="preserve">
     <value>Champ obligatoire</value>
@@ -513,7 +513,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Type</value>
   </data>
   <data name="EvaluationTypeLong" xml:space="preserve">
-    <value>Type d'évaluation</value>
+    <value>Type d&apos;évaluation</value>
   </data>
   <data name="EvaluationUpdate" xml:space="preserve">
     <value>Mettre à jour</value>
@@ -597,10 +597,10 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Le mot de passe et sa confirmation ne sont pas identiques.</value>
   </data>
   <data name="Model_UserApplication_AppKey" xml:space="preserve">
-    <value>Clé d'application</value>
+    <value>Clé d&apos;application</value>
   </data>
   <data name="Model_UserApplication_AppName" xml:space="preserve">
-    <value>Nom de l'application</value>
+    <value>Nom de l&apos;application</value>
   </data>
   <data name="Model_UserApplication_Description" xml:space="preserve">
     <value>Description</value>
@@ -609,7 +609,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Adresse IP </value>
   </data>
   <data name="Model_UserApplication_OrgName" xml:space="preserve">
-    <value>Nom de l'organisation</value>
+    <value>Nom de l&apos;organisation</value>
   </data>
   <data name="MonoLingualLabel" xml:space="preserve">
     <value>Monolingue</value>
@@ -621,10 +621,10 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Mot de passe</value>
   </data>
   <data name="PasswordRecoveredEnterCredsMessage" xml:space="preserve">
-    <value>Votre code d'inscription a été confirmé, veuillez maintenant saisir vos identifiants.</value>
+    <value>Votre code d&apos;inscription a été confirmé, veuillez maintenant saisir vos identifiants.</value>
   </data>
   <data name="PasswordRecoveredFailedMessage" xml:space="preserve">
-    <value>La confirmation de votre code d'inscription a échoué.</value>
+    <value>La confirmation de votre code d&apos;inscription a échoué.</value>
   </data>
   <data name="PasswordRecoveredMessage" xml:space="preserve">
     <value>Votre mot de passe a été récupéré. Veuillez vérifier votre messagerie électronique afin de trouver le lien de confirmation.</value>
@@ -645,7 +645,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Aucune tâche créée</value>
   </data>
   <data name="PostEditAcceptPortalTeamLabel" xml:space="preserve">
-    <value>L'équipe du portail ACCEPT.</value>
+    <value>L&apos;équipe du portail ACCEPT.</value>
   </data>
   <data name="PostEditAllProjectRevisionsLabel" xml:space="preserve">
     <value>Toutes les révisions du projet</value>
@@ -693,7 +693,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Activer les options de traduction</value>
   </data>
   <data name="PostEditEmailAccountText" xml:space="preserve">
-    <value>L'adresse email associée au projet recevra un rapport contenant des informations supplémentaires concernant votre invitation.</value>
+    <value>L&apos;adresse email associée au projet recevra un rapport contenant des informations supplémentaires concernant votre invitation.</value>
   </data>
   <data name="PostEditEmailAccountThankYouLabel" xml:space="preserve">
     <value>Merci,</value>
@@ -705,16 +705,16 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Veuillez remplir ce questionnaire:</value>
   </data>
   <data name="PostEditInsertEmailsNoteText" xml:space="preserve">
-    <value>Remarque: plusieurs adresses email doivent être séparées par un point-virgule ";".</value>
+    <value>Remarque: plusieurs adresses email doivent être séparées par un point-virgule &quot;;&quot;.</value>
   </data>
   <data name="PostEditInsertEmailText" xml:space="preserve">
     <value>Veuillez insérer une ou plusieurs adresses email:</value>
   </data>
   <data name="PostEditInvitationsEmailBodyText" xml:space="preserve">
-    <value>Texte pour le corps de l'email d'invitation</value>
+    <value>Texte pour le corps de l&apos;email d&apos;invitation</value>
   </data>
   <data name="PostEditInvitationsFailedToSend" xml:space="preserve">
-    <value>Les invitations pour le projet n'ont pas été envoyées, contactez l'équipe de soutien.</value>
+    <value>Les invitations pour le projet n&apos;ont pas été envoyées, contactez l&apos;équipe de soutien.</value>
   </data>
   <data name="PostEditInviteButtonsDialogButton" xml:space="preserve">
     <value>Inviter des utilisateurs</value>
@@ -795,7 +795,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Tâche</value>
   </data>
   <data name="PostEditUIConfiguration" xml:space="preserve">
-    <value>Configuration de l'interface utilisateur</value>
+    <value>Configuration de l&apos;interface utilisateur</value>
   </data>
   <data name="PostEditUploadProjectTask" xml:space="preserve">
     <value>Transférez une tâche pour le projet</value>
@@ -819,7 +819,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Mise à jour du projet</value>
   </data>
   <data name="RecaptchaFailedMessage" xml:space="preserve">
-    <value>Vous n'avez pas saisi le bon mot de </value>
+    <value>Vous n&apos;avez pas saisi le bon mot de </value>
   </data>
   <data name="RegisterLabel" xml:space="preserve">
     <value>Inscrivez-vous</value>
@@ -828,7 +828,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Se souvenir de moi?</value>
   </data>
   <data name="SpamFilterNote" xml:space="preserve">
-    <value>Si vous ne trouvez pas cet email dans votre boîte de réception, veuillez regarder dans votre dossier "Courrier indésirable" ou de spam.</value>
+    <value>Si vous ne trouvez pas cet email dans votre boîte de réception, veuillez regarder dans votre dossier &quot;Courrier indésirable&quot; ou de spam.</value>
   </data>
   <data name="SurveyLabel" xml:space="preserve">
     <value>Questionnaire</value>
@@ -852,34 +852,34 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Mettre à jour le projet</value>
   </data>
   <data name="UploadTask_DifferentNumberOfItemsMessage" xml:space="preserve">
-    <value>Le nombre d'éléments dans les tableaux src_sentences et tgt_sentences de votre document ne sont pas identiques.</value>
+    <value>Le nombre d&apos;éléments dans les tableaux src_sentences et tgt_sentences de votre document ne sont pas identiques.</value>
   </data>
   <data name="UploadTask_DuplicatedTextIdMessage" xml:space="preserve">
-    <value>L'ID du texte de votre document est déjà utilisé dans ce projet. Un projet ne peut pas avoir deux documents avec la même ID.</value>
+    <value>L&apos;ID du texte de votre document est déjà utilisé dans ce projet. Un projet ne peut pas avoir deux documents avec la même ID.</value>
   </data>
   <data name="UploadTask_InvalidJsonMessage" xml:space="preserve">
     <value>Format JSON non valide</value>
   </data>
   <data name="UserOrPasswordProvidedIncorrect" xml:space="preserve">
-    <value>Le nom d'utilisateur ou le mot de passe fourni est incorrect.</value>
+    <value>Le nom d&apos;utilisateur ou le mot de passe fourni est incorrect.</value>
   </data>
   <data name="AllowCustomUIValue" xml:space="preserve">
-    <value>L'utilisateur peut choisir de cacher/d'afficher la source</value>
+    <value>L&apos;utilisateur peut choisir de cacher/d&apos;afficher la source</value>
   </data>
   <data name="AppraiseLabel" xml:space="preserve">
     <value>Appraise</value>
   </data>
   <data name="CustomInterfaceConfiguration" xml:space="preserve">
-    <value>Permettre à l'utilisateur d'afficher la source</value>
+    <value>Permettre à l&apos;utilisateur d&apos;afficher la source</value>
   </data>
   <data name="DemoPage_ReplaceAllCheckBoxLabel" xml:space="preserve">
-    <value>Afficher le bouton "Remplacer Tous":</value>
+    <value>Afficher le bouton &quot;Remplacer Tous&quot;:</value>
   </data>
   <data name="DemoPage_RuleSetDDLabel" xml:space="preserve">
     <value>Jeu de règles:</value>
   </data>
   <data name="Demo_ExplanationText_Par3" xml:space="preserve">
-    <value>Dans cette démo, vous avez la possibilité de changer les règles utilisées pour vérifier votre texte en choisissant l'une des options de la liste "Jeu de règles". Si vous avez un doute sur les noms des jeux de règles, utilisez la sélection par défaut. Vous avez aussi la possibilité d'afficher un bouton "Remplacer tous", qui vous permettra d'appliquer toutes les suggestions du vérificateur de manière automatique. Veuillez noter que ce bouton ne sera affiché que lorsque des suggestions seront fournies par le vérificateur. Selon la langue de votre texte, vous aurez éventuellement la possibilité d'utiliser des jeux de règles pré-définis en série.</value>
+    <value>Dans cette démo, vous avez la possibilité de changer les règles utilisées pour vérifier votre texte en choisissant l&apos;une des options de la liste &quot;Jeu de règles&quot;. Si vous avez un doute sur les noms des jeux de règles, utilisez la sélection par défaut. Vous avez aussi la possibilité d&apos;afficher un bouton &quot;Remplacer tous&quot;, qui vous permettra d&apos;appliquer toutes les suggestions du vérificateur de manière automatique. Veuillez noter que ce bouton ne sera affiché que lorsque des suggestions seront fournies par le vérificateur. Selon la langue de votre texte, vous aurez éventuellement la possibilité d&apos;utiliser des jeux de règles pré-définis en série.</value>
   </data>
   <data name="EvaluationProjectDetailLabelAddContent" xml:space="preserve">
     <value>Ajouter du contenu</value>
@@ -897,7 +897,7 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Message</value>
   </data>
   <data name="FeedbackMessageNotSent" xml:space="preserve">
-    <value>Un problème est survenu lors de l'envoi de votre message, veuillez contacter l'administrateur du système.</value>
+    <value>Un problème est survenu lors de l&apos;envoi de votre message, veuillez contacter l&apos;administrateur du système.</value>
   </data>
   <data name="FeedbackMessageSent" xml:space="preserve">
     <value>Votre message a été envoyé avec succès, merci!</value>
@@ -921,20 +921,20 @@ Le plug-in a été conçu de telle sorte qu'il puisse être intégré aisément 
     <value>Mon jeton de projet</value>
   </data>
   <data name="NotAllowCustomUIValue" xml:space="preserve">
-    <value>L'utilisateur ne peut pas choisir de cacher/d'afficher la source</value>
+    <value>L&apos;utilisateur ne peut pas choisir de cacher/d&apos;afficher la source</value>
   </data>
   <data name="ProjectAdminToken" xml:space="preserve">
     <value>Mon jeton administrateur de projet :</value>
   </data>
   <data name="ProjectAdminTokenMessage" xml:space="preserve">
-    <value>Pour gérer votre projet à l'aide de l'API ACCEPT, le jeton de projet suivant doit être fourni. Ce jeton de projet est privé et vous ne devriez pas le partager.</value>
+    <value>Pour gérer votre projet à l&apos;aide de l&apos;API ACCEPT, le jeton de projet suivant doit être fourni. Ce jeton de projet est privé et vous ne devriez pas le partager.</value>
   </data>
   <data name="SingleRevision" xml:space="preserve">
     <value>Projet collaboratif</value>
   </data>
   <data name="UserPrivateKeyBrief" xml:space="preserve">
-    <value>Afin de récupérer vos données d'utilisation de pré-édition, la clé ci-dessous doit être fournie. N'oubliez pas que cette clé utilisateur est privée et que vous ne devez pas la partager avec qui que ce soit.⏎
-Le partage de cette clé utilisateur privée avec d'autres entités pourrait compromettre des données sensibles.</value>
+    <value>Afin de récupérer vos données d&apos;utilisation de pré-édition, la clé ci-dessous doit être fournie. N&apos;oubliez pas que cette clé utilisateur est privée et que vous ne devez pas la partager avec qui que ce soit.⏎
+Le partage de cette clé utilisateur privée avec d&apos;autres entités pourrait compromettre des données sensibles.</value>
   </data>
   <data name="UserPrivateKeyLabel" xml:space="preserve">
     <value>Clé privée</value>
@@ -976,7 +976,7 @@ Le partage de cette clé utilisateur privée avec d'autres entités pourrait com
     <value>Conditions et données personnelles</value>
   </data>
   <data name="TermsAndConditionsMessage" xml:space="preserve">
-    <value>En cliquant sur le bouton « Inscrivez-vous » et en utilisant le portail ACCEPT, vous entrez dans un accord juridique et vous acceptez toutes ces &lt;a {0} target="_blank"&gt; conditions&lt;/a&gt;. Vous vous engagez également à acceptez notre &lt;a {1} target="_blank"&gt; Politique de confidentialité&lt;/a&gt;, qui détaille la manière dont les données dont collectées, utilisées et stockées.</value>
+    <value>En cliquant sur le bouton « Inscrivez-vous » et en utilisant le portail ACCEPT, vous entrez dans un accord juridique et vous acceptez toutes ces &lt;a {0} target=&quot;_blank&quot;&gt; conditions&lt;/a&gt;. Vous vous engagez également à acceptez notre &lt;a {1} target=&quot;_blank&quot;&gt; Politique de confidentialité&lt;/a&gt;, qui détaille la manière dont les données dont collectées, utilisées et stockées.</value>
   </data>
   <data name="TermsLabel" xml:space="preserve">
     <value>Conditions</value>
@@ -1012,16 +1012,16 @@ Le partage de cette clé utilisateur privée avec d'autres entités pourrait com
     <value>Erreur.</value>
   </data>
   <data name="ErrorPageMessage" xml:space="preserve">
-    <value>Une erreur s'est produite lors du traitement de votre demande.</value>
+    <value>Une erreur s&apos;est produite lors du traitement de votre demande.</value>
   </data>
   <data name="HelpMessagePostEditDisplayTranslationOptions" xml:space="preserve">
-    <value>Indiquez si vos utilisateurs peuvent afficher d'éventuelles alternatives de traduction que vous avez inclues dans les tâches de votre projet.</value>
+    <value>Indiquez si vos utilisateurs peuvent afficher d&apos;éventuelles alternatives de traduction que vous avez inclues dans les tâches de votre projet.</value>
   </data>
   <data name="HelpMessagePostEditExternalProject" xml:space="preserve">
-    <value>Indiquez si vos tâches de post-édition peuvent être consultées à l'extérieur du Portail.</value>
+    <value>Indiquez si vos tâches de post-édition peuvent être consultées à l&apos;extérieur du Portail.</value>
   </data>
   <data name="HelpMessagePostEditInteractiveCheck" xml:space="preserve">
-    <value>Indiquez si vos utilisateurs peuvent vérifier l'orthographe et la grammaire du texte cible.</value>
+    <value>Indiquez si vos utilisateurs peuvent vérifier l&apos;orthographe et la grammaire du texte cible.</value>
   </data>
   <data name="HelpMessagePostEditInteractiveCheckMetadata" xml:space="preserve">
     <value>Le cas échéant, indiquez le nom du jeu de règles à utiliser pour la vérification interactive du texte cible.</value>
@@ -1036,19 +1036,19 @@ Le partage de cette clé utilisateur privée avec d'autres entités pourrait com
     <value>Indiquez le nom de votre organisation.</value>
   </data>
   <data name="HelpMessagePostEditParaphrasingMetadata" xml:space="preserve">
-    <value>Le cas échéant, indiquez l'ID du système de paraphrases à utiliser.</value>
+    <value>Le cas échéant, indiquez l&apos;ID du système de paraphrases à utiliser.</value>
   </data>
   <data name="HelpMessagePostEditParaphrasingMode" xml:space="preserve">
     <value>Indiquez si les utilisateurs peuvent déclencher des alternatives de traduction fournies par un service de paraphrases.</value>
   </data>
   <data name="HelpMessagePostEditProjectCommentsDDLOptionsList" xml:space="preserve">
-    <value>Indiquez si une liste déroulante de commentaires doit être associée à chaque segment. Dans l'affirmative, ajoutez le nombre d'options que vous voulez, la première option étant généralement une question qui est présentée à l'utilisateur par défaut.</value>
+    <value>Indiquez si une liste déroulante de commentaires doit être associée à chaque segment. Dans l&apos;affirmative, ajoutez le nombre d&apos;options que vous voulez, la première option étant généralement une question qui est présentée à l&apos;utilisateur par défaut.</value>
   </data>
   <data name="HelpMessagePostEditProjectDomain" xml:space="preserve">
     <value>N/A</value>
   </data>
   <data name="HelpMessagePostEditProjectFinalQuestion" xml:space="preserve">
-    <value>Si nécessaire, indiquez une question à poser éventuellement à l'utilisateur une fois chaque tâche  terminée.</value>
+    <value>Si nécessaire, indiquez une question à poser éventuellement à l&apos;utilisateur une fois chaque tâche  terminée.</value>
   </data>
   <data name="HelpMessagePostEditProjectName" xml:space="preserve">
     <value>Indiquez un nom de projet.</value>
@@ -1057,7 +1057,7 @@ Le partage de cette clé utilisateur privée avec d'autres entités pourrait com
     <value>Si vous souhaitez que les utilisateurs remplissent un questionnaire après le projet, indiquez une URL valable.</value>
   </data>
   <data name="HelpMessagePostEditSingleRevisionMaxLockingPeriod" xml:space="preserve">
-    <value>Si votre projet est collaboratif,  indiquez combien de temps un utilisateur peut travailler sur une tâche jusqu'à ce qu'un autre utilisateur puisse récupérer cette tâche. Le format est HH:MM:SS, donc 00:02:00 correspond à 2 minutes.</value>
+    <value>Si votre projet est collaboratif,  indiquez combien de temps un utilisateur peut travailler sur une tâche jusqu&apos;à ce qu&apos;un autre utilisateur puisse récupérer cette tâche. Le format est HH:MM:SS, donc 00:02:00 correspond à 2 minutes.</value>
   </data>
   <data name="HelpMessagePostEditSingleRevisionProject" xml:space="preserve">
     <value>Si vous souhaitez que les utilisateurs travaillent de manière collaborative sur les tâches, activez « Projet collaboratif ». Par défaut, les utilisateurs travaillent sur les tâches de manière indépendante.</value>
@@ -1069,13 +1069,144 @@ Le partage de cette clé utilisateur privée avec d'autres entités pourrait com
     <value>Indiquez la langue du texte cible.</value>
   </data>
   <data name="HelpMessagePostEditUserCanCannotDisplaySource" xml:space="preserve">
-    <value>Indiquez si l'utilisateur peut afficher ou cacher le texte source (c'est-à-dire remplacer le paramètre monolingue/bilingue).</value>
+    <value>Indiquez si l&apos;utilisateur peut afficher ou cacher le texte source (c&apos;est-à-dire remplacer le paramètre monolingue/bilingue).</value>
   </data>
   <data name="LabelSequentialCheckFrenchDemo" xml:space="preserve">
     <value>Jeux de règles en série</value>
   </data>
-  <data name="DownloadMainMessage" xml:space="preserve">
-    <value>Familiarisez-vous avec &lt;a {0}&gt;ces informations&lt;/a&gt;  pour débuter. Le plug-in ACCEPT est écrit en JavaScript et utilise les bibliothèques jQuery et jQuery UI, qui sont toutes deux inclues dans le paquet à télécharger. Vous pouvez cependant récupérer les toutes dernières versions de jQuery  
-&lt;a target="_blank" {1}&gt;ici&lt;/a&gt; et jQuery UI &lt;a target="_blank" {2}&gt;là&lt;/a&gt;. Le paquet à télécharger contient toutes les informations requises pour installer le plug-in avec plusieurs exemples. Souvenez-vous qu'afin de pouvoir utiliser le plug-in ACCEPT vous devez utiliser une clé d'API que vous pouvez télécharger&lt;a {3}&gt; ici &lt;/a&gt;.</value>
+  <data name="EvaluationProjectExternalProjectLabel" xml:space="preserve">
+    <value>Projet externe</value>
+  </data>
+  <data name="EvaluationProjectInternalLabel" xml:space="preserve">
+    <value>Projet interne</value>
+  </data>
+  <data name="EvaluationProjectLogicLabel" xml:space="preserve">
+    <value>Logique d&apos;évaluation</value>
+  </data>
+  <data name="EvaluationProjectReferencePostEditProjectLabel" xml:space="preserve">
+    <value>Projet de post-édition</value>
+  </data>
+  <data name="EvaluationProjectTypeLabel" xml:space="preserve">
+    <value>Type de projet</value>
+  </data>
+  <data name="EvaluationProjectSelectLabel" xml:space="preserve">
+    <value>Sélectionnez un projet...</value>
+  </data>
+  <data name="AvoidDuplicationProjectLevel" xml:space="preserve">
+    <value>Éviter les doublons au niveau du projet</value>
+  </data>
+  <data name="AvoidDuplicationTaskLevel" xml:space="preserve">
+    <value>Éviter les doublons au niveau de la tâche</value>
+  </data>
+  <data name="CustomEmailBodyLabel" xml:space="preserve">
+    <value>Message d&apos;invitation par email personnalisé</value>
+  </data>
+  <data name="DuplicationLogicLabel" xml:space="preserve">
+    <value>Éviter les doublons</value>
+  </data>
+  <data name="EvaluateAllRevisionsOnlyLabel" xml:space="preserve">
+    <value>Évaluer uniquement les dernières révisions (par segment)</value>
+  </data>
+  <data name="EvaluateOriginalAndAllRevisionsLabel" xml:space="preserve">
+    <value>Évaluer le document original et les dernières révisions (par segment)</value>
+  </data>
+  <data name="EvaluateOriginalLabel" xml:space="preserve">
+    <value>Évaluer uniquement le document original</value>
+  </data>
+  <data name="EvaluationMethodLabel" xml:space="preserve">
+    <value>Approche d&apos;évaluation</value>
+  </data>
+  <data name="IncludeOwnerRevisionLabel" xml:space="preserve">
+    <value>Inclure les révisions de l&apos;administrateur de projet</value>
+  </data>
+  <data name="NotSet" xml:space="preserve">
+    <value>Non défini</value>
+  </data>
+  <data name="EvaluationAvoidDuplicationsDescriptionLabel" xml:space="preserve">
+    <value>Indiquer comment vous souhaitez gérer les segments dupliqués : non défini (évaluer les segments dupliqués), au niveau des tâches (ne pas évaluer les segments dupliqués au niveau de la tâche), ou au niveau du projet (ne pas évaluer les segments dupliqués au niveau du projet).</value>
+  </data>
+  <data name="EvaluationEmailInvitationDescriptionLabel" xml:space="preserve">
+    <value>Spécifier un texte personnalisé à inclure dans votre email d&apos;invitation.</value>
+  </data>
+  <data name="EvaluationIncludeOwnerDescriptionLabel" xml:space="preserve">
+    <value>Spécifiez si vous souhaitez évaluer les révisions de l&apos;administrateur du projet de post-édition.</value>
+  </data>
+  <data name="EvaluationMethodDescriptionLabel" xml:space="preserve">
+    <value>Spécifiez la méthode d&apos;évaluation (si vous souhaitez évaluer seulement les segments originaux, seulement les segments édités, ou les deux)</value>
+  </data>
+  <data name="EvaluationProjectApiKeyDescriptionLabel" xml:space="preserve">
+    <value>Spécifiez un nom de domaine (par exemple, www.example.com)</value>
+  </data>
+  <data name="EvaluationProjectCreationDescriptionLabel" xml:space="preserve">
+    <value>Spécifiez un nom de projet.</value>
+  </data>
+  <data name="EvaluationProjectDescriptionLabel" xml:space="preserve">
+    <value>Spécifiez une description de projet.</value>
+  </data>
+  <data name="EvaluationProjectOrganizationDescriptionLabel" xml:space="preserve">
+    <value>Spécifiez une organisation pour ce projet.</value>
+  </data>
+  <data name="EvaluationTileCompletedLabel" xml:space="preserve">
+    <value>Évalué.</value>
+  </data>
+  <data name="EvaluationTileLabel" xml:space="preserve">
+    <value>Évaluez moi !</value>
+  </data>
+  <data name="EvaluatingProjectLabel" xml:space="preserve">
+    <value>Évaluation du projet</value>
+  </data>
+  <data name="EvaluationFinishedHereLabel" xml:space="preserve">
+    <value>Le processus d&apos;évaluation est fini ici...</value>
+  </data>
+  <data name="EvaluationInternalProjectDescription" xml:space="preserve">
+    <value>Spécifiez le projet de post-édition que vous voulez évaluer.</value>
+  </data>
+  <data name="GoBackLabel" xml:space="preserve">
+    <value>Retour</value>
+  </data>
+  <data name="LearnMoreLabel" xml:space="preserve">
+    <value>En Savoir +</value>
+  </data>
+  <data name="MainSlide_1" xml:space="preserve">
+    <value>&lt;p&gt;Le portail ACCEPT est une application Web open source de démonstration et d&apos;expérimentation Web qui vous permet ainsi qu&apos;à vos utilisateurs d&apos;effectuer de nombreuses activités d&apos;édition et d&apos;évaluation de contenu.&lt;/p&gt;&lt;p&gt;Ces activités sont accessibles depuis le menu du haut, mais certaines d&apos;entre elles nécessitent des compétences techniques avancées, surtout si ces activités se déroulent à l&apos;extérieur du portail à l&apos;aide de l&apos;&lt;a href=&quot;https://github.com/accept-project/accept-api/blob/master/README.md&quot; target=&quot;_blank&quot;&gt; API ACCEPT&lt;/a&gt;.&lt;/p&gt;</value>
+  </data>
+  <data name="MainSlide_2" xml:space="preserve">
+    <value>&lt;p&gt;La première catégorie d&apos;activités concerne la Pré-édition, qui vous permet ainsi qu&apos;à vos utilisateurs de vérifier du contenu textuel et de l&apos;améliorer en matière d&apos;orthographe, de grammaire et de style.&lt;/p&gt;&lt;p&gt;Depuis le menu Pré-éditer, vous pouvez utiliser les démos ou générer une clé d&apos;application afin de déployer le plug-in de pré-édition dans votre propre environnement Web.&lt;/p&gt;</value>
+  </data>
+  <data name="MainSlide_3" xml:space="preserve">
+    <value>&lt;p&gt;La deuxième catégorie d&apos;activités concerne la Post-édition, qui vous permet ainsi qu&apos;à vos utilisateurs d&apos;améliorer du contenu traduit (éventuellement de manière automatique).&lt;/p&gt;&lt;p&gt;Depuis le menu Post-éditer, vous pouvez utiliser les démos ou créer ou accéder à vos propres projets.&lt;/p&gt;</value>
+  </data>
+  <data name="MainSlide_4" xml:space="preserve">
+    <value>&lt;p&gt;La troisième catégorie d&apos;activités concerne l&apos;évaluation, qui vous permet ainsi qu&apos;à vos utilisateurs d&apos;évaluer du contenu traduit (éventuellement de manière automatique).&lt;/p&gt;&lt;p&gt;Depuis le menu Evaluer, vous pouvez utiliser les démos ou créer ou accéder à vos propres projets.&lt;/p&gt;</value>
+  </data>
+  <data name="PostEditAccessProjectsLabel" xml:space="preserve">
+    <value>Accéder aux Projets</value>
+  </data>
+  <data name="PreEditAccessKeysLabel" xml:space="preserve">
+    <value>[Technique]Accéder aux clés</value>
+  </data>
+  <data name="PreEditCreateKeyLabel" xml:space="preserve">
+    <value>[Technique]Créer une clé</value>
+  </data>
+  <data name="PreEditDownloadLabel" xml:space="preserve">
+    <value>[Technique]Télécharger</value>
+  </data>
+  <data name="UseDemoLabel" xml:space="preserve">
+    <value>Utiliser la démo</value>
+  </data>
+  <data name="UseDemosLabel" xml:space="preserve">
+    <value>Utiliser les démos</value>
+  </data>
+  <data name="SlidesTitle_1" xml:space="preserve">
+    <value>Bienvenue !</value>
+  </data>
+  <data name="SlidesTitle_2" xml:space="preserve">
+    <value>Pré-édition</value>
+  </data>
+  <data name="SlidesTitle_3" xml:space="preserve">
+    <value>Post-édition</value>
+  </data>
+  <data name="SlidesTitle_4" xml:space="preserve">
+    <value>Évaluation</value>
   </data>
 </root>
